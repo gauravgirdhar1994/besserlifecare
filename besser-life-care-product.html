@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Herbal Body Massage Cream | Besser Life Care</title>
+  <!-- Google Fonts: Playfair Display for headings, Inter for body -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .font-display { font-family: 'Playfair Display', serif; }
+    .gold-gradient {
+      background: linear-gradient(90deg, #f9d29d 0%, #ffd700 100%);
+      color: #fff;
+    }
+    .blush-bg {
+      background: linear-gradient(135deg, #fff0f6 0%, #ffe5ec 100%);
+    }
+    .blush-border {
+      border-color: #ffd6e0;
+    }
+    .blush-shadow {
+      box-shadow: 0 4px 24px 0 #ffd6e033;
+    }
+    .tab-active {
+      border-bottom: 3px solid #ffd700;
+      color: #d97706;
+      background: #fffbe6;
+    }
+  </style>
+  <script>
+    function showTab(tab) {
+      document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+      document.getElementById(tab).classList.remove('hidden');
+      document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('tab-active'));
+      document.getElementById(tab+'-btn').classList.add('tab-active');
+    }
+    window.onload = function() { showTab('description'); };
+  </script>
+</head>
+<body class="bg-gradient-to-br from-cream-100 via-pink-50 to-green-50 min-h-screen flex flex-col">
+  <!-- Header -->
+  <header class="bg-white/90 shadow-lg py-4 px-4 md:px-12 flex justify-between items-center sticky top-0 z-50 border-b blush-border">
+    <div class="flex items-center space-x-3">
+      <img src="https://img.icons8.com/ios-filled/50/ffd700/leaf.png" alt="Logo" class="w-10 h-10">
+      <span class="text-green-800 font-display text-2xl tracking-tight">Besser Life Care</span>
+    </div>
+    <nav class="hidden md:flex space-x-8">
+      <a href="besser-life-care-landing.html" class="text-gray-700 hover:text-pink-600 font-medium transition">Home</a>
+      <a href="#" class="text-gray-700 hover:text-pink-600 font-medium transition">Shop</a>
+      <a href="#" class="text-gray-700 hover:text-pink-600 font-medium transition">About</a>
+      <a href="#" class="text-gray-700 hover:text-pink-600 font-medium transition">Contact</a>
+    </nav>
+    <a href="#" class="hidden md:inline-block gold-gradient px-5 py-2 rounded-lg shadow font-semibold transition hover:opacity-90">Cart</a>
+    <button class="md:hidden flex items-center" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+      <svg class="w-8 h-8 text-pink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+    </button>
+  </header>
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="md:hidden hidden bg-white/95 shadow-lg px-4 py-4 border-b blush-border">
+    <a href="besser-life-care-landing.html" class="block py-2 text-gray-700 hover:text-pink-600">Home</a>
+    <a href="#" class="block py-2 text-gray-700 hover:text-pink-600">Shop</a>
+    <a href="#" class="block py-2 text-gray-700 hover:text-pink-600">About</a>
+    <a href="#" class="block py-2 text-gray-700 hover:text-pink-600">Contact</a>
+    <a href="#" class="block py-2 mt-2 gold-gradient rounded-lg text-center">Cart</a>
+  </div>
+
+  <!-- Product Section -->
+  <main class="flex-1 py-12 px-4 md:px-12 blush-bg">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+      <!-- Product Image -->
+      <div class="bg-white rounded-3xl blush-shadow p-8 flex flex-col items-center border blush-border">
+        <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=500&q=80" alt="Herbal Body Massage Cream" class="w-80 h-80 object-cover rounded-2xl border-4 border-pink-100 transition-transform duration-300 hover:scale-105 cursor-zoom-in">
+        <div class="flex space-x-2 mt-6">
+          <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=100&q=80" class="w-16 h-16 object-cover rounded-lg border-2 border-pink-200 cursor-pointer" alt="Thumb1">
+          <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=100&q=80" class="w-16 h-16 object-cover rounded-lg border-2 border-pink-200 cursor-pointer" alt="Thumb2">
+        </div>
+      </div>
+      <!-- Product Details -->
+      <div>
+        <h1 class="text-4xl font-display font-bold text-green-900 mb-2">Herbal Body Massage Cream</h1>
+        <div class="flex items-center mb-4">
+          <span class="text-yellow-400 text-2xl">★★★★★</span>
+          <span class="ml-3 text-gray-500 text-lg">(1,200 reviews)</span>
+        </div>
+        <div class="text-pink-600 font-bold text-2xl mb-4">$24.99</div>
+        <p class="text-lg text-gray-700 mb-6">Relax and rejuvenate with our nourishing herbal body massage cream, crafted with natural ingredients for deep hydration and relief. Perfect for daily use and all skin types.</p>
+        <div class="flex space-x-4 mb-8">
+          <button class="gold-gradient px-8 py-3 rounded-lg shadow font-semibold text-lg transition hover:opacity-90">Add to Cart</button>
+          <button class="bg-pink-100 text-pink-700 px-8 py-3 rounded-lg shadow font-semibold text-lg border blush-border hover:bg-pink-200 transition">Buy Now</button>
+        </div>
+        <div class="flex items-center space-x-4 mb-8">
+          <span class="text-gray-500">Share:</span>
+          <a href="#" class="text-pink-400 hover:text-pink-600"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.56v14.91a4.56 4.56 0 01-4.56 4.56H4.56A4.56 4.56 0 010 19.47V4.56A4.56 4.56 0 014.56 0h14.91A4.56 4.56 0 0124 4.56zM8.09 19.47V9.29H5.08v10.18h3.01zm-1.5-11.6a1.74 1.74 0 110-3.48 1.74 1.74 0 010 3.48zm14.41 11.6v-5.6c0-3.36-1.79-4.93-4.18-4.93-1.93 0-2.8 1.07-3.28 1.82v-1.56h-3.01c.04 1.03 0 10.18 0 10.18h3.01v-5.68c0-.3.02-.6.11-.82.24-.6.79-1.22 1.71-1.22 1.21 0 1.7.92 1.7 2.27v5.45h3.01z"/></svg></a>
+          <a href="#" class="text-pink-400 hover:text-pink-600"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M23.954 4.569c-.885.389-1.83.654-2.825.775 1.014-.611 1.794-1.574 2.163-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-2.72 0-4.924 2.204-4.924 4.924 0 .39.045.765.127 1.124C7.691 8.095 4.066 6.13 1.64 3.161c-.427.722-.666 1.561-.666 2.475 0 1.708.87 3.216 2.188 4.099-.807-.026-1.566-.247-2.228-.616v.062c0 2.385 1.693 4.374 3.946 4.827-.413.111-.849.171-1.296.171-.314 0-.615-.03-.916-.086.631 1.953 2.445 3.377 4.604 3.417-1.68 1.318-3.809 2.105-6.102 2.105-.396 0-.788-.023-1.175-.067 2.179 1.397 4.768 2.213 7.557 2.213 9.054 0 14.002-7.496 14.002-13.986 0-.21 0-.423-.016-.634.962-.689 1.797-1.56 2.457-2.548l-.047-.02z"/></svg></a>
+          <a href="#" class="text-pink-400 hover:text-pink-600"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.334 3.608 1.308.974.974 1.246 2.242 1.308 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.334 2.633-1.308 3.608-.974.974-2.242 1.246-3.608 1.308-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.334-3.608-1.308-.974-.974-1.246-2.242-1.308-3.608C2.175 15.647 2.163 15.267 2.163 12s.012-3.584.07-4.85c.062-1.366.334-2.633 1.308-3.608.974-.974 2.242-1.246 3.608-1.308C8.416 2.175 8.796 2.163 12 2.163zm0-2.163C8.741 0 8.332.013 7.052.072 5.775.131 4.602.425 3.635 1.392 2.668 2.359 2.374 3.532 2.315 4.809 2.256 6.089 2.243 6.498 2.243 12c0 5.502.013 5.911.072 7.191.059 1.277.353 2.45 1.32 3.417.967.967 2.14 1.261 3.417 1.32 1.28.059 1.689.072 7.191.072s5.911-.013 7.191-.072c1.277-.059 2.45-.353 3.417-1.32.967-.967 1.261-2.14 1.32-3.417.059-1.28.072-1.689.072-7.191s-.013-5.911-.072-7.191c-.059-1.277-.353-2.45-1.32-3.417C21.05.425 19.877.131 18.6.072 17.32.013 16.911 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zm0 10.162a3.999 3.999 0 110-7.998 3.999 3.999 0 010 7.998zm6.406-11.845a1.44 1.44 0 11-2.88 0 1.44 1.44 0 012.88 0z"/></svg></a>
+        </div>
+        <!-- Tabs -->
+        <div class="mt-8">
+          <div class="flex space-x-4 border-b blush-border mb-4">
+            <button id="description-btn" class="tab-btn px-4 py-2 font-semibold text-lg focus:outline-none" onclick="showTab('description')">Description</button>
+            <button id="ingredients-btn" class="tab-btn px-4 py-2 font-semibold text-lg focus:outline-none" onclick="showTab('ingredients')">Ingredients</button>
+            <button id="benefits-btn" class="tab-btn px-4 py-2 font-semibold text-lg focus:outline-none" onclick="showTab('benefits')">Benefits</button>
+            <button id="howtouse-btn" class="tab-btn px-4 py-2 font-semibold text-lg focus:outline-none" onclick="showTab('howtouse')">How to Use</button>
+            <button id="reviews-btn" class="tab-btn px-4 py-2 font-semibold text-lg focus:outline-none" onclick="showTab('reviews')">Reviews</button>
+          </div>
+          <div id="description" class="tab-content">
+            <p class="text-gray-700 text-lg">Our Herbal Body Massage Cream is a luxurious blend of natural botanicals designed to deeply hydrate, soothe, and nourish your skin. The lightweight, non-greasy formula absorbs quickly, leaving your skin soft, supple, and delicately scented. Ideal for daily use and suitable for all skin types.</p>
+          </div>
+          <div id="ingredients" class="tab-content hidden">
+            <ul class="list-disc pl-6 text-gray-700 text-lg">
+              <li><b>Aloe Vera:</b> Soothes and hydrates</li>
+              <li><b>Lavender Oil:</b> Calms and relaxes</li>
+              <li><b>Shea Butter:</b> Deeply nourishes and softens</li>
+              <li><b>Vitamin E:</b> Antioxidant protection</li>
+              <li><b>Sunflower Oil:</b> Lightweight moisture</li>
+            </ul>
+          </div>
+          <div id="benefits" class="tab-content hidden">
+            <ul class="list-disc pl-6 text-gray-700 text-lg">
+              <li>Deep hydration for dry and sensitive skin</li>
+              <li>Relieves muscle tension and fatigue</li>
+              <li>Promotes relaxation and stress relief</li>
+              <li>Improves skin elasticity and smoothness</li>
+              <li>Natural, gentle, and free from harsh chemicals</li>
+            </ul>
+          </div>
+          <div id="howtouse" class="tab-content hidden">
+            <ol class="list-decimal pl-6 text-gray-700 text-lg">
+              <li>Apply a generous amount to clean, dry skin.</li>
+              <li>Massage gently in circular motions until fully absorbed.</li>
+              <li>Use daily for best results, especially after bathing.</li>
+              <li>For external use only.</li>
+            </ol>
+          </div>
+          <div id="reviews" class="tab-content hidden">
+            <div class="space-y-6">
+              <div class="flex items-start space-x-4">
+                <img src="https://randomuser.me/api/portraits/women/44.jpg" class="w-12 h-12 rounded-full border-2 border-pink-300" alt="Customer">
+                <div>
+                  <div class="flex items-center"><span class="text-yellow-400">★★★★★</span><span class="ml-2 text-gray-600 text-sm">Priya S.</span></div>
+                  <p class="text-gray-700">“I love this cream! My skin feels so soft and the scent is amazing.”</p>
+                </div>
+              </div>
+              <div class="flex items-start space-x-4">
+                <img src="https://randomuser.me/api/portraits/women/65.jpg" class="w-12 h-12 rounded-full border-2 border-pink-300" alt="Customer">
+                <div>
+                  <div class="flex items-center"><span class="text-yellow-400">★★★★★</span><span class="ml-2 text-gray-600 text-sm">Emily R.</span></div>
+                  <p class="text-gray-700">“Perfect for my evening routine. It really helps me relax.”</p>
+                </div>
+              </div>
+              <div class="flex items-start space-x-4">
+                <img src="https://randomuser.me/api/portraits/women/32.jpg" class="w-12 h-12 rounded-full border-2 border-pink-300" alt="Customer">
+                <div>
+                  <div class="flex items-center"><span class="text-yellow-400">★★★★☆</span><span class="ml-2 text-gray-600 text-sm">Fatima K.</span></div>
+                  <p class="text-gray-700">“Gentle and effective. I use it every day!”</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Related Products -->
+    <div class="max-w-6xl mx-auto mt-20">
+      <h2 class="text-2xl font-display font-bold text-green-900 mb-8">You may also like</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-white rounded-2xl blush-shadow p-6 flex flex-col items-center border blush-border">
+          <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=300&q=80" alt="Herbal Face Wash" class="w-24 h-24 object-cover rounded-full mb-4 border-2 border-pink-100">
+          <h3 class="text-lg font-display font-bold text-green-800 mb-2">Herbal Face Wash</h3>
+          <div class="flex items-center mb-2"><span class="text-yellow-400">★★★★☆</span><span class="ml-2 text-gray-500 text-sm">(800 reviews)</span></div>
+          <div class="text-pink-600 font-bold text-md mb-2">$18.99</div>
+          <a href="#" class="gold-gradient px-4 py-2 rounded-lg font-medium hover:opacity-90 transition text-sm">View Product</a>
+        </div>
+        <div class="bg-white rounded-2xl blush-shadow p-6 flex flex-col items-center border blush-border">
+          <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=300&q=80" alt="Herbal Hair Oil" class="w-24 h-24 object-cover rounded-full mb-4 border-2 border-pink-100">
+          <h3 class="text-lg font-display font-bold text-green-800 mb-2">Herbal Hair Oil</h3>
+          <div class="flex items-center mb-2"><span class="text-yellow-400">★★★★★</span><span class="ml-2 text-gray-500 text-sm">(950 reviews)</span></div>
+          <div class="text-pink-600 font-bold text-md mb-2">$21.99</div>
+          <a href="#" class="gold-gradient px-4 py-2 rounded-lg font-medium hover:opacity-90 transition text-sm">View Product</a>
+        </div>
+        <div class="bg-white rounded-2xl blush-shadow p-6 flex flex-col items-center border blush-border">
+          <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=300&q=80" alt="Herbal Night Cream" class="w-24 h-24 object-cover rounded-full mb-4 border-2 border-pink-100">
+          <h3 class="text-lg font-display font-bold text-green-800 mb-2">Herbal Night Cream</h3>
+          <div class="flex items-center mb-2"><span class="text-yellow-400">★★★★★</span><span class="ml-2 text-gray-500 text-sm">(1,100 reviews)</span></div>
+          <div class="text-pink-600 font-bold text-md mb-2">$26.99</div>
+          <a href="#" class="gold-gradient px-4 py-2 rounded-lg font-medium hover:opacity-90 transition text-sm">View Product</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-green-900 text-white text-center py-8 mt-16">
+    <div class="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+      <div class="flex items-center space-x-2">
+        <img src="https://img.icons8.com/ios-filled/24/ffd700/leaf.png" class="w-6 h-6" alt="Logo">
+        <span class="font-bold text-lg font-display">Besser Life Care</span>
+      </div>
+      <nav class="flex space-x-6 text-sm">
+        <a href="besser-life-care-landing.html" class="hover:underline">Home</a>
+        <a href="#" class="hover:underline">Shop</a>
+        <a href="#" class="hover:underline">About</a>
+        <a href="#" class="hover:underline">Contact</a>
+      </nav>
+      <form class="flex items-center space-x-2">
+        <input type="email" placeholder="Subscribe to newsletter" class="px-3 py-2 rounded-l-lg border-none focus:ring-2 focus:ring-pink-300 outline-none text-green-800" required>
+        <button type="submit" class="gold-gradient px-4 py-2 rounded-r-lg font-semibold hover:opacity-90 transition">Subscribe</button>
+      </form>
+    </div>
+    <div class="mt-4 text-sm text-pink-200">&copy; 2024 Besser Life Care. All rights reserved.</div>
+  </footer>
+</body>
+</html> 
