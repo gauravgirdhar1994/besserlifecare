@@ -12,8 +12,8 @@ const Footer = () => {
     <footer className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 -z-10">
-        <div className="absolute top-20 left-10 w-24 h-24 md:w-32 md:h-32 bg-pink-500/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-10 w-32 h-32 md:w-40 md:h-40 bg-coral-500/10 rounded-full blur-3xl"></div>
+        <div className="absolute top-20 left-10 w-24 h-24 md:w-32 md:h-32 bg-blue-500/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-10 w-32 h-32 md:w-40 md:h-40 bg-sky-500/10 rounded-full blur-3xl"></div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-12 md:py-16">
@@ -22,7 +22,7 @@ const Footer = () => {
           {/* Company Info */}
           <div className="lg:col-span-1">
             <div className="flex items-center space-x-2 md:space-x-3 mb-4 md:mb-6">
-              <div className="w-8 h-8 md:w-10 md:h-10 bg-gradient-to-br from-pink-400 to-coral-400 rounded-full flex items-center justify-center shadow-lg">
+              <div className="w-8 h-8 md:w-10 md:h-10 bg-gradient-to-br from-blue-400 to-sky-400 rounded-full flex items-center justify-center shadow-lg">
                 <span className="text-white text-lg md:text-xl font-bold">🌿</span>
               </div>
               <span className="text-lg md:text-xl font-display font-bold text-white">
@@ -41,7 +41,7 @@ const Footer = () => {
                 <a
                   key={index}
                   href={social.href}
-                  className="w-10 h-10 md:w-12 md:h-12 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center text-lg md:text-xl hover:bg-pink-500/20 transition-all duration-300 hover:scale-110 touch-manipulation"
+                  className="w-10 h-10 md:w-12 md:h-12 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center text-lg md:text-xl hover:bg-blue-500/20 transition-all duration-300 hover:scale-110 touch-manipulation"
                   aria-label={social.label}
                 >
                   {social.icon}
@@ -67,7 +67,7 @@ const Footer = () => {
                    <Link
                      to={link.href}
                      onClick={scrollToTop}
-                     className="text-sm md:text-base text-slate-300 hover:text-pink-400 transition-colors duration-200 touch-manipulation"
+                     className="text-sm md:text-base text-slate-300 hover:text-blue-400 transition-colors duration-200 touch-manipulation"
                    >
                      {link.name}
                    </Link>
@@ -92,7 +92,7 @@ const Footer = () => {
                 <li key={index}>
                   <a
                     href="#"
-                    className="text-sm md:text-base text-slate-300 hover:text-pink-400 transition-colors duration-200 touch-manipulation"
+                    className="text-sm md:text-base text-slate-300 hover:text-blue-400 transition-colors duration-200 touch-manipulation"
                   >
                     {product}
                   </a>
@@ -114,12 +114,12 @@ const Footer = () => {
                 <input
                   type="email"
                   placeholder="Enter your email"
-                  className="w-full px-3 md:px-4 py-2 md:py-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-pink-400 focus:border-transparent transition-all duration-300 text-sm md:text-base"
+                  className="w-full px-3 md:px-4 py-2 md:py-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all duration-300 text-sm md:text-base"
                 />
               </div>
               <button
                 type="submit"
-                className="w-full bg-gradient-to-r from-pink-500 to-coral-500 text-white font-semibold py-2 md:py-3 px-4 md:px-6 rounded-lg hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300 touch-manipulation text-sm md:text-base"
+                className="w-full bg-gradient-to-r from-blue-500 to-sky-500 text-white font-semibold py-2 md:py-3 px-4 md:px-6 rounded-lg hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300 touch-manipulation text-sm md:text-base"
               >
                 Subscribe
               </button>
@@ -142,28 +142,28 @@ const Footer = () => {
                <Link
                  to="/privacy-policy"
                  onClick={scrollToTop}
-                 className="text-slate-400 hover:text-pink-400 transition-colors duration-200 touch-manipulation"
+                 className="text-slate-400 hover:text-blue-400 transition-colors duration-200 touch-manipulation"
                >
                  Privacy Policy
                </Link>
                <Link
                  to="/terms-conditions"
                  onClick={scrollToTop}
-                 className="text-slate-400 hover:text-pink-400 transition-colors duration-200 touch-manipulation"
+                 className="text-slate-400 hover:text-blue-400 transition-colors duration-200 touch-manipulation"
                >
                  Terms of Service
                </Link>
                <Link
                  to="/shipping-policy"
                  onClick={scrollToTop}
-                 className="text-slate-400 hover:text-pink-400 transition-colors duration-200 touch-manipulation"
+                 className="text-slate-400 hover:text-blue-400 transition-colors duration-200 touch-manipulation"
                >
                  Shipping Policy
                </Link>
                <Link
                  to="/return-refund-policy"
                  onClick={scrollToTop}
-                 className="text-slate-400 hover:text-pink-400 transition-colors duration-200 touch-manipulation"
+                 className="text-slate-400 hover:text-blue-400 transition-colors duration-200 touch-manipulation"
                >
                  Return Policy
                </Link>

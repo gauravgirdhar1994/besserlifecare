@@ -78,18 +78,18 @@ const ContactSection = () => {
   ];
 
   return (
-    <section id="contact" className="py-12 md:py-20 px-4 md:px-12 bg-gradient-to-br from-white via-pink-50 to-cream-50 relative overflow-hidden">
+    <section id="contact" className="py-12 md:py-20 px-4 md:px-12 bg-gradient-to-br from-white via-blue-50 to-slate-50 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 -z-10">
-        <div className="absolute top-20 left-10 w-24 md:w-32 h-24 md:h-32 bg-pink-200/20 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-10 w-32 md:w-40 h-32 md:h-40 bg-coral-200/20 rounded-full blur-3xl"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 md:w-96 h-64 md:h-96 bg-sage-200/10 rounded-full blur-3xl"></div>
+        <div className="absolute top-20 left-10 w-24 md:w-32 h-24 md:h-32 bg-blue-200/20 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-10 w-32 md:w-40 h-32 md:h-40 bg-sky-200/20 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 md:w-96 h-64 md:h-96 bg-cyan-200/10 rounded-full blur-3xl"></div>
       </div>
 
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-3xl md:text-5xl font-display font-bold text-pink-900 mb-4 md:mb-6">
+          <h2 className="text-3xl md:text-5xl font-display font-bold text-blue-900 mb-4 md:mb-6">
             Get in Touch
           </h2>
           <p className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed px-4">
@@ -103,29 +103,29 @@ const ContactSection = () => {
           {contactMethods.map((method, index) => (
             <div
               key={index}
-              className="bg-white/80 backdrop-blur-sm rounded-2xl p-4 md:p-6 shadow-lg border border-pink-100 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group cursor-pointer touch-manipulation"
+                             className="bg-white/80 backdrop-blur-sm rounded-2xl p-4 md:p-6 shadow-lg border border-blue-100 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group cursor-pointer touch-manipulation"
               onClick={() => method.action !== '#' && window.open(method.action)}
             >
               <div className="text-3xl md:text-4xl mb-3 md:mb-4 group-hover:scale-110 transition-transform duration-300">
                 {method.icon}
               </div>
-              <h3 className="text-base md:text-lg font-display font-semibold text-pink-800 mb-2">
-                {method.title}
-              </h3>
+                               <h3 className="text-base md:text-lg font-display font-semibold text-blue-800 mb-2">
+                   {method.title}
+                 </h3>
               <p className="text-xs md:text-sm text-slate-600 mb-2 md:mb-3">
                 {method.description}
               </p>
-              <div className="text-sm md:text-base text-pink-600 font-medium break-words">
-                {method.value}
-              </div>
+                             <div className="text-sm md:text-base text-blue-600 font-medium break-words">
+                 {method.value}
+               </div>
             </div>
           ))}
         </div>
 
         {/* Main Content Tabs */}
-        <div className="bg-white/80 backdrop-blur-sm rounded-2xl md:rounded-3xl shadow-2xl border border-pink-100 overflow-hidden">
-          {/* Tab Navigation */}
-          <div className="border-b border-pink-100">
+                 <div className="bg-white/80 backdrop-blur-sm rounded-2xl md:rounded-3xl shadow-2xl border border-blue-100 overflow-hidden">
+           {/* Tab Navigation */}
+           <div className="border-b border-blue-100">
             <nav className="flex space-x-4 md:space-x-8 px-4 md:px-8 overflow-x-auto">
               {[
                 { id: 'contact', label: 'Send Message', icon: '✉️' },
@@ -135,11 +135,11 @@ const ContactSection = () => {
                 <button
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id)}
-                  className={`py-3 md:py-4 px-2 border-b-2 font-medium text-sm transition-colors flex items-center space-x-2 whitespace-nowrap ${
-                    activeTab === tab.id
-                      ? 'border-pink-500 text-pink-600'
-                      : 'border-transparent text-slate-500 hover:text-slate-700'
-                  }`}
+                                     className={`py-3 md:py-4 px-2 border-b-2 font-medium text-sm transition-colors flex items-center space-x-2 whitespace-nowrap ${
+                     activeTab === tab.id
+                       ? 'border-blue-500 text-blue-600'
+                       : 'border-transparent text-slate-500 hover:text-slate-700'
+                   }`}
                 >
                   <span className="text-base md:text-lg">{tab.icon}</span>
                   <span>{tab.label}</span>
@@ -154,9 +154,9 @@ const ContactSection = () => {
             {activeTab === 'contact' && (
               <div className="max-w-2xl mx-auto">
                 <div className="text-center mb-6 md:mb-8">
-                  <h3 className="text-2xl md:text-3xl font-display font-bold text-pink-800 mb-3 md:mb-4">
-                    Send Us a Message
-                  </h3>
+                                     <h3 className="text-2xl md:text-3xl font-display font-bold text-blue-800 mb-3 md:mb-4">
+                     Send Us a Message
+                   </h3>
                   <p className="text-sm md:text-base text-slate-600 px-2">
                     We'd love to hear from you! Fill out the form below and we'll get back to you within 24 hours.
                   </p>
@@ -175,7 +175,7 @@ const ContactSection = () => {
                         value={formData.name}
                         onChange={handleInputChange}
                         required
-                        className="w-full px-3 md:px-4 py-3 rounded-xl border border-pink-200 focus:ring-2 focus:ring-pink-300 focus:border-pink-300 outline-none transition-all duration-300 text-base"
+                        className="w-full px-3 md:px-4 py-3 rounded-xl border border-blue-200 focus:ring-2 focus:ring-blue-300 focus:border-blue-300 outline-none transition-all duration-300 text-base"
                         placeholder="Enter your full name"
                       />
                     </div>
@@ -190,7 +190,7 @@ const ContactSection = () => {
                         value={formData.email}
                         onChange={handleInputChange}
                         required
-                        className="w-full px-3 md:px-4 py-3 rounded-xl border border-pink-200 focus:ring-2 focus:ring-pink-300 focus:border-pink-300 outline-none transition-all duration-300 text-base"
+                        className="w-full px-3 md:px-4 py-3 rounded-xl border border-blue-200 focus:ring-2 focus:ring-blue-300 focus:border-blue-300 outline-none transition-all duration-300 text-base"
                         placeholder="Enter your email"
                       />
                     </div>
@@ -206,7 +206,7 @@ const ContactSection = () => {
                       value={formData.subject}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-3 md:px-4 py-3 rounded-xl border border-pink-200 focus:ring-2 focus:ring-pink-300 focus:border-pink-300 outline-none transition-all duration-300 text-base"
+                      className="w-full px-3 md:px-4 py-3 rounded-xl border border-blue-200 focus:ring-2 focus:ring-blue-300 focus:border-blue-300 outline-none transition-all duration-300 text-base"
                     >
                       <option value="">Select a subject</option>
                       <option value="product-inquiry">Product Inquiry</option>
@@ -229,14 +229,14 @@ const ContactSection = () => {
                       onChange={handleInputChange}
                       required
                       rows="4"
-                      className="w-full px-3 md:px-4 py-3 rounded-xl border border-pink-200 focus:ring-2 focus:ring-pink-300 focus:border-pink-300 outline-none transition-all duration-300 resize-none text-base"
+                      className="w-full px-3 md:px-4 py-3 rounded-xl border border-blue-200 focus:ring-2 focus:ring-blue-300 focus:border-blue-300 outline-none transition-all duration-300 resize-none text-base"
                       placeholder="Tell us how we can help you..."
                     />
                   </div>
 
                   <button
                     type="submit"
-                    className="w-full bg-gradient-to-r from-pink-500 to-coral-500 text-white font-semibold py-3 md:py-4 px-6 md:px-8 rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 touch-manipulation"
+                    className="w-full bg-gradient-to-r from-blue-500 to-sky-500 text-white font-semibold py-3 md:py-4 px-6 md:px-8 rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 touch-manipulation"
                   >
                     <span className="flex items-center justify-center space-x-2">
                       <span>Send Message</span>
@@ -253,7 +253,7 @@ const ContactSection = () => {
             {activeTab === 'faq' && (
               <div className="max-w-4xl mx-auto">
                 <div className="text-center mb-6 md:mb-8">
-                  <h3 className="text-2xl md:text-3xl font-display font-bold text-pink-800 mb-3 md:mb-4">
+                  <h3 className="text-2xl md:text-3xl font-display font-bold text-blue-800 mb-3 md:mb-4">
                     Frequently Asked Questions
                   </h3>
                   <p className="text-sm md:text-base text-slate-600 px-2">
@@ -263,8 +263,8 @@ const ContactSection = () => {
 
                 <div className="space-y-3 md:space-y-4">
                   {faqItems.map((item, index) => (
-                    <div key={index} className="bg-white/60 backdrop-blur-sm rounded-2xl p-4 md:p-6 border border-pink-100 hover:shadow-lg transition-all duration-300">
-                      <h4 className="text-base md:text-lg font-display font-semibold text-pink-800 mb-2 md:mb-3">
+                    <div key={index} className="bg-white/60 backdrop-blur-sm rounded-2xl p-4 md:p-6 border border-blue-100 hover:shadow-lg transition-all duration-300">
+                      <h4 className="text-base md:text-lg font-display font-semibold text-blue-800 mb-2 md:mb-3">
                         {item.question}
                       </h4>
                       <p className="text-sm md:text-base text-slate-600 leading-relaxed">
@@ -280,10 +280,10 @@ const ContactSection = () => {
 
         {/* Social Media & Additional Info */}
         <div className="mt-12 md:mt-16 text-center">
-          <div className="bg-white/80 backdrop-blur-sm rounded-2xl md:rounded-3xl p-6 md:p-8 shadow-xl border border-pink-100">
-            <h3 className="text-xl md:text-2xl font-display font-bold text-pink-800 mb-4 md:mb-6">
-              Connect With Us
-            </h3>
+                     <div className="bg-white/80 backdrop-blur-sm rounded-2xl md:rounded-3xl p-6 md:p-8 shadow-xl border border-blue-100">
+             <h3 className="text-xl md:text-2xl font-display font-bold text-blue-800 mb-4 md:mb-6">
+               Connect With Us
+             </h3>
             <p className="text-sm md:text-base text-slate-600 mb-6 md:mb-8 max-w-2xl mx-auto px-2">
               Follow us on social media for wellness tips, product updates, and community stories.
             </p>

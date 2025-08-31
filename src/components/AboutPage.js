@@ -5,9 +5,9 @@ import Footer from './Footer';
 
 const AboutPage = () => {
   return (
-    <div className="bg-pink-50 min-h-screen flex flex-col">
+    <div className="bg-blue-50 min-h-screen flex flex-col">
       <Header />
-      <div className="flex-1 bg-gradient-to-br from-pink-50 via-white to-coral-50 pt-24 pb-16">
+      <div className="flex-1 bg-gradient-to-br from-blue-50 via-white to-sky-50 pt-24 pb-16">
       <div className="max-w-6xl mx-auto px-4 md:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
@@ -23,7 +23,7 @@ const AboutPage = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
           <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12">
             <div className="text-center mb-6">
-              <div className="w-16 h-16 bg-gradient-to-br from-pink-400 to-coral-400 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 bg-gradient-to-br from-blue-400 to-sky-400 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-2xl">🎯</span>
               </div>
               <h2 className="text-2xl font-display font-semibold text-slate-800 mb-3">
@@ -38,7 +38,7 @@ const AboutPage = () => {
 
           <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12">
             <div className="text-center mb-6">
-              <div className="w-16 h-16 bg-gradient-to-br from-pink-400 to-coral-400 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 bg-gradient-to-br from-blue-400 to-sky-400 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-2xl">🌟</span>
               </div>
               <h2 className="text-2xl font-display font-semibold text-slate-800 mb-3">
@@ -58,7 +58,7 @@ const AboutPage = () => {
             <h2 className="text-3xl font-display font-semibold text-slate-800 mb-4">
               Our Story
             </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-pink-400 to-coral-400 mx-auto"></div>
+            <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-sky-400 mx-auto"></div>
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             <div>
@@ -77,7 +77,7 @@ const AboutPage = () => {
               </p>
             </div>
             <div className="text-center">
-              <div className="w-48 h-48 bg-gradient-to-br from-pink-100 to-coral-100 rounded-full flex items-center justify-center mx-auto">
+              <div className="w-48 h-48 bg-gradient-to-br from-blue-100 to-sky-100 rounded-full flex items-center justify-center mx-auto">
                 <span className="text-6xl">🌿</span>
               </div>
             </div>
@@ -90,7 +90,7 @@ const AboutPage = () => {
             <h2 className="text-3xl font-display font-semibold text-slate-800 mb-4">
               Our Core Values
             </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-pink-400 to-coral-400 mx-auto"></div>
+            <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-sky-400 mx-auto"></div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
@@ -125,8 +125,8 @@ const AboutPage = () => {
                 description: "Operating with honesty, ethics, and responsibility in all our business practices."
               }
             ].map((value, index) => (
-              <div key={index} className="text-center p-6 rounded-xl bg-gradient-to-br from-pink-50 to-coral-50">
-                <div className="w-12 h-12 bg-gradient-to-br from-pink-400 to-coral-400 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div key={index} className="text-center p-6 rounded-xl bg-gradient-to-br from-blue-50 to-sky-50">
+                <div className="w-12 h-12 bg-gradient-to-br from-blue-400 to-sky-400 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-xl">{value.icon}</span>
                 </div>
                 <h3 className="text-lg font-semibold text-slate-800 mb-2">{value.title}</h3>
@@ -142,7 +142,7 @@ const AboutPage = () => {
             <h2 className="text-3xl font-display font-semibold text-slate-800 mb-4">
               Meet Our Team
             </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-pink-400 to-coral-400 mx-auto"></div>
+            <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-sky-400 mx-auto"></div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
@@ -162,12 +162,12 @@ const AboutPage = () => {
                 description: "Dedicated to providing exceptional service and building lasting relationships with our customers."
               }
             ].map((member, index) => (
-              <div key={index} className="text-center p-6 rounded-xl bg-gradient-to-br from-pink-50 to-coral-50">
-                <div className="w-20 h-20 bg-gradient-to-br from-pink-400 to-coral-400 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div key={index} className="text-center p-6 rounded-xl bg-gradient-to-br from-blue-50 to-sky-50">
+                <div className="w-20 h-20 bg-gradient-to-br from-blue-400 to-sky-400 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-2xl">👤</span>
                 </div>
                 <h3 className="text-lg font-semibold text-slate-800 mb-1">{member.name}</h3>
-                <p className="text-pink-600 font-medium mb-3">{member.role}</p>
+                <p className="text-blue-600 font-medium mb-3">{member.role}</p>
                 <p className="text-slate-600 text-sm leading-relaxed">{member.description}</p>
               </div>
             ))}
@@ -176,7 +176,7 @@ const AboutPage = () => {
 
         {/* CTA Section */}
         <div className="text-center">
-          <div className="bg-gradient-to-r from-pink-500 to-coral-500 rounded-2xl p-8 md:p-12 text-white">
+          <div className="bg-gradient-to-r from-blue-500 to-sky-500 rounded-2xl p-8 md:p-12 text-white">
             <h2 className="text-3xl font-display font-semibold mb-4">
               Ready to Start Your Wellness Journey?
             </h2>
@@ -186,13 +186,13 @@ const AboutPage = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 to="/products"
-                className="bg-white text-pink-600 px-8 py-3 rounded-full font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
+                className="bg-white text-blue-600 px-8 py-3 rounded-full font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
               >
                 Explore Products
               </Link>
               <Link
                 to="/contact"
-                className="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-pink-600 transition-all duration-300"
+                className="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-blue-600 transition-all duration-300"
               >
                 Get in Touch
               </Link>

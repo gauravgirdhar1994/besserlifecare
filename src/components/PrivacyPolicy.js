@@ -5,9 +5,9 @@ import Footer from './Footer';
 
 const PrivacyPolicy = () => {
   return (
-    <div className="bg-pink-50 min-h-screen flex flex-col">
+    <div className="bg-blue-50 min-h-screen flex flex-col">
       <Header />
-      <div className="flex-1 bg-gradient-to-br from-pink-50 via-white to-coral-50 pt-24 pb-16">
+      <div className="flex-1 bg-gradient-to-br from-blue-50 via-white to-sky-50 pt-24 pb-16">
         <div className="max-w-4xl mx-auto px-4 md:px-6 lg:px-8">
           {/* Header */}
           <div className="text-center mb-12">
@@ -209,13 +209,13 @@ const PrivacyPolicy = () => {
 
           {/* Back to Home */}
           <div className="text-center mt-12">
-            <Link
-              to="/"
-              className="inline-flex items-center space-x-2 bg-gradient-to-r from-pink-500 to-coral-500 text-white px-8 py-3 rounded-full font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
-            >
-              <span>←</span>
-              <span>Back to Home</span>
-            </Link>
+                      <Link
+            to="/"
+            className="inline-flex items-center space-x-2 bg-gradient-to-r from-blue-500 to-sky-500 text-white px-8 py-3 rounded-full font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
+          >
+            <span>←</span>
+            <span>Back to Home</span>
+          </Link>
           </div>
         </div>
       </div>
