@@ -5,7 +5,7 @@ import Footer from './Footer';
 
 const ShippingPolicy = () => {
   return (
-    <div className="bg-green-50 min-h-screen flex flex-col">
+    <div className="bg-green-200 min-h-screen flex flex-col">
       <Header />
       <div className="flex-1 bg-gradient-to-br from-green-50 via-white to-emerald-50 pt-24 pb-16">
       <div className="max-w-4xl mx-auto px-4 md:px-6 lg:px-8">
@@ -133,7 +133,7 @@ const ShippingPolicy = () => {
         <div className="text-center mt-12">
           <Link
             to="/"
-            className="inline-flex items-center space-x-2 bg-gradient-to-r from-green-500 to-emerald-500 text-white px-8 py-3 rounded-full font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
+            className="inline-flex items-center space-x-2 bg-gradient-to-r from-green-800 to-emerald-500 text-white px-8 py-3 rounded-full font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
           >
             <span>←</span>
             <span>Back to Home</span>

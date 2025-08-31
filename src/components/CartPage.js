@@ -29,12 +29,12 @@ const CartPage = () => {
           <div className="space-y-4">
             <Link
               to="/products"
-              className="inline-block bg-gradient-to-r from-green-500 to-emerald-500 text-white px-8 py-4 rounded-2xl font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
+              className="inline-block bg-gradient-to-r from-green-800 to-emerald-500 text-white px-8 py-4 rounded-2xl font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
             >
               Start Shopping
             </Link>
             <div className="text-sm text-slate-500">
-              <Link to="/" className="text-green-600 hover:text-green-700 underline">
+              <Link to="/" className="text-green-800 hover:text-green-700 underline">
                 Continue browsing
               </Link>
             </div>
@@ -75,7 +75,7 @@ const CartPage = () => {
 
               <div className="space-y-4">
                 {items.map((item) => (
-                  <div key={item.id} className="flex items-center space-x-4 p-4 bg-green-50 rounded-xl">
+                  <div key={item.id} className="flex items-center space-x-4 p-4 bg-green-200 rounded-xl">
                     <div className="w-20 h-20 bg-gradient-to-br from-green-100 to-emerald-100 rounded-lg flex items-center justify-center flex-shrink-0">
                       <img
                         src={item.image}
@@ -95,7 +95,7 @@ const CartPage = () => {
                         <div className="flex items-center space-x-2">
                           <button
                             onClick={() => handleQuantityChange(item.id, item.quantity - 1)}
-                            className="w-8 h-8 bg-white border border-green-200 rounded-full flex items-center justify-center text-green-600 hover:bg-green-50 transition-colors"
+                            className="w-8 h-8 bg-white border border-green-200 rounded-full flex items-center justify-center text-green-800 hover:bg-green-200 transition-colors"
                           >
                             <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" d="M20 12H4"/>
@@ -108,7 +108,7 @@ const CartPage = () => {
                           
                           <button
                             onClick={() => handleQuantityChange(item.id, item.quantity + 1)}
-                            className="w-8 h-8 bg-white border border-green-200 rounded-full flex items-center justify-center text-green-600 hover:bg-green-50 transition-colors"
+                            className="w-8 h-8 bg-white border border-green-200 rounded-full flex items-center justify-center text-green-800 hover:bg-green-200 transition-colors"
                           >
                             <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4"/>
@@ -128,7 +128,7 @@ const CartPage = () => {
                     </div>
 
                     <div className="text-right flex-shrink-0">
-                      <div className="text-2xl font-bold text-green-600 mb-1">
+                      <div className="text-2xl font-bold text-green-800 mb-1">
                         {formatPrice(parseFloat(item.price.replace('₹', '')) * item.quantity)}
                       </div>
                       <div className="text-sm text-slate-500">
@@ -155,7 +155,7 @@ const CartPage = () => {
                 </div>
                 <div className="flex justify-between text-slate-600">
                   <span>Shipping</span>
-                  <span className="text-green-600">Free</span>
+                  <span className="text-green-800">Free</span>
                 </div>
                 <div className="flex justify-between text-slate-600">
                   <span>Tax</span>
@@ -172,20 +172,20 @@ const CartPage = () => {
               <div className="space-y-3">
                 <Link
                   to="/checkout"
-                  className="block w-full bg-gradient-to-r from-green-500 to-emerald-500 text-white text-center py-4 px-6 rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
+                  className="block w-full bg-gradient-to-r from-green-800 to-emerald-500 text-white text-center py-4 px-6 rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
                 >
                   Proceed to Checkout
                 </Link>
                 
                 <Link
                   to="/products"
-                  className="block w-full bg-white text-green-600 text-center py-3 px-6 rounded-xl font-semibold border-2 border-green-200 hover:border-green-300 hover:bg-green-50 transition-all duration-300"
+                  className="block w-full bg-white text-green-800 text-center py-3 px-6 rounded-xl font-semibold border-2 border-green-200 hover:border-green-300 hover:bg-green-200 transition-all duration-300"
                 >
                   Continue Shopping
                 </Link>
               </div>
 
-              <div className="mt-6 p-4 bg-green-50 rounded-xl">
+              <div className="mt-6 p-4 bg-green-200 rounded-xl">
                 <div className="flex items-center space-x-2 text-sm text-green-700">
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>

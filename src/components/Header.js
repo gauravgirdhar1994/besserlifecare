@@ -42,8 +42,8 @@ const Header = () => {
     <>
       <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled 
-          ? 'bg-green-50 backdrop-blur-md shadow-lg border-b border-green-200' 
-          : 'bg-green-50 backdrop-blur-sm'
+          ? 'bg-green-200 backdrop-blur-md shadow-lg border-b border-green-200' 
+          : 'bg-green-200 backdrop-blur-sm'
       }`}>
         <div className="container mx-auto px-4 md:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 md:h-20">
@@ -52,7 +52,7 @@ const Header = () => {
               <div className="w-8 h-8 md:w-10 md:h-10 bg-gradient-to-br from-green-400 to-emerald-400 rounded-full flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300">
                 <span className="text-white text-lg md:text-xl font-bold">🌿</span>
               </div>
-              <span className="text-lg md:text-xl font-display font-bold text-green-800 group-hover:text-green-600 transition-colors">
+              <span className="text-lg md:text-xl font-display font-bold text-green-800 group-hover:text-green-800 transition-colors">
                 Besser Life Care
               </span>
             </Link>
@@ -62,28 +62,28 @@ const Header = () => {
               <Link 
                 to="/" 
                 onClick={scrollToTop}
-                className="text-slate-700 hover:text-green-600 font-medium transition-colors duration-200"
+                className="text-slate-700 hover:text-green-800 font-medium transition-colors duration-200"
               >
                 Home
               </Link>
               <Link 
                 to="/products" 
                 onClick={scrollToTop}
-                className="text-slate-700 hover:text-green-600 font-medium transition-colors duration-200"
+                className="text-slate-700 hover:text-green-800 font-medium transition-colors duration-200"
               >
                 Products
               </Link>
               <Link 
                 to="/about" 
                 onClick={scrollToTop}
-                className="text-slate-700 hover:text-green-600 font-medium transition-colors duration-200"
+                className="text-slate-700 hover:text-green-800 font-medium transition-colors duration-200"
               >
                 About
               </Link>
               <Link 
                 to="/contact" 
                 onClick={scrollToTop}
-                className="text-slate-700 hover:text-green-600 font-medium transition-colors duration-200"
+                className="text-slate-700 hover:text-green-800 font-medium transition-colors duration-200"
               >
                 Contact
               </Link>
@@ -99,7 +99,7 @@ const Header = () => {
                 <Link 
                   to="/products" 
                   onClick={scrollToTop}
-                  className="bg-gradient-to-r from-green-500 to-emerald-500 text-white px-6 py-2 md:px-8 md:py-3 rounded-full font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
+                  className="bg-gradient-to-r from-green-800 to-emerald-500 text-white px-6 py-2 md:px-8 md:py-3 rounded-full font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
                 >
                   Shop Now
                 </Link>
@@ -156,7 +156,7 @@ const Header = () => {
             </div>
             <button
               onClick={() => setIsMobileMenuOpen(false)}
-              className="p-2 rounded-lg hover:bg-green-50 transition-colors"
+              className="p-2 rounded-lg hover:bg-green-200 transition-colors"
             >
               <svg className="w-6 h-6 text-slate-600" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -177,7 +177,7 @@ const Header = () => {
                 <Link
                   key={index}
                   to={link.href}
-                  className="flex items-center space-x-4 p-4 rounded-xl hover:bg-green-50 transition-all duration-200 group"
+                  className="flex items-center space-x-4 p-4 rounded-xl hover:bg-green-200 transition-all duration-200 group"
                   onClick={() => {
                     setIsMobileMenuOpen(false);
                     scrollToTop();
@@ -186,7 +186,7 @@ const Header = () => {
                   <span className="text-2xl group-hover:scale-110 transition-transform duration-200">
                     {link.icon}
                   </span>
-                  <span className="text-lg font-medium text-slate-700 group-hover:text-green-600 transition-colors">
+                  <span className="text-lg font-medium text-slate-700 group-hover:text-green-800 transition-colors">
                     {link.name}
                   </span>
                   <svg className="w-5 h-5 text-slate-400 group-hover:text-green-500 ml-auto transition-colors" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
@@ -206,7 +206,7 @@ const Header = () => {
               </p>
               <Link
                 to="/products"
-                className="block w-full bg-gradient-to-r from-green-500 to-emerald-500 text-white py-3 px-6 rounded-xl font-semibold text-center shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
+                className="block w-full bg-gradient-to-r from-green-800 to-emerald-500 text-white py-3 px-6 rounded-xl font-semibold text-center shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
                 onClick={() => {
                   setIsMobileMenuOpen(false);
                   scrollToTop();
@@ -224,14 +224,14 @@ const Header = () => {
               <div className="space-y-3">
                 <a
                   href="mailto:info@besserlifecare.com"
-                  className="flex items-center space-x-3 p-3 rounded-lg hover:bg-green-50 transition-colors"
+                  className="flex items-center space-x-3 p-3 rounded-lg hover:bg-green-200 transition-colors"
                 >
                   <span className="text-xl">📧</span>
                   <span className="text-slate-600">info@besserlifecare.com</span>
                 </a>
                 <a
                   href="tel:+919876543210"
-                  className="flex items-center space-x-3 p-3 rounded-lg hover:bg-green-50 transition-colors"
+                  className="flex items-center space-x-3 p-3 rounded-lg hover:bg-green-200 transition-colors"
                 >
                   <span className="text-xl">📞</span>
                   <span className="text-slate-600">+91 98765 43210</span>

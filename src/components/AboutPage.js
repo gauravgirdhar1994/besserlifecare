@@ -5,7 +5,7 @@ import Footer from './Footer';
 
 const AboutPage = () => {
   return (
-    <div className="bg-green-50 min-h-screen flex flex-col">
+    <div className="bg-green-200 min-h-screen flex flex-col">
       <Header />
       <div className="flex-1 bg-gradient-to-br from-green-50 via-white to-emerald-50 pt-24 pb-16">
       <div className="max-w-6xl mx-auto px-4 md:px-6 lg:px-8">
@@ -167,7 +167,7 @@ const AboutPage = () => {
                   <span className="text-2xl">👤</span>
                 </div>
                 <h3 className="text-lg font-semibold text-slate-800 mb-1">{member.name}</h3>
-                <p className="text-green-600 font-medium mb-3">{member.role}</p>
+                <p className="text-green-800 font-medium mb-3">{member.role}</p>
                 <p className="text-slate-600 text-sm leading-relaxed">{member.description}</p>
               </div>
             ))}
@@ -176,7 +176,7 @@ const AboutPage = () => {
 
         {/* CTA Section */}
         <div className="text-center">
-          <div className="bg-gradient-to-r from-green-500 to-emerald-500 rounded-2xl p-8 md:p-12 text-white">
+          <div className="bg-gradient-to-r from-green-800 to-emerald-500 rounded-2xl p-8 md:p-12 text-white">
             <h2 className="text-3xl font-display font-semibold mb-4">
               Ready to Start Your Wellness Journey?
             </h2>
@@ -186,13 +186,13 @@ const AboutPage = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 to="/products"
-                className="bg-white text-green-600 px-8 py-3 rounded-full font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
+                className="bg-white text-green-800 px-8 py-3 rounded-full font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
               >
                 Explore Products
               </Link>
               <Link
                 to="/contact"
-                className="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-green-600 transition-all duration-300"
+                className="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-green-800 transition-all duration-300"
               >
                 Get in Touch
               </Link>

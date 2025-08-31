@@ -135,7 +135,7 @@ const ProductsPage = () => {
   });
 
   return (
-    <div className="bg-green-50 min-h-screen flex flex-col">
+    <div className="bg-green-200 min-h-screen flex flex-col">
       <Header />
       <div className="flex-1 bg-gradient-to-br from-green-50 via-white to-emerald-50 pt-24 pb-16">
       <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
@@ -160,7 +160,7 @@ const ProductsPage = () => {
                   onClick={() => setSelectedCategory(category.id)}
                   className={`flex items-center space-x-2 px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
                     selectedCategory === category.id
-                      ? 'bg-gradient-to-r from-green-500 to-emerald-500 text-white shadow-lg'
+                      ? 'bg-gradient-to-r from-green-800 to-emerald-500 text-white shadow-lg'
                       : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
                   }`}
                 >
@@ -261,11 +261,11 @@ const ProductsPage = () => {
                 <div className="flex space-x-2">
                   <Link
                     to={`/product/${product.id}`}
-                    className="flex-1 bg-gradient-to-r from-green-500 to-emerald-500 text-white py-2 px-4 rounded-lg font-medium text-center hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300"
+                    className="flex-1 bg-gradient-to-r from-green-800 to-emerald-500 text-white py-2 px-4 rounded-lg font-medium text-center hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300"
                   >
                     View Details
                   </Link>
-                  <button className="w-10 h-10 bg-slate-100 text-slate-600 rounded-lg flex items-center justify-center hover:bg-green-100 hover:text-green-600 transition-all duration-300">
+                  <button className="w-10 h-10 bg-slate-100 text-slate-600 rounded-lg flex items-center justify-center hover:bg-green-100 hover:text-green-800 transition-all duration-300">
                     <span className="text-lg">🛒</span>
                   </button>
                 </div>
@@ -282,7 +282,7 @@ const ProductsPage = () => {
             <p className="text-slate-600 mb-6">Try adjusting your filters or browse all products.</p>
             <button
               onClick={() => setSelectedCategory('all')}
-                              className="bg-gradient-to-r from-green-500 to-emerald-500 text-white px-6 py-3 rounded-lg font-medium hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300"
+                              className="bg-gradient-to-r from-green-800 to-emerald-500 text-white px-6 py-3 rounded-lg font-medium hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300"
             >
               View All Products
             </button>
@@ -291,7 +291,7 @@ const ProductsPage = () => {
 
         {/* CTA Section */}
         <div className="mt-16 text-center">
-          <div className="bg-gradient-to-r from-green-500 to-emerald-500 rounded-2xl p-8 md:p-12 text-white">
+          <div className="bg-gradient-to-r from-green-800 to-emerald-500 rounded-2xl p-8 md:p-12 text-white">
             <h2 className="text-3xl font-display font-semibold mb-4">
               Need Help Choosing?
             </h2>
@@ -301,13 +301,13 @@ const ProductsPage = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 to="/contact"
-                className="bg-white text-green-600 px-8 py-3 rounded-full font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
+                className="bg-white text-green-800 px-8 py-3 rounded-full font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
               >
                 Get Expert Advice
               </Link>
               <a
                 href="mailto:support@besserlifecare.com"
-                className="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-green-600 transition-all duration-300"
+                className="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-green-800 transition-all duration-300"
               >
                 Email Us
               </a>

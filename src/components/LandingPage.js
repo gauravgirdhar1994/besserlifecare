@@ -47,7 +47,7 @@ const LandingPage = () => {
   };
 
   return (
-    <div className="bg-green-50 min-h-screen flex flex-col">
+    <div className="bg-green-200 min-h-screen flex flex-col">
       <Header />
       
       {/* Hero Section */}
@@ -98,7 +98,7 @@ const LandingPage = () => {
                 isVisible.hero ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}>
                 <span className="block text-green-800">Empowering</span>
-                <span className="block text-green-600">Women's Wellness</span>
+                <span className="block text-green-800">Women's Wellness</span>
                 <span className="block text-4xl md:text-5xl lg:text-6xl text-slate-700 mt-2">with Herbal Care</span>
               </h1>
               
@@ -116,7 +116,7 @@ const LandingPage = () => {
               }`}>
                 <a
                   href="#products"
-                  className="group relative inline-flex items-center justify-center px-8 py-4 bg-green-500 hover:bg-green-600 text-white font-semibold text-lg rounded-full shadow-xl hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300"
+                  className="group relative inline-flex items-center justify-center px-8 py-4 bg-green-800 hover:bg-green-600 text-white font-semibold text-lg rounded-full shadow-xl hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300"
                 >
                   <span className="flex items-center space-x-2">
                     <span>Shop Now</span>

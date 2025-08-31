@@ -117,21 +117,21 @@ const Checkout = () => {
               <div key={step} className="flex items-center">
                 <div className={`w-10 h-10 rounded-full flex items-center justify-center font-semibold ${
                   currentStep > index + 1 
-                    ? 'bg-green-500 text-white' 
+                    ? 'bg-green-800 text-white' 
                     : currentStep === index + 1 
-                    ? 'bg-green-500 text-white' 
+                    ? 'bg-green-800 text-white' 
                     : 'bg-slate-200 text-slate-600'
                 }`}>
                   {currentStep > index + 1 ? '✓' : index + 1}
                 </div>
                 <span className={`ml-2 font-medium ${
-                  currentStep === index + 1 ? 'text-green-600' : 'text-slate-600'
+                  currentStep === index + 1 ? 'text-green-800' : 'text-slate-600'
                 }`}>
                   {step}
                 </span>
                 {index < 2 && (
                   <div className={`w-16 h-1 mx-4 ${
-                    currentStep > index + 1 ? 'bg-green-500' : 'bg-slate-200'
+                    currentStep > index + 1 ? 'bg-green-800' : 'bg-slate-200'
                   }`}></div>
                 )}
               </div>
@@ -338,7 +338,7 @@ const Checkout = () => {
                   <div className="space-y-6">
                     <div>
                       <h3 className="text-lg font-semibold text-green-800 mb-3">Shipping Information</h3>
-                      <div className="bg-green-50 rounded-xl p-4">
+                      <div className="bg-green-200 rounded-xl p-4">
                         <p className="text-slate-700">
                           {formData.firstName} {formData.lastName}<br />
                           {formData.address}<br />
@@ -353,7 +353,7 @@ const Checkout = () => {
                       <h3 className="text-lg font-semibold text-green-800 mb-3">Order Items</h3>
                       <div className="space-y-3">
                         {items.map((item) => (
-                          <div key={item.id} className="flex items-center justify-between bg-green-50 rounded-xl p-4">
+                          <div key={item.id} className="flex items-center justify-between bg-green-200 rounded-xl p-4">
                             <div className="flex items-center space-x-3">
                               <div className="w-12 h-12 bg-gradient-to-br from-green-100 to-emerald-100 rounded-lg flex items-center justify-center">
                                 <img
@@ -368,7 +368,7 @@ const Checkout = () => {
                               </div>
                             </div>
                             <div className="text-right">
-                              <div className="font-semibold text-green-600">
+                              <div className="font-semibold text-green-800">
                                 {formatPrice(parseFloat(item.price.replace('₹', '')) * item.quantity)}
                               </div>
                             </div>
@@ -385,7 +385,7 @@ const Checkout = () => {
                 {currentStep > 1 && (
                   <button
                     onClick={handlePrevStep}
-                    className="bg-white text-green-600 px-6 py-3 rounded-xl font-semibold border-2 border-green-200 hover:border-green-300 hover:bg-green-50 transition-all duration-300"
+                    className="bg-white text-green-800 px-6 py-3 rounded-xl font-semibold border-2 border-green-200 hover:border-green-300 hover:bg-green-200 transition-all duration-300"
                   >
                     Previous
                   </button>
@@ -394,7 +394,7 @@ const Checkout = () => {
                 {currentStep < 3 ? (
                   <button
                     onClick={handleNextStep}
-                    className="ml-auto bg-gradient-to-r from-green-500 to-emerald-500 text-white px-8 py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
+                    className="ml-auto bg-gradient-to-r from-green-800 to-emerald-500 text-white px-8 py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
                   >
                     Next
                   </button>
@@ -402,7 +402,7 @@ const Checkout = () => {
                   <button
                     onClick={handlePlaceOrder}
                     disabled={isProcessing}
-                    className="ml-auto bg-gradient-to-r from-green-500 to-emerald-500 text-white px-8 py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="ml-auto bg-gradient-to-r from-green-800 to-emerald-500 text-white px-8 py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {isProcessing ? (
                       <span className="flex items-center space-x-2">
@@ -435,7 +435,7 @@ const Checkout = () => {
                 </div>
                 <div className="flex justify-between text-slate-600">
                   <span>Shipping</span>
-                  <span className="text-green-600">Free</span>
+                  <span className="text-green-800">Free</span>
                 </div>
                 <div className="flex justify-between text-slate-600">
                   <span>Tax (18%)</span>
@@ -449,7 +449,7 @@ const Checkout = () => {
                 </div>
               </div>
 
-              <div className="p-4 bg-green-50 rounded-xl">
+              <div className="p-4 bg-green-200 rounded-xl">
                 <div className="flex items-center space-x-2 text-sm text-green-700 mb-2">
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>

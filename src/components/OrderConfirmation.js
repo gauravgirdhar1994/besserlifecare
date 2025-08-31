@@ -18,7 +18,7 @@ const OrderConfirmation = () => {
           </p>
           <Link
             to="/products"
-            className="inline-block bg-gradient-to-r from-green-500 to-emerald-500 text-white px-8 py-4 rounded-2xl font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
+            className="inline-block bg-gradient-to-r from-green-800 to-emerald-500 text-white px-8 py-4 rounded-2xl font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
           >
             Start Shopping
           </Link>
@@ -47,7 +47,7 @@ const OrderConfirmation = () => {
         {/* Success Header */}
         <div className="text-center mb-12">
           <div className="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
-            <svg className="w-12 h-12 text-green-600" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+            <svg className="w-12 h-12 text-green-800" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
             </svg>
           </div>
@@ -58,7 +58,7 @@ const OrderConfirmation = () => {
             Thank you for your purchase. Your order has been successfully placed.
           </p>
           <p className="text-lg text-slate-500">
-            Order ID: <span className="font-semibold text-green-600">{orderPlaced.id}</span>
+            Order ID: <span className="font-semibold text-green-800">{orderPlaced.id}</span>
           </p>
         </div>
 
@@ -100,7 +100,7 @@ const OrderConfirmation = () => {
             <h3 className="text-lg font-semibold text-green-800 mb-3">Order Items</h3>
             <div className="space-y-3">
               {orderPlaced.items.map((item) => (
-                <div key={item.id} className="flex items-center justify-between bg-green-50 rounded-xl p-4">
+                <div key={item.id} className="flex items-center justify-between bg-green-200 rounded-xl p-4">
                   <div className="flex items-center space-x-3">
                     <div className="w-16 h-16 bg-gradient-to-br from-green-100 to-emerald-100 rounded-lg flex items-center justify-center">
                       <img
@@ -116,7 +116,7 @@ const OrderConfirmation = () => {
                     </div>
                   </div>
                   <div className="text-right">
-                    <div className="font-semibold text-green-600">
+                    <div className="font-semibold text-green-800">
                       {formatPrice(parseFloat(item.price.replace('₹', '')) * item.quantity)}
                     </div>
                     <div className="text-sm text-slate-500">
@@ -138,7 +138,7 @@ const OrderConfirmation = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="text-center">
               <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                <svg className="w-8 h-8 text-green-800" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
                 </svg>
               </div>
@@ -184,7 +184,7 @@ const OrderConfirmation = () => {
             <div className="space-y-4">
               <div className="flex items-start space-x-3">
                 <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <svg className="w-4 h-4 text-green-600" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                  <svg className="w-4 h-4 text-green-800" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7"/>
                   </svg>
                 </div>
@@ -196,7 +196,7 @@ const OrderConfirmation = () => {
               
               <div className="flex items-start space-x-3">
                 <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <svg className="w-4 h-4 text-green-600" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                  <svg className="w-4 h-4 text-green-800" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7"/>
                   </svg>
                 </div>
@@ -210,7 +210,7 @@ const OrderConfirmation = () => {
             <div className="space-y-4">
               <div className="flex items-start space-x-3">
                 <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <svg className="w-4 h-4 text-green-600" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                  <svg className="w-4 h-4 text-green-800" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
                   </svg>
                 </div>
@@ -222,7 +222,7 @@ const OrderConfirmation = () => {
               
               <div className="flex items-start space-x-3">
                 <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <svg className="w-4 h-4 text-green-600" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                  <svg className="w-4 h-4 text-green-800" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
                   </svg>
                 </div>
@@ -240,21 +240,21 @@ const OrderConfirmation = () => {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               to="/products"
-              className="w-full sm:w-auto bg-gradient-to-r from-green-500 to-emerald-500 text-white px-8 py-4 rounded-2xl font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
+              className="w-full sm:w-auto bg-gradient-to-r from-green-800 to-emerald-500 text-white px-8 py-4 rounded-2xl font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
             >
               Continue Shopping
             </Link>
             
             <Link
               to="/"
-              className="w-full sm:w-auto bg-white text-green-600 px-8 py-4 rounded-2xl font-semibold text-lg border-2 border-green-200 hover:border-green-300 hover:bg-green-50 transition-all duration-300"
+              className="w-full sm:w-auto bg-white text-green-800 px-8 py-4 rounded-2xl font-semibold text-lg border-2 border-green-200 hover:border-green-300 hover:bg-green-200 transition-all duration-300"
             >
               Back to Home
             </Link>
           </div>
           
           <p className="text-sm text-slate-500">
-            Need help? <Link to="/contact" className="text-green-600 hover:text-green-700 underline">Contact our support team</Link>
+            Need help? <Link to="/contact" className="text-green-800 hover:text-green-700 underline">Contact our support team</Link>
           </p>
         </div>
       </div>

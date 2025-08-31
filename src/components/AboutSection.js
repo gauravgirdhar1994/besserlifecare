@@ -170,10 +170,10 @@ const AboutSection = () => {
               that quality, care, and commitment can make in your life.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6">
-                             <button className="w-full sm:w-auto bg-gradient-to-r from-green-500 to-emerald-500 text-white px-8 md:px-10 py-3 md:py-4 rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 touch-manipulation">
+                             <button className="w-full sm:w-auto bg-gradient-to-r from-green-800 to-emerald-500 text-white px-8 md:px-10 py-3 md:py-4 rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 touch-manipulation">
                  Explore Products
                </button>
-               <button className="w-full sm:w-auto bg-white text-green-600 px-8 md:px-10 py-3 md:py-4 rounded-xl font-semibold text-lg border-2 border-green-200 hover:border-green-300 hover:bg-green-50 transition-all duration-300 touch-manipulation">
+               <button className="w-full sm:w-auto bg-white text-green-800 px-8 md:px-10 py-3 md:py-4 rounded-xl font-semibold text-lg border-2 border-green-200 hover:border-green-300 hover:bg-green-200 transition-all duration-300 touch-manipulation">
                  Learn More
                </button>
             </div>

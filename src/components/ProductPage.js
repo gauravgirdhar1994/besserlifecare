@@ -109,15 +109,15 @@ const ProductPage = () => {
         <div className="max-w-7xl mx-auto">
           {/* Breadcrumb */}
           <nav className="flex items-center space-x-2 text-sm text-slate-600 mb-8">
-            <button onClick={() => navigate('/')} className="hover:text-green-600 transition-colors">
+            <button onClick={() => navigate('/')} className="hover:text-green-800 transition-colors">
               Home
             </button>
             <span>/</span>
-            <button onClick={() => navigate('/#products')} className="hover:text-green-600 transition-colors">
+            <button onClick={() => navigate('/#products')} className="hover:text-green-800 transition-colors">
               Products
             </button>
             <span>/</span>
-            <span className="text-green-600">{product.name}</span>
+            <span className="text-green-800">{product.name}</span>
           </nav>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
@@ -126,7 +126,7 @@ const ProductPage = () => {
               {/* Main Image */}
               <div className="relative bg-white rounded-2xl p-8 shadow-lg border border-green-100">
                 <div className="absolute top-4 left-4">
-                  <span className="bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full">
+                  <span className="bg-green-800 text-white text-xs font-bold px-3 py-1 rounded-full">
                     {product.discount}
                   </span>
                 </div>
@@ -156,7 +156,7 @@ const ProductPage = () => {
               {/* Basic Info */}
               <div>
                 <div className="flex items-center space-x-3 mb-3">
-                  <span className="text-sm text-green-600 font-medium bg-green-50 px-3 py-1 rounded-full">
+                  <span className="text-sm text-green-800 font-medium bg-green-200 px-3 py-1 rounded-full">
                     {product.category}
                   </span>
                   <div className="flex items-center space-x-1">
@@ -171,7 +171,7 @@ const ProductPage = () => {
                 </h1>
 
                 <div className="flex items-center space-x-4 mb-6">
-                  <span className="text-3xl font-bold text-green-600">{product.price}</span>
+                  <span className="text-3xl font-bold text-green-800">{product.price}</span>
                   <span className="text-xl text-slate-400 line-through">{product.originalPrice}</span>
                   <span className="bg-green-100 text-green-800 text-sm font-semibold px-2 py-1 rounded-full">
                     Save {calculateDiscount()}%
@@ -189,7 +189,7 @@ const ProductPage = () => {
                 <div className="flex items-center space-x-3">
                   <button
                     onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                    className="w-10 h-10 bg-white border border-green-200 rounded-lg flex items-center justify-center text-green-600 hover:bg-green-50 transition-colors"
+                    className="w-10 h-10 bg-white border border-green-200 rounded-lg flex items-center justify-center text-green-800 hover:bg-green-200 transition-colors"
                   >
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M20 12H12"/>
@@ -202,7 +202,7 @@ const ProductPage = () => {
                   
                   <button
                     onClick={() => setQuantity(quantity + 1)}
-                    className="w-10 h-10 bg-white border border-green-200 rounded-lg flex items-center justify-center text-green-600 hover:bg-green-50 transition-colors"
+                    className="w-10 h-10 bg-white border border-green-200 rounded-lg flex items-center justify-center text-green-800 hover:bg-green-200 transition-colors"
                   >
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4"/>
@@ -216,7 +216,7 @@ const ProductPage = () => {
                 <button
                   onClick={handleAddToCart}
                   disabled={isAddingToCart}
-                  className="w-full bg-green-500 text-white py-4 px-6 rounded-2xl font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full bg-green-800 text-white py-4 px-6 rounded-2xl font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {isAddingToCart ? (
                     <span className="flex items-center justify-center space-x-2">
@@ -234,7 +234,7 @@ const ProductPage = () => {
                 <button
                   onClick={handleBuyNow}
                   disabled={isAddingToCart}
-                  className="w-full bg-gradient-to-r from-green-500 to-emerald-500 text-white py-4 px-6 rounded-2xl font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full bg-gradient-to-r from-green-800 to-emerald-500 text-white py-4 px-6 rounded-2xl font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   Buy Now
                 </button>
@@ -245,7 +245,7 @@ const ProductPage = () => {
                 <div className="grid grid-cols-2 gap-4 text-center">
                   <div className="flex flex-col items-center space-y-2">
                     <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
-                      <svg className="w-5 h-5 text-green-600" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                      <svg className="w-5 h-5 text-green-800" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
                       </svg>
                     </div>
@@ -253,7 +253,7 @@ const ProductPage = () => {
                   </div>
                   <div className="flex flex-col items-center space-y-2">
                     <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
-                      <svg className="w-5 h-5 text-green-600" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                      <svg className="w-5 h-5 text-green-800" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
                       </svg>
                     </div>
@@ -280,7 +280,7 @@ const ProductPage = () => {
                     onClick={() => setActiveTab(tab.id)}
                     className={`py-3 px-1 border-b-2 font-medium text-sm transition-colors ${
                       activeTab === tab.id
-                        ? 'border-green-500 text-green-600'
+                        ? 'border-green-500 text-green-800'
                         : 'border-transparent text-slate-500 hover:text-slate-700'
                     }`}
                   >
@@ -326,7 +326,7 @@ const ProductPage = () => {
                   </p>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {product.ingredients.map((ingredient, index) => (
-                      <div key={index} className="bg-green-50 rounded-xl p-4 border border-green-100">
+                      <div key={index} className="bg-green-200 rounded-xl p-4 border border-green-100">
                         <h4 className="font-semibold text-green-800 mb-2">{ingredient}</h4>
                         <p className="text-sm text-slate-600">
                           Natural extract known for its beneficial properties
@@ -346,7 +346,7 @@ const ProductPage = () => {
                   <div className="space-y-4">
                     {product.howToUse.map((step, index) => (
                       <div key={index} className="flex items-start space-x-4">
-                        <div className="w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center font-semibold text-sm flex-shrink-0">
+                        <div className="w-8 h-8 bg-green-800 text-white rounded-full flex items-center justify-center font-semibold text-sm flex-shrink-0">
                           {index + 1}
                         </div>
                         <p className="text-slate-600 leading-relaxed">{step}</p>
@@ -364,7 +364,7 @@ const ProductPage = () => {
                   </h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {Object.entries(product.specifications).map(([key, value]) => (
-                      <div key={key} className="bg-green-50 rounded-xl p-4 border border-green-100">
+                      <div key={key} className="bg-green-200 rounded-xl p-4 border border-green-100">
                         <h4 className="font-semibold text-green-800 mb-2 capitalize">
                           {key.replace(/([A-Z])/g, ' $1').trim()}
                         </h4>
@@ -389,7 +389,7 @@ const ProductPage = () => {
                     <p className="text-slate-600 mb-4">
                       Based on {product.reviews} customer reviews
                     </p>
-                    <button className="bg-green-500 text-white px-6 py-3 rounded-xl font-semibold hover:bg-green-600 transition-colors">
+                    <button className="bg-green-800 text-white px-6 py-3 rounded-xl font-semibold hover:bg-green-600 transition-colors">
                       Write a Review
                     </button>
                   </div>
@@ -419,7 +419,7 @@ const ProductPage = () => {
                    <p className="text-slate-600 text-sm mb-3">
                      Discover more wellness products
                    </p>
-                   <button className="w-full bg-green-500 text-white py-2 px-4 rounded-lg font-semibold hover:bg-green-600 transition-colors">
+                   <button className="w-full bg-green-800 text-white py-2 px-4 rounded-lg font-semibold hover:bg-green-600 transition-colors">
                      View Product
                    </button>
                  </div>

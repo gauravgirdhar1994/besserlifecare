@@ -12,7 +12,7 @@ const Footer = () => {
     <footer className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 -z-10">
-        <div className="absolute top-20 left-10 w-24 h-24 md:w-32 md:h-32 bg-green-500/10 rounded-full blur-3xl"></div>
+        <div className="absolute top-20 left-10 w-24 h-24 md:w-32 md:h-32 bg-green-800/10 rounded-full blur-3xl"></div>
         <div className="absolute bottom-20 right-10 w-32 h-32 md:w-40 md:h-40 bg-emerald-500/10 rounded-full blur-3xl"></div>
       </div>
 
@@ -41,7 +41,7 @@ const Footer = () => {
                 <a
                   key={index}
                   href={social.href}
-                  className="w-10 h-10 md:w-12 md:h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-lg md:text-xl hover:bg-green-500/20 transition-all duration-300 hover:scale-110 touch-manipulation"
+                  className="w-10 h-10 md:w-12 md:h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-lg md:text-xl hover:bg-green-800/20 transition-all duration-300 hover:scale-110 touch-manipulation"
                   aria-label={social.label}
                 >
                   {social.icon}
@@ -119,7 +119,7 @@ const Footer = () => {
               </div>
               <button
                 type="submit"
-                className="w-full bg-gradient-to-r from-green-500 to-emerald-500 text-white font-semibold py-2 md:py-3 px-4 md:px-6 rounded-lg hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300 touch-manipulation text-sm md:text-base"
+                className="w-full bg-gradient-to-r from-green-800 to-emerald-500 text-white font-semibold py-2 md:py-3 px-4 md:px-6 rounded-lg hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300 touch-manipulation text-sm md:text-base"
               >
                 Subscribe
               </button>

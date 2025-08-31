@@ -115,7 +115,7 @@ const ContactSection = () => {
               <p className="text-xs md:text-sm text-slate-600 mb-2 md:mb-3">
                 {method.description}
               </p>
-                             <div className="text-sm md:text-base text-green-600 font-medium break-words">
+                             <div className="text-sm md:text-base text-green-800 font-medium break-words">
                  {method.value}
                </div>
             </div>
@@ -137,7 +137,7 @@ const ContactSection = () => {
                   onClick={() => setActiveTab(tab.id)}
                                      className={`py-3 md:py-4 px-2 border-b-2 font-medium text-sm transition-colors flex items-center space-x-2 whitespace-nowrap ${
                      activeTab === tab.id
-                       ? 'border-green-500 text-green-600'
+                       ? 'border-green-500 text-green-800'
                        : 'border-transparent text-slate-500 hover:text-slate-700'
                    }`}
                 >
@@ -236,7 +236,7 @@ const ContactSection = () => {
 
                   <button
                     type="submit"
-                    className="w-full bg-gradient-to-r from-green-500 to-emerald-500 text-white font-semibold py-3 md:py-4 px-6 md:px-8 rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 touch-manipulation"
+                    className="w-full bg-gradient-to-r from-green-800 to-emerald-500 text-white font-semibold py-3 md:py-4 px-6 md:px-8 rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 touch-manipulation"
                   >
                     <span className="flex items-center justify-center space-x-2">
                       <span>Send Message</span>

@@ -45,7 +45,7 @@ const ContactPage = () => {
   };
 
   return (
-    <div className="bg-green-50 min-h-screen flex flex-col">
+    <div className="bg-green-200 min-h-screen flex flex-col">
       <Header />
       <div className="flex-1 bg-gradient-to-br from-green-50 via-white to-emerald-50 pt-24 pb-16">
       <div className="max-w-6xl mx-auto px-4 md:px-6 lg:px-8">
@@ -107,7 +107,7 @@ const ContactPage = () => {
                       {contact.action && (
                         <a
                           href={contact.action}
-                          className="inline-block mt-2 text-green-600 hover:text-green-700 font-medium text-sm"
+                          className="inline-block mt-2 text-green-800 hover:text-green-700 font-medium text-sm"
                         >
                           {contact.title === "Email" ? "Send Email" : "Call Now"}
                         </a>
@@ -158,7 +158,7 @@ const ContactPage = () => {
             </h2>
             
             {submitStatus === 'success' && (
-              <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg">
+              <div className="mb-6 p-4 bg-green-200 border border-green-200 rounded-lg">
                 <p className="text-green-800 text-center">
                   Thank you for your message! We'll get back to you within 24 hours.
                 </p>
@@ -256,7 +256,7 @@ const ContactPage = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-gradient-to-r from-green-500 to-emerald-500 text-white py-3 px-6 rounded-lg font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+                className="w-full bg-gradient-to-r from-green-800 to-emerald-500 text-white py-3 px-6 rounded-lg font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
               >
                 {isSubmitting ? 'Sending Message...' : 'Send Message'}
               </button>
