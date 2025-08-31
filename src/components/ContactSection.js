@@ -81,7 +81,7 @@ const ContactSection = () => {
     <section id="contact" className="py-12 md:py-20 px-4 md:px-12 bg-gradient-to-br from-white via-green-50 to-slate-50 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 -z-10">
-        <div className="absolute top-20 left-10 w-24 md:w-32 h-24 md:h-32 bg-green-200/20 rounded-full blur-3xl"></div>
+        <div className="absolute top-20 left-10 w-24 md:w-32 h-24 md:h-32 bg-green-100/20 rounded-full blur-3xl"></div>
         <div className="absolute bottom-20 right-10 w-32 md:w-40 h-32 md:h-40 bg-emerald-200/20 rounded-full blur-3xl"></div>
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 md:w-96 h-64 md:h-96 bg-teal-200/10 rounded-full blur-3xl"></div>
       </div>

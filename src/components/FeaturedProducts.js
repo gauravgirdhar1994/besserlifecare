@@ -70,7 +70,7 @@ const FeaturedProducts = () => {
     <section id="products" className="py-16 md:py-24 px-4 md:px-6 lg:px-8 bg-gradient-to-br from-green-50 via-slate-50 to-emerald-50 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 -z-10">
-                 <div className="absolute top-20 right-10 w-32 h-32 bg-green-200/20 rounded-full blur-3xl"></div>
+                 <div className="absolute top-20 right-10 w-32 h-32 bg-green-100/20 rounded-full blur-3xl"></div>
                  <div className="absolute bottom-20 left-10 w-40 h-40 bg-emerald-200/20 rounded-full blur-3xl"></div>
       </div>
 
@@ -117,7 +117,7 @@ const FeaturedProducts = () => {
                   <div className="absolute inset-0 bg-black/50 flex items-center justify-center rounded-xl">
                                          <Link
                        to={`/product/${product.id}`}
-                       className="bg-white text-green-800 px-4 py-2 rounded-lg font-semibold hover:bg-green-200 transition-colors touch-manipulation"
+                       className="bg-white text-green-800 px-4 py-2 rounded-lg font-semibold hover:bg-green-100 transition-colors touch-manipulation"
                      >
                        View Details
                      </Link>
@@ -129,7 +129,7 @@ const FeaturedProducts = () => {
               <div className="space-y-3 md:space-y-4">
                 {/* Category */}
                 <div className="flex items-center justify-between">
-                                     <span className="text-xs md:text-sm text-green-800 font-medium bg-green-200 px-2 py-1 rounded-full">
+                                     <span className="text-xs md:text-sm text-green-800 font-medium bg-green-100 px-2 py-1 rounded-full">
                      {product.category}
                    </span>
                   <div className="flex items-center space-x-1">
@@ -176,7 +176,7 @@ const FeaturedProducts = () => {
                    </button>
                                      <Link
                      to={`/product/${product.id}`}
-                     className="w-10 h-10 md:w-12 md:h-12 bg-white border border-green-200 text-green-800 rounded-lg hover:bg-green-200 transition-colors flex items-center justify-center touch-manipulation"
+                     className="w-10 h-10 md:w-12 md:h-12 bg-white border border-green-200 text-green-800 rounded-lg hover:bg-green-100 transition-colors flex items-center justify-center touch-manipulation"
                    >
                     <svg className="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
@@ -207,7 +207,7 @@ const FeaturedProducts = () => {
                </Link>
                <Link
                  to="/about"
-                 className="w-full sm:w-auto bg-white text-green-800 px-8 md:px-10 py-3 md:py-4 rounded-xl font-semibold text-lg border-2 border-green-200 hover:border-green-300 hover:bg-green-200 transition-all duration-300 touch-manipulation"
+                 className="w-full sm:w-auto bg-white text-green-800 px-8 md:px-10 py-3 md:py-4 rounded-xl font-semibold text-lg border-2 border-green-200 hover:border-green-300 hover:bg-green-100 transition-all duration-300 touch-manipulation"
                >
                  Learn More
                </Link>

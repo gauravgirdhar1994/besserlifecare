@@ -100,7 +100,7 @@ const OrderConfirmation = () => {
             <h3 className="text-lg font-semibold text-green-800 mb-3">Order Items</h3>
             <div className="space-y-3">
               {orderPlaced.items.map((item) => (
-                <div key={item.id} className="flex items-center justify-between bg-green-200 rounded-xl p-4">
+                <div key={item.id} className="flex items-center justify-between bg-green-100 rounded-xl p-4">
                   <div className="flex items-center space-x-3">
                     <div className="w-16 h-16 bg-gradient-to-br from-green-100 to-emerald-100 rounded-lg flex items-center justify-center">
                       <img
@@ -247,7 +247,7 @@ const OrderConfirmation = () => {
             
             <Link
               to="/"
-              className="w-full sm:w-auto bg-white text-green-800 px-8 py-4 rounded-2xl font-semibold text-lg border-2 border-green-200 hover:border-green-300 hover:bg-green-200 transition-all duration-300"
+              className="w-full sm:w-auto bg-white text-green-800 px-8 py-4 rounded-2xl font-semibold text-lg border-2 border-green-200 hover:border-green-300 hover:bg-green-100 transition-all duration-300"
             >
               Back to Home
             </Link>

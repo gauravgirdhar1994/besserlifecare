@@ -83,7 +83,7 @@ const Testimonials = () => {
     <section className="py-16 md:py-24 px-4 md:px-6 lg:px-8 bg-gradient-to-br from-green-50 via-white to-emerald-50 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 -z-10">
-        <div className="absolute top-20 left-10 w-24 h-24 md:w-32 md:h-32 bg-green-200/20 rounded-full blur-3xl"></div>
+        <div className="absolute top-20 left-10 w-24 h-24 md:w-32 md:h-32 bg-green-100/20 rounded-full blur-3xl"></div>
         <div className="absolute bottom-20 right-10 w-32 h-32 md:w-40 md:h-40 bg-emerald-200/20 rounded-full blur-3xl"></div>
       </div>
 
@@ -157,7 +157,7 @@ const Testimonials = () => {
           {/* Navigation Arrows */}
                      <button
              onClick={prevSlide}
-             className="absolute left-2 md:left-4 top-1/2 transform -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 bg-white/80 backdrop-blur-sm rounded-full shadow-lg border border-green-200 text-green-800 hover:bg-green-200 transition-all duration-300 flex items-center justify-center touch-manipulation"
+             className="absolute left-2 md:left-4 top-1/2 transform -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 bg-white/80 backdrop-blur-sm rounded-full shadow-lg border border-green-200 text-green-800 hover:bg-green-100 transition-all duration-300 flex items-center justify-center touch-manipulation"
            >
              <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7"/>
@@ -166,7 +166,7 @@ const Testimonials = () => {
 
            <button
              onClick={nextSlide}
-             className="absolute right-2 md:right-4 top-1/2 transform -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 bg-white/80 backdrop-blur-sm rounded-full shadow-lg border border-green-200 text-green-800 hover:bg-green-200 transition-all duration-300 flex items-center justify-center touch-manipulation"
+             className="absolute right-2 md:right-4 top-1/2 transform -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 bg-white/80 backdrop-blur-sm rounded-full shadow-lg border border-green-200 text-green-800 hover:bg-green-100 transition-all duration-300 flex items-center justify-center touch-manipulation"
            >
              <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7"/>
@@ -181,7 +181,7 @@ const Testimonials = () => {
               key={index}
               onClick={() => goToSlide(index)}
                              className={`w-2 h-2 md:w-3 md:h-3 rounded-full transition-all duration-300 ${
-                 index === currentIndex ? 'bg-green-800 w-4 md:w-6' : 'bg-green-200'
+                 index === currentIndex ? 'bg-green-800 w-4 md:w-6' : 'bg-green-100'
                }`}
             />
           ))}
@@ -230,7 +230,7 @@ const Testimonials = () => {
                              <button className="w-full sm:w-auto bg-gradient-to-r from-green-800 to-emerald-500 text-white px-8 md:px-10 py-3 md:py-4 rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 touch-manipulation">
                  Shop Now
                </button>
-               <button className="w-full sm:w-auto bg-white text-green-800 px-8 md:px-10 py-3 md:py-4 rounded-xl font-semibold text-lg border-2 border-green-200 hover:border-green-300 hover:bg-green-200 transition-all duration-300 touch-manipulation">
+               <button className="w-full sm:w-auto bg-white text-green-800 px-8 md:px-10 py-3 md:py-4 rounded-xl font-semibold text-lg border-2 border-green-200 hover:border-green-300 hover:bg-green-100 transition-all duration-300 touch-manipulation">
                  Read More Reviews
                </button>
             </div>

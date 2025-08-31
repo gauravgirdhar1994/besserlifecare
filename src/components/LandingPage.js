@@ -47,7 +47,7 @@ const LandingPage = () => {
   };
 
   return (
-    <div className="bg-green-200 min-h-screen flex flex-col">
+    <div className="bg-green-100 min-h-screen flex flex-col">
       <Header />
       
       {/* Hero Section */}
@@ -60,10 +60,10 @@ const LandingPage = () => {
       >
         <div className="absolute inset-0 -z-10">
           {/* Floating geometric shapes with staggered animations */}
-          <div className={`absolute top-20 left-10 w-32 h-32 bg-green-200/30 rounded-full blur-3xl transition-all duration-1000 delay-300 ${
+          <div className={`absolute top-20 left-10 w-32 h-32 bg-green-100/30 rounded-full blur-3xl transition-all duration-1000 delay-300 ${
             isVisible.hero ? 'opacity-100 scale-100' : 'opacity-0 scale-75'
           }`}>
-            <div className="w-full h-full bg-green-200/20 rounded-full animate-pulse"></div>
+            <div className="w-full h-full bg-green-100/20 rounded-full animate-pulse"></div>
           </div>
           <div className={`absolute top-40 right-20 w-24 h-24 bg-emerald-200/40 rounded-full blur-2xl transition-all duration-1000 delay-500 ${
             isVisible.hero ? 'opacity-100 scale-100' : 'opacity-0 scale-75'
@@ -163,7 +163,7 @@ const LandingPage = () => {
               <div className="relative">
                 {/* Main Product Image with lazy loading */}
                 <div className="relative group">
-                  <div className={`absolute inset-0 bg-green-200/50 rounded-3xl blur-2xl group-hover:blur-3xl transition-all duration-500 ${
+                  <div className={`absolute inset-0 bg-green-100/50 rounded-3xl blur-2xl group-hover:blur-3xl transition-all duration-500 ${
                     imageLoaded ? 'opacity-100' : 'opacity-0'
                   }`}></div>
                   

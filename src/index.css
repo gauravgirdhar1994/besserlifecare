@@ -48,7 +48,7 @@
   }
   
   .btn-secondary {
-    @apply bg-white text-green-800 px-6 py-3 rounded-xl font-semibold border-2 border-green-500 shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 hover:bg-green-200;
+    @apply bg-white text-green-800 px-6 py-3 rounded-xl font-semibold border-2 border-green-500 shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 hover:bg-green-100;
   }
   
   .card {

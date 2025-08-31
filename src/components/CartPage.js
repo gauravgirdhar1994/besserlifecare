@@ -75,7 +75,7 @@ const CartPage = () => {
 
               <div className="space-y-4">
                 {items.map((item) => (
-                  <div key={item.id} className="flex items-center space-x-4 p-4 bg-green-200 rounded-xl">
+                  <div key={item.id} className="flex items-center space-x-4 p-4 bg-green-100 rounded-xl">
                     <div className="w-20 h-20 bg-gradient-to-br from-green-100 to-emerald-100 rounded-lg flex items-center justify-center flex-shrink-0">
                       <img
                         src={item.image}
@@ -95,7 +95,7 @@ const CartPage = () => {
                         <div className="flex items-center space-x-2">
                           <button
                             onClick={() => handleQuantityChange(item.id, item.quantity - 1)}
-                            className="w-8 h-8 bg-white border border-green-200 rounded-full flex items-center justify-center text-green-800 hover:bg-green-200 transition-colors"
+                            className="w-8 h-8 bg-white border border-green-200 rounded-full flex items-center justify-center text-green-800 hover:bg-green-100 transition-colors"
                           >
                             <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" d="M20 12H4"/>
@@ -108,7 +108,7 @@ const CartPage = () => {
                           
                           <button
                             onClick={() => handleQuantityChange(item.id, item.quantity + 1)}
-                            className="w-8 h-8 bg-white border border-green-200 rounded-full flex items-center justify-center text-green-800 hover:bg-green-200 transition-colors"
+                            className="w-8 h-8 bg-white border border-green-200 rounded-full flex items-center justify-center text-green-800 hover:bg-green-100 transition-colors"
                           >
                             <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4"/>
@@ -179,13 +179,13 @@ const CartPage = () => {
                 
                 <Link
                   to="/products"
-                  className="block w-full bg-white text-green-800 text-center py-3 px-6 rounded-xl font-semibold border-2 border-green-200 hover:border-green-300 hover:bg-green-200 transition-all duration-300"
+                  className="block w-full bg-white text-green-800 text-center py-3 px-6 rounded-xl font-semibold border-2 border-green-200 hover:border-green-300 hover:bg-green-100 transition-all duration-300"
                 >
                   Continue Shopping
                 </Link>
               </div>
 
-              <div className="mt-6 p-4 bg-green-200 rounded-xl">
+              <div className="mt-6 p-4 bg-green-100 rounded-xl">
                 <div className="flex items-center space-x-2 text-sm text-green-700">
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>

@@ -42,8 +42,8 @@ const Header = () => {
     <>
       <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled 
-          ? 'bg-green-200 backdrop-blur-md shadow-lg border-b border-green-200' 
-          : 'bg-green-200 backdrop-blur-sm'
+          ? 'bg-green-100 backdrop-blur-md shadow-lg border-b border-green-200' 
+          : 'bg-green-100 backdrop-blur-sm'
       }`}>
         <div className="container mx-auto px-4 md:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 md:h-20">
@@ -156,7 +156,7 @@ const Header = () => {
             </div>
             <button
               onClick={() => setIsMobileMenuOpen(false)}
-              className="p-2 rounded-lg hover:bg-green-200 transition-colors"
+              className="p-2 rounded-lg hover:bg-green-100 transition-colors"
             >
               <svg className="w-6 h-6 text-slate-600" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -177,7 +177,7 @@ const Header = () => {
                 <Link
                   key={index}
                   to={link.href}
-                  className="flex items-center space-x-4 p-4 rounded-xl hover:bg-green-200 transition-all duration-200 group"
+                  className="flex items-center space-x-4 p-4 rounded-xl hover:bg-green-100 transition-all duration-200 group"
                   onClick={() => {
                     setIsMobileMenuOpen(false);
                     scrollToTop();
@@ -224,14 +224,14 @@ const Header = () => {
               <div className="space-y-3">
                 <a
                   href="mailto:info@besserlifecare.com"
-                  className="flex items-center space-x-3 p-3 rounded-lg hover:bg-green-200 transition-colors"
+                  className="flex items-center space-x-3 p-3 rounded-lg hover:bg-green-100 transition-colors"
                 >
                   <span className="text-xl">📧</span>
                   <span className="text-slate-600">info@besserlifecare.com</span>
                 </a>
                 <a
                   href="tel:+919876543210"
-                  className="flex items-center space-x-3 p-3 rounded-lg hover:bg-green-200 transition-colors"
+                  className="flex items-center space-x-3 p-3 rounded-lg hover:bg-green-100 transition-colors"
                 >
                   <span className="text-xl">📞</span>
                   <span className="text-slate-600">+91 98765 43210</span>

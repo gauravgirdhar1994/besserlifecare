@@ -5,7 +5,7 @@ import Footer from './Footer';
 
 const AboutPage = () => {
   return (
-    <div className="bg-green-200 min-h-screen flex flex-col">
+    <div className="bg-green-100 min-h-screen flex flex-col">
       <Header />
       <div className="flex-1 bg-gradient-to-br from-green-50 via-white to-emerald-50 pt-24 pb-16">
       <div className="max-w-6xl mx-auto px-4 md:px-6 lg:px-8">

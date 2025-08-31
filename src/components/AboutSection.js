@@ -61,7 +61,7 @@ const AboutSection = () => {
     <section id="about" className="py-16 md:py-24 px-4 md:px-6 lg:px-8 bg-gradient-to-br from-green-50 via-slate-50 to-emerald-50 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 -z-10">
-        <div className="absolute top-20 right-10 w-24 h-24 md:w-32 md:h-32 bg-green-200/20 rounded-full blur-3xl"></div>
+        <div className="absolute top-20 right-10 w-24 h-24 md:w-32 md:h-32 bg-green-100/20 rounded-full blur-3xl"></div>
         <div className="absolute bottom-20 left-10 w-32 h-32 md:w-40 md:h-40 bg-emerald-200/20 rounded-full blur-3xl"></div>
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 md:w-96 md:h-96 bg-teal-200/10 rounded-full blur-3xl"></div>
       </div>
@@ -173,7 +173,7 @@ const AboutSection = () => {
                              <button className="w-full sm:w-auto bg-gradient-to-r from-green-800 to-emerald-500 text-white px-8 md:px-10 py-3 md:py-4 rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 touch-manipulation">
                  Explore Products
                </button>
-               <button className="w-full sm:w-auto bg-white text-green-800 px-8 md:px-10 py-3 md:py-4 rounded-xl font-semibold text-lg border-2 border-green-200 hover:border-green-300 hover:bg-green-200 transition-all duration-300 touch-manipulation">
+               <button className="w-full sm:w-auto bg-white text-green-800 px-8 md:px-10 py-3 md:py-4 rounded-xl font-semibold text-lg border-2 border-green-200 hover:border-green-300 hover:bg-green-100 transition-all duration-300 touch-manipulation">
                  Learn More
                </button>
             </div>

@@ -45,7 +45,7 @@ const ContactPage = () => {
   };
 
   return (
-    <div className="bg-green-200 min-h-screen flex flex-col">
+    <div className="bg-green-100 min-h-screen flex flex-col">
       <Header />
       <div className="flex-1 bg-gradient-to-br from-green-50 via-white to-emerald-50 pt-24 pb-16">
       <div className="max-w-6xl mx-auto px-4 md:px-6 lg:px-8">
@@ -158,7 +158,7 @@ const ContactPage = () => {
             </h2>
             
             {submitStatus === 'success' && (
-              <div className="mb-6 p-4 bg-green-200 border border-green-200 rounded-lg">
+              <div className="mb-6 p-4 bg-green-100 border border-green-200 rounded-lg">
                 <p className="text-green-800 text-center">
                   Thank you for your message! We'll get back to you within 24 hours.
                 </p>

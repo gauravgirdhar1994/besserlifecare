@@ -338,7 +338,7 @@ const Checkout = () => {
                   <div className="space-y-6">
                     <div>
                       <h3 className="text-lg font-semibold text-green-800 mb-3">Shipping Information</h3>
-                      <div className="bg-green-200 rounded-xl p-4">
+                      <div className="bg-green-100 rounded-xl p-4">
                         <p className="text-slate-700">
                           {formData.firstName} {formData.lastName}<br />
                           {formData.address}<br />
@@ -353,7 +353,7 @@ const Checkout = () => {
                       <h3 className="text-lg font-semibold text-green-800 mb-3">Order Items</h3>
                       <div className="space-y-3">
                         {items.map((item) => (
-                          <div key={item.id} className="flex items-center justify-between bg-green-200 rounded-xl p-4">
+                          <div key={item.id} className="flex items-center justify-between bg-green-100 rounded-xl p-4">
                             <div className="flex items-center space-x-3">
                               <div className="w-12 h-12 bg-gradient-to-br from-green-100 to-emerald-100 rounded-lg flex items-center justify-center">
                                 <img
@@ -385,7 +385,7 @@ const Checkout = () => {
                 {currentStep > 1 && (
                   <button
                     onClick={handlePrevStep}
-                    className="bg-white text-green-800 px-6 py-3 rounded-xl font-semibold border-2 border-green-200 hover:border-green-300 hover:bg-green-200 transition-all duration-300"
+                    className="bg-white text-green-800 px-6 py-3 rounded-xl font-semibold border-2 border-green-200 hover:border-green-300 hover:bg-green-100 transition-all duration-300"
                   >
                     Previous
                   </button>
@@ -449,7 +449,7 @@ const Checkout = () => {
                 </div>
               </div>
 
-              <div className="p-4 bg-green-200 rounded-xl">
+              <div className="p-4 bg-green-100 rounded-xl">
                 <div className="flex items-center space-x-2 text-sm text-green-700 mb-2">
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
