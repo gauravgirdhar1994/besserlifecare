@@ -45,9 +45,9 @@ const ContactPage = () => {
   };
 
   return (
-    <div className="bg-blue-50 min-h-screen flex flex-col">
+    <div className="bg-green-50 min-h-screen flex flex-col">
       <Header />
-      <div className="flex-1 bg-gradient-to-br from-blue-50 via-white to-sky-50 pt-24 pb-16">
+      <div className="flex-1 bg-gradient-to-br from-green-50 via-white to-emerald-50 pt-24 pb-16">
       <div className="max-w-6xl mx-auto px-4 md:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
@@ -94,7 +94,7 @@ const ContactPage = () => {
                   }
                 ].map((contact, index) => (
                   <div key={index} className="flex items-start space-x-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-blue-100 to-sky-100 rounded-full flex items-center justify-center flex-shrink-0">
+                    <div className="w-12 h-12 bg-gradient-to-br from-green-100 to-emerald-100 rounded-full flex items-center justify-center flex-shrink-0">
                       <span className="text-xl">{contact.icon}</span>
                     </div>
                     <div className="flex-1">
@@ -107,7 +107,7 @@ const ContactPage = () => {
                       {contact.action && (
                         <a
                           href={contact.action}
-                          className="inline-block mt-2 text-blue-600 hover:text-blue-700 font-medium text-sm"
+                          className="inline-block mt-2 text-green-600 hover:text-green-700 font-medium text-sm"
                         >
                           {contact.title === "Email" ? "Send Email" : "Call Now"}
                         </a>
@@ -142,7 +142,7 @@ const ContactPage = () => {
                     answer: "Currently, we only ship within India. International shipping will be available soon."
                   }
                 ].map((faq, index) => (
-                  <div key={index} className="border-l-4 border-blue-200 pl-4">
+                  <div key={index} className="border-l-4 border-green-200 pl-4">
                     <h3 className="font-semibold text-slate-800 mb-2">{faq.question}</h3>
                     <p className="text-slate-600 text-sm">{faq.answer}</p>
                   </div>
@@ -178,7 +178,7 @@ const ContactPage = () => {
                     value={formData.name}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all duration-300"
+                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-green-400 focus:border-transparent transition-all duration-300"
                     placeholder="Enter your full name"
                   />
                 </div>
@@ -193,7 +193,7 @@ const ContactPage = () => {
                     value={formData.email}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all duration-300"
+                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-green-400 focus:border-transparent transition-all duration-300"
                     placeholder="Enter your email"
                   />
                 </div>
@@ -210,7 +210,7 @@ const ContactPage = () => {
                     name="phone"
                     value={formData.phone}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all duration-300"
+                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-green-400 focus:border-transparent transition-all duration-300"
                     placeholder="Enter your phone number"
                   />
                 </div>
@@ -224,7 +224,7 @@ const ContactPage = () => {
                     value={formData.subject}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all duration-300"
+                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-green-400 focus:border-transparent transition-all duration-300"
                   >
                     <option value="">Select a subject</option>
                     <option value="product-inquiry">Product Inquiry</option>
@@ -248,7 +248,7 @@ const ContactPage = () => {
                   onChange={handleInputChange}
                   required
                   rows={6}
-                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all duration-300 resize-none"
+                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-green-400 focus:border-transparent transition-all duration-300 resize-none"
                   placeholder="Tell us how we can help you..."
                 />
               </div>
@@ -256,7 +256,7 @@ const ContactPage = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-gradient-to-r from-blue-500 to-sky-500 text-white py-3 px-6 rounded-lg font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+                className="w-full bg-gradient-to-r from-green-500 to-emerald-500 text-white py-3 px-6 rounded-lg font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
               >
                 {isSubmitting ? 'Sending Message...' : 'Send Message'}
               </button>

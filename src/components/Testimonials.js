@@ -80,17 +80,17 @@ const Testimonials = () => {
   };
 
   return (
-    <section className="py-16 md:py-24 px-4 md:px-6 lg:px-8 bg-gradient-to-br from-blue-50 via-white to-sky-50 relative overflow-hidden">
+    <section className="py-16 md:py-24 px-4 md:px-6 lg:px-8 bg-gradient-to-br from-green-50 via-white to-emerald-50 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 -z-10">
-        <div className="absolute top-20 left-10 w-24 h-24 md:w-32 md:h-32 bg-blue-200/20 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-10 w-32 h-32 md:w-40 md:h-40 bg-sky-200/20 rounded-full blur-3xl"></div>
+        <div className="absolute top-20 left-10 w-24 h-24 md:w-32 md:h-32 bg-green-200/20 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-10 w-32 h-32 md:w-40 md:h-40 bg-emerald-200/20 rounded-full blur-3xl"></div>
       </div>
 
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-3xl md:text-5xl font-display font-bold text-blue-900 mb-4 md:mb-6">
+          <h2 className="text-3xl md:text-5xl font-display font-bold text-green-900 mb-4 md:mb-6">
             What Our Customers Say
           </h2>
           <p className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed px-4">
@@ -101,9 +101,9 @@ const Testimonials = () => {
 
         {/* Main Testimonial */}
         <div className="relative mb-12 md:mb-16">
-                     <div className="bg-gradient-to-br from-blue-50 via-white to-sky-50 rounded-2xl md:rounded-3xl p-6 md:p-8 lg:p-12 shadow-2xl border border-blue-100 relative overflow-hidden">
+                     <div className="bg-gradient-to-br from-green-50 via-white to-emerald-50 rounded-2xl md:rounded-3xl p-6 md:p-8 lg:p-12 shadow-2xl border border-green-100 relative overflow-hidden">
              {/* Quote Icon */}
-             <div className="absolute top-4 md:top-6 right-4 md:right-6 text-6xl md:text-8xl text-blue-200/50">
+             <div className="absolute top-4 md:top-6 right-4 md:right-6 text-6xl md:text-8xl text-green-200/50">
                "
              </div>
 
@@ -115,11 +115,11 @@ const Testimonials = () => {
                 </div>
                 <div className="flex-1">
                   <div className="flex items-center space-x-2 mb-1">
-                                         <h3 className="text-lg md:text-xl font-display font-semibold text-blue-800">
+                                         <h3 className="text-lg md:text-xl font-display font-semibold text-green-800">
                        {testimonials[currentIndex].name}
                      </h3>
                      {testimonials[currentIndex].verified && (
-                       <span className="text-blue-500 text-sm">✓ Verified</span>
+                       <span className="text-green-500 text-sm">✓ Verified</span>
                      )}
                   </div>
                   <p className="text-sm md:text-base text-slate-600">
@@ -146,7 +146,7 @@ const Testimonials = () => {
               </blockquote>
 
               {/* Product Used */}
-                             <div className="bg-white/60 backdrop-blur-sm rounded-xl p-3 md:p-4 border border-blue-100">
+                             <div className="bg-white/60 backdrop-blur-sm rounded-xl p-3 md:p-4 border border-green-100">
                 <p className="text-sm md:text-base text-slate-600">
                   <span className="font-medium">Product used:</span> {testimonials[currentIndex].product}
                 </p>
@@ -157,7 +157,7 @@ const Testimonials = () => {
           {/* Navigation Arrows */}
                      <button
              onClick={prevSlide}
-             className="absolute left-2 md:left-4 top-1/2 transform -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 bg-white/80 backdrop-blur-sm rounded-full shadow-lg border border-blue-200 text-blue-600 hover:bg-blue-50 transition-all duration-300 flex items-center justify-center touch-manipulation"
+             className="absolute left-2 md:left-4 top-1/2 transform -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 bg-white/80 backdrop-blur-sm rounded-full shadow-lg border border-green-200 text-green-600 hover:bg-green-50 transition-all duration-300 flex items-center justify-center touch-manipulation"
            >
              <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7"/>
@@ -166,7 +166,7 @@ const Testimonials = () => {
 
            <button
              onClick={nextSlide}
-             className="absolute right-2 md:right-4 top-1/2 transform -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 bg-white/80 backdrop-blur-sm rounded-full shadow-lg border border-blue-200 text-blue-600 hover:bg-blue-50 transition-all duration-300 flex items-center justify-center touch-manipulation"
+             className="absolute right-2 md:right-4 top-1/2 transform -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 bg-white/80 backdrop-blur-sm rounded-full shadow-lg border border-green-200 text-green-600 hover:bg-green-50 transition-all duration-300 flex items-center justify-center touch-manipulation"
            >
              <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7"/>
@@ -181,16 +181,16 @@ const Testimonials = () => {
               key={index}
               onClick={() => goToSlide(index)}
                              className={`w-2 h-2 md:w-3 md:h-3 rounded-full transition-all duration-300 ${
-                 index === currentIndex ? 'bg-blue-500 w-4 md:w-6' : 'bg-blue-200'
+                 index === currentIndex ? 'bg-green-500 w-4 md:w-6' : 'bg-green-200'
                }`}
             />
           ))}
         </div>
 
         {/* Progress Bar */}
-                 <div className="w-full bg-blue-100 rounded-full h-1 md:h-2 mb-8 md:mb-12">
+                 <div className="w-full bg-green-100 rounded-full h-1 md:h-2 mb-8 md:mb-12">
            <div
-             className="bg-gradient-to-r from-blue-500 to-sky-500 h-full rounded-full transition-all duration-1000 ease-out"
+             className="bg-gradient-to-r from-green-500 to-emerald-500 h-full rounded-full transition-all duration-1000 ease-out"
             style={{
               width: `${((currentIndex + 1) / testimonials.length) * 100}%`
             }}
@@ -206,7 +206,7 @@ const Testimonials = () => {
             { number: "24/7", label: "Customer Support" }
           ].map((stat, index) => (
             <div key={index} className="text-center">
-                               <div className="text-2xl md:text-3xl lg:text-4xl font-display font-bold text-blue-800 mb-1 md:mb-2">
+                               <div className="text-2xl md:text-3xl lg:text-4xl font-display font-bold text-green-800 mb-1 md:mb-2">
                    {stat.number}
                  </div>
               <div className="text-xs md:text-sm text-slate-600 font-medium">
@@ -218,8 +218,8 @@ const Testimonials = () => {
 
         {/* Call to Action */}
         <div className="text-center">
-                     <div className="bg-white/80 backdrop-blur-sm rounded-2xl md:rounded-3xl p-6 md:p-8 shadow-xl border border-blue-100 max-w-4xl mx-auto">
-             <h3 className="text-2xl md:text-3xl font-display font-bold text-blue-800 mb-4 md:mb-6">
+                     <div className="bg-white/80 backdrop-blur-sm rounded-2xl md:rounded-3xl p-6 md:p-8 shadow-xl border border-green-100 max-w-4xl mx-auto">
+             <h3 className="text-2xl md:text-3xl font-display font-bold text-green-800 mb-4 md:mb-6">
                Join Our Happy Customers
              </h3>
             <p className="text-base md:text-lg text-slate-600 mb-6 md:mb-8 max-w-2xl mx-auto px-4">
@@ -227,10 +227,10 @@ const Testimonials = () => {
               Start your journey today!
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6">
-                             <button className="w-full sm:w-auto bg-gradient-to-r from-blue-500 to-sky-500 text-white px-8 md:px-10 py-3 md:py-4 rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 touch-manipulation">
+                             <button className="w-full sm:w-auto bg-gradient-to-r from-green-500 to-emerald-500 text-white px-8 md:px-10 py-3 md:py-4 rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 touch-manipulation">
                  Shop Now
                </button>
-               <button className="w-full sm:w-auto bg-white text-blue-600 px-8 md:px-10 py-3 md:py-4 rounded-xl font-semibold text-lg border-2 border-blue-200 hover:border-blue-300 hover:bg-blue-50 transition-all duration-300 touch-manipulation">
+               <button className="w-full sm:w-auto bg-white text-green-600 px-8 md:px-10 py-3 md:py-4 rounded-xl font-semibold text-lg border-2 border-green-200 hover:border-green-300 hover:bg-green-50 transition-all duration-300 touch-manipulation">
                  Read More Reviews
                </button>
             </div>

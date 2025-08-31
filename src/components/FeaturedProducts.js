@@ -67,17 +67,17 @@ const FeaturedProducts = () => {
   };
 
   return (
-    <section id="products" className="py-16 md:py-24 px-4 md:px-6 lg:px-8 bg-gradient-to-br from-blue-50 via-slate-50 to-sky-50 relative overflow-hidden">
+    <section id="products" className="py-16 md:py-24 px-4 md:px-6 lg:px-8 bg-gradient-to-br from-green-50 via-slate-50 to-emerald-50 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 -z-10">
-        <div className="absolute top-20 right-10 w-32 h-32 bg-blue-200/20 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 left-10 w-40 h-40 bg-sky-200/20 rounded-full blur-3xl"></div>
+                 <div className="absolute top-20 right-10 w-32 h-32 bg-green-200/20 rounded-full blur-3xl"></div>
+                 <div className="absolute bottom-20 left-10 w-40 h-40 bg-emerald-200/20 rounded-full blur-3xl"></div>
       </div>
 
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-3xl md:text-5xl font-display font-bold text-blue-900 mb-4 md:mb-6">
+                     <h2 className="text-3xl md:text-5xl font-display font-bold text-green-900 mb-4 md:mb-6">
             Featured Products
           </h2>
           <p className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed px-4">
@@ -91,20 +91,20 @@ const FeaturedProducts = () => {
           {products.map((product) => (
             <div
               key={product.id}
-              className="bg-white/80 backdrop-blur-sm rounded-2xl p-4 md:p-6 shadow-lg border border-blue-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group relative overflow-hidden"
+                             className="bg-white/80 backdrop-blur-sm rounded-2xl p-4 md:p-6 shadow-lg border border-green-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group relative overflow-hidden"
               onMouseEnter={() => setHoveredProduct(product.id)}
               onMouseLeave={() => setHoveredProduct(null)}
             >
               {/* Discount Badge */}
               <div className="absolute top-3 left-3 z-10">
-                <span className="bg-blue-500 text-white text-xs font-bold px-2 py-1 rounded-full">
+                                 <span className="bg-green-500 text-white text-xs font-bold px-2 py-1 rounded-full">
                   {product.discount}
                 </span>
               </div>
 
               {/* Product Image */}
               <div className="relative mb-4 md:mb-6">
-                                 <div className="aspect-square bg-gradient-to-br from-blue-50 to-sky-50 rounded-xl overflow-hidden">
+                                 <div className="aspect-square bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl overflow-hidden">
                   <img
                     src={product.image}
                     alt={product.name}
@@ -117,7 +117,7 @@ const FeaturedProducts = () => {
                   <div className="absolute inset-0 bg-black/50 flex items-center justify-center rounded-xl">
                                          <Link
                        to={`/product/${product.id}`}
-                       className="bg-white text-blue-600 px-4 py-2 rounded-lg font-semibold hover:bg-blue-50 transition-colors touch-manipulation"
+                       className="bg-white text-green-600 px-4 py-2 rounded-lg font-semibold hover:bg-green-50 transition-colors touch-manipulation"
                      >
                        View Details
                      </Link>
@@ -129,7 +129,7 @@ const FeaturedProducts = () => {
               <div className="space-y-3 md:space-y-4">
                 {/* Category */}
                 <div className="flex items-center justify-between">
-                                     <span className="text-xs md:text-sm text-blue-600 font-medium bg-blue-50 px-2 py-1 rounded-full">
+                                     <span className="text-xs md:text-sm text-green-600 font-medium bg-green-50 px-2 py-1 rounded-full">
                      {product.category}
                    </span>
                   <div className="flex items-center space-x-1">
@@ -142,7 +142,7 @@ const FeaturedProducts = () => {
                 {/* Product Name */}
                                  <Link 
                    to={`/product/${product.id}`}
-                   className="block text-base md:text-lg font-display font-semibold text-blue-800 leading-tight line-clamp-2 hover:text-blue-600 transition-colors"
+                   className="block text-base md:text-lg font-display font-semibold text-green-800 leading-tight line-clamp-2 hover:text-green-600 transition-colors"
                  >
                    {product.name}
                  </Link>
@@ -162,7 +162,7 @@ const FeaturedProducts = () => {
 
                 {/* Price */}
                 <div className="flex items-center space-x-2">
-                                     <span className="text-lg md:text-xl font-bold text-blue-600">{product.price}</span>
+                                     <span className="text-lg md:text-xl font-bold text-green-600">{product.price}</span>
                   <span className="text-sm text-slate-400 line-through">{product.originalPrice}</span>
                 </div>
 
@@ -170,13 +170,13 @@ const FeaturedProducts = () => {
                 <div className="flex space-x-2">
                                      <button 
                      onClick={() => handleAddToCart(product)}
-                     className="flex-1 bg-blue-500 text-white py-2 md:py-3 px-3 md:px-4 rounded-lg font-semibold hover:bg-blue-600 transition-colors text-sm touch-manipulation"
+                     className="flex-1 bg-green-500 text-white py-2 md:py-3 px-3 md:px-4 rounded-lg font-semibold hover:bg-green-600 transition-colors text-sm touch-manipulation"
                    >
                      Add to Cart
                    </button>
                                      <Link
                      to={`/product/${product.id}`}
-                     className="w-10 h-10 md:w-12 md:h-12 bg-white border border-blue-200 text-blue-600 rounded-lg hover:bg-blue-50 transition-colors flex items-center justify-center touch-manipulation"
+                     className="w-10 h-10 md:w-12 md:h-12 bg-white border border-green-200 text-green-600 rounded-lg hover:bg-green-50 transition-colors flex items-center justify-center touch-manipulation"
                    >
                     <svg className="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
@@ -191,8 +191,8 @@ const FeaturedProducts = () => {
 
         {/* Call to Action */}
         <div className="text-center">
-                     <div className="bg-white/80 backdrop-blur-sm rounded-2xl md:rounded-3xl p-6 md:p-8 shadow-xl border border-blue-100 max-w-4xl mx-auto">
-             <h3 className="text-2xl md:text-3xl font-display font-bold text-blue-800 mb-4 md:mb-6">
+                     <div className="bg-white/80 backdrop-blur-sm rounded-2xl md:rounded-3xl p-6 md:p-8 shadow-xl border border-green-100 max-w-4xl mx-auto">
+             <h3 className="text-2xl md:text-3xl font-display font-bold text-green-800 mb-4 md:mb-6">
                Ready to Transform Your Wellness?
              </h3>
             <p className="text-base md:text-lg text-slate-600 mb-6 md:mb-8 max-w-2xl mx-auto px-4">
@@ -201,13 +201,13 @@ const FeaturedProducts = () => {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6">
                              <Link
                  to="/#products"
-                 className="w-full sm:w-auto bg-gradient-to-r from-blue-500 to-sky-500 text-white px-8 md:px-10 py-3 md:py-4 rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 touch-manipulation"
+                 className="w-full sm:w-auto bg-gradient-to-r from-green-500 to-emerald-500 text-white px-8 md:px-10 py-3 md:py-4 rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 touch-manipulation"
                >
                  Shop All Products
                </Link>
                <Link
                  to="/about"
-                 className="w-full sm:w-auto bg-white text-blue-600 px-8 md:px-10 py-3 md:py-4 rounded-xl font-semibold text-lg border-2 border-blue-200 hover:border-blue-300 hover:bg-blue-50 transition-all duration-300 touch-manipulation"
+                 className="w-full sm:w-auto bg-white text-green-600 px-8 md:px-10 py-3 md:py-4 rounded-xl font-semibold text-lg border-2 border-green-200 hover:border-green-300 hover:bg-green-50 transition-all duration-300 touch-manipulation"
                >
                  Learn More
                </Link>
