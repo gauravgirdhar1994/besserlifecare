@@ -197,25 +197,7 @@ const Testimonials = () => {
           />
         </div>
 
-        {/* Statistics */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 mb-12 md:mb-16">
-          {[
-            { number: "10K+", label: "Happy Customers" },
-            { number: "4.9/5", label: "Average Rating" },
-            { number: "98%", label: "Satisfaction Rate" },
-            { number: "24/7", label: "Customer Support" }
-          ].map((stat, index) => (
-            <div key={index} className="text-center">
-                               <div className="text-2xl md:text-3xl lg:text-4xl font-display font-bold text-green-800 mb-1 md:mb-2">
-                   {stat.number}
-                 </div>
-              <div className="text-xs md:text-sm text-slate-600 font-medium">
-                {stat.label}
-              </div>
-            </div>
-          ))}
-        </div>
-
+       
         {/* Call to Action */}
         <div className="text-center">
                      <div className="bg-white/80 backdrop-blur-sm rounded-2xl md:rounded-3xl p-6 md:p-8 shadow-xl border border-green-100 max-w-4xl mx-auto">

@@ -85,9 +85,11 @@ const AboutSection = () => {
             <h3 className="text-2xl md:text-3xl font-display font-bold text-green-800 mb-3 md:mb-4">
               Our Mission
             </h3>
+
             <p className="text-sm md:text-base text-slate-600 leading-relaxed">
-              To empower individuals with natural, effective wellness solutions that enhance their quality of life, 
-              while promoting sustainable practices and ethical business standards.
+            At Besser Life Care, our mission is to empower healthier lives through safe, effective, and science-backed herbal formulations. We are committed to blending the ancient wisdom of Ayurveda with modern research to create natural solutions that support holistic well-being.
+
+We strive to deliver quality, purity, and trust in every product, ensuring that consumers can experience the true healing power of nature. Guided by innovation, integrity, and compassion, we aim to make herbal healthcare accessible, reliable, and sustainable for everyone.
             </p>
           </div>
 
@@ -97,8 +99,9 @@ const AboutSection = () => {
               Our Vision
             </h3>
             <p className="text-sm md:text-base text-slate-600 leading-relaxed">
-              To become the leading provider of natural wellness products in India, setting industry standards 
-              for quality, innovation, and customer satisfaction.
+            At Besser Life Care, our vision is to be the pioneer in herbal healthcare innovation, where science meets tradition to create exceptional products that redefine wellness. We aim to empower individuals with high-quality, safe, and effective herbal solutions that not only enhance their health but also restore harmony with nature.
+
+Through research, collaboration, and a commitment to sustainability, we strive to be a leading herbal healthcare provider globally. Delivering trusted, innovative, and sustainable solutions that help people live healthier, happier, and longer lives—naturally. 
             </p>
           </div>
         </div>
@@ -129,35 +132,7 @@ const AboutSection = () => {
         </div>
 
      
-        {/* Company Achievements */}
-        <div className="mb-16 md:mb-20">
-                     <h3 className="text-2xl md:text-3xl font-display font-bold text-green-800 text-center mb-8 md:mb-12">
-             Our Achievements
-           </h3>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-            {[
-              { number: "50+", label: "Products", icon: "🌿" },
-              { number: "100K+", label: "Happy Customers", icon: "😊" },
-              { number: "25+", label: "Cities Served", icon: "🏙️" },
-              { number: "4.9/5", label: "Customer Rating", icon: "⭐" }
-            ].map((achievement, index) => (
-              <div
-                key={index}
-                className="bg-white/80 backdrop-blur-sm rounded-2xl p-4 md:p-6 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group"
-              >
-                <div className="text-3xl md:text-4xl mb-2 md:mb-3 group-hover:scale-110 transition-transform duration-300">
-                  {achievement.icon}
-                </div>
-                                 <div className="text-2xl md:text-3xl lg:text-4xl font-display font-bold text-green-800 mb-1 md:mb-2">
-                   {achievement.number}
-                 </div>
-                <div className="text-sm md:text-base text-slate-600 font-medium">
-                  {achievement.label}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
+      
 
         {/* Call to Action */}
         <div className="text-center">

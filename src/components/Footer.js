@@ -22,12 +22,7 @@ const Footer = () => {
           {/* Company Info */}
           <div className="lg:col-span-1">
             <div className="flex items-center space-x-2 md:space-x-3 mb-4 md:mb-6">
-              <div className="w-8 h-8 md:w-10 md:h-10 bg-gradient-to-br from-green-400 to-emerald-400 rounded-full flex items-center justify-center shadow-lg">
-                <span className="text-white text-lg md:text-xl font-bold">🌿</span>
-              </div>
-              <span className="text-lg md:text-xl font-display font-bold text-white">
-                Besser Life Care
-              </span>
+             <img src="/logo-white.png" alt="Besser Life Care Logo" width={150} height={20} />
             </div>
             <p className="text-sm md:text-base text-slate-300 leading-relaxed mb-4 md:mb-6">
               Empowering your wellness journey with premium natural products crafted with care and backed by science.

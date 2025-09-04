@@ -49,12 +49,7 @@ const Header = () => {
           <div className="flex items-center justify-between h-16 md:h-20">
             {/* Logo */}
             <Link to="/" onClick={scrollToTop} className="flex items-center space-x-2 md:space-x-3 group">
-              <div className="w-8 h-8 md:w-10 md:h-10 bg-gradient-to-br from-green-400 to-emerald-400 rounded-full flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300">
-                <span className="text-white text-lg md:text-xl font-bold">🌿</span>
-              </div>
-              <span className="text-lg md:text-xl font-display font-bold text-green-800 group-hover:text-green-800 transition-colors">
-                Besser Life Care
-              </span>
+              <img src="/logo-white.png" alt="Besser Life Care Logo" width={150} height={20} />
             </Link>
 
             {/* Desktop Navigation */}

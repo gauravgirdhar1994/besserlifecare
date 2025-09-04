@@ -97,17 +97,17 @@ const LandingPage = () => {
               <h1 className={`text-5xl md:text-6xl lg:text-7xl font-display font-bold leading-tight transition-all duration-1000 delay-700 ${
                 isVisible.hero ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}>
-                <span className="block text-green-800">Empowering</span>
-                <span className="block text-green-800">Women's Wellness</span>
-                <span className="block text-4xl md:text-5xl lg:text-6xl text-slate-700 mt-2">with Herbal Care</span>
+                <span className="block text-green-800">Besser Life Care</span>
+                <span className="block text-green-800">Your Partner in</span>
+                <span className="block text-4xl md:text-5xl lg:text-6xl text-slate-700 mt-2">Natural Healing</span>
               </h1>
               
               {/* Description with staggered animation */}
               <p className={`text-xl md:text-2xl text-slate-600 max-w-2xl mx-auto lg:mx-0 leading-relaxed transition-all duration-1000 delay-900 ${
                 isVisible.hero ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}>
-                Discover the transformative power of nature with our carefully crafted herbal products,
-                designed specifically for women's unique wellness journey.
+                Discover the transformative power of nature with our carefully crafted products .Each product we create is rooted in Ayurveda, validated by modern research, and crafted with care to help you live healthier, longer, and better.
+                With Besser Life Care, you’re not just choosing a product—you’re choosing a promise of better living through nature’s healing power.
               </p>
               
               {/* CTA Buttons with staggered animation */}
