@@ -305,10 +305,10 @@ const ProductPage = () => {
                   items={galleryImages}
                   showThumbnails={true}
                   showPlayButton={false}
-                  showFullscreenButton={true}
-                  showBullets={false}
+                  showFullscreenButton={false}
+                  showBullets={true}
                   showNav={true}
-                  autoPlay={false}
+                  autoPlay={true}
                   slideInterval={10000}
                   slideDuration={500}
                   thumbnailPosition="bottom"
@@ -402,7 +402,7 @@ const ProductPage = () => {
                       <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
                       </svg>
-                      <span>Easy Returns</span>
+                      {/* <span>Easy Returns</span> */}
                     </span>
                   </div>
                 </div>
@@ -417,7 +417,7 @@ const ProductPage = () => {
                         <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
                       </svg>
                     </div>
-                    <span className="text-sm font-medium text-slate-700">30-Day Returns</span>
+                    {/* <span className="text-sm font-medium text-slate-700">30-Day Returns</span> */}
                   </div>
                   <div className="flex flex-col items-center space-y-2">
                     <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
@@ -441,7 +441,7 @@ const ProductPage = () => {
                   { id: 'how-it-works', label: 'How It Works' },
                   { id: 'ingredients', label: 'Ingredients' },
                   { id: 'specifications', label: 'Specifications' },
-                  { id: 'reviews', label: 'Reviews' }
+                  // { id: 'reviews', label: 'Reviews' }
                 ].map((tab) => (
                   <button
                     key={tab.id}

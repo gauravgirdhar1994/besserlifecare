@@ -173,13 +173,13 @@ const Footer = () => {
                >
                  Shipping Policy
                </Link>
-               <Link
+               {/* <Link
                  to="/return-refund-policy"
                  onClick={scrollToTop}
                  className="text-slate-400 hover:text-green-400 transition-colors duration-200 touch-manipulation"
                >
                  Return Policy
-               </Link>
+               </Link> */}
              </div>
           </div>
         </div>
