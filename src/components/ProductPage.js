@@ -174,14 +174,26 @@ const ProductPage = () => {
     
     // Store current scroll position
     const currentScrollY = window.scrollY;
+    const currentScrollX = window.scrollX;
     
     // Update active tab
     setActiveTab(tabId);
     
-    // Restore scroll position after state update
-    setTimeout(() => {
-      window.scrollTo(0, currentScrollY);
-    }, 0);
+    // Use requestAnimationFrame for better mobile compatibility
+    requestAnimationFrame(() => {
+      // Restore scroll position immediately
+      window.scrollTo(currentScrollX, currentScrollY);
+      
+      // Additional restoration after a short delay for mobile
+      setTimeout(() => {
+        window.scrollTo(currentScrollX, currentScrollY);
+      }, 10);
+      
+      // Final restoration for stubborn mobile browsers
+      setTimeout(() => {
+        window.scrollTo(currentScrollX, currentScrollY);
+      }, 100);
+    });
     
     return false;
   };
@@ -398,26 +410,26 @@ const ProductPage = () => {
                       </svg>
                       <span>Prime Delivery</span>
                     </span>
-                    <span className="flex items-center space-x-1">
+                    {/* <span className="flex items-center space-x-1">
                       <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
                       </svg>
-                      {/* <span>Easy Returns</span> */}
-                    </span>
+                      <span>Easy Returns</span>
+                    </span> */}
                   </div>
                 </div>
               </div>
 
               {/* Trust Indicators */}
               <div className="bg-white/60 backdrop-blur-sm rounded-xl p-4 border border-green-100">
-                <div className="grid grid-cols-2 gap-4 text-center">
+                <div className="grid grid-cols-1 gap-4 text-center">
                   <div className="flex flex-col items-center space-y-2">
-                    <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
+                    {/* <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
                       <svg className="w-5 h-5 text-green-800" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
                       </svg>
                     </div>
-                    {/* <span className="text-sm font-medium text-slate-700">30-Day Returns</span> */}
+                    <span className="text-sm font-medium text-slate-700">30-Day Returns</span> */}
                   </div>
                   <div className="flex flex-col items-center space-y-2">
                     <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
@@ -433,7 +445,7 @@ const ProductPage = () => {
           </div>
 
           {/* Product Tabs */}
-          <div className="mt-20">
+          <div className="mt-20 product-tabs-container">
             <div className="border-b border-green-200 mb-8">
               <div className="flex space-x-1 sm:space-x-2 md:space-x-8 overflow-x-auto pb-2 scrollbar-hide" role="tablist">
                 {[
@@ -448,6 +460,7 @@ const ProductPage = () => {
                     onClick={(e) => handleTabClick(tab.id, e)}
                     onMouseDown={(e) => e.preventDefault()}
                     onTouchStart={(e) => e.preventDefault()}
+                    onTouchEnd={(e) => e.preventDefault()}
                     type="button"
                     role="tab"
                     aria-selected={activeTab === tab.id}
