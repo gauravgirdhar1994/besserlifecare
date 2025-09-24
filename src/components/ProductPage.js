@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import ImageGallery from 'react-image-gallery';
 import 'react-image-gallery/styles/css/image-gallery.css';
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import 'react-tabs/style/react-tabs.css';
 import { trackProductView } from '../utils/analytics';
 import Header from './Header';
 import Footer from './Footer';
@@ -10,7 +12,6 @@ import Footer from './Footer';
 const ProductPage = () => {
   const { productName } = useParams();
   const navigate = useNavigate();
-  const [activeTab, setActiveTab] = useState('description');
 
   // Product data array
   const products = [
@@ -162,41 +163,6 @@ const ProductPage = () => {
     thumbnailAlt: product.name
   }));
 
-  // Handle tab click with scroll prevention
-  const handleTabClick = (tabId, e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    
-    // Safely call stopImmediatePropagation if available
-    if (e.stopImmediatePropagation) {
-      e.stopImmediatePropagation();
-    }
-    
-    // Store current scroll position
-    const currentScrollY = window.scrollY;
-    const currentScrollX = window.scrollX;
-    
-    // Update active tab
-    setActiveTab(tabId);
-    
-    // Use requestAnimationFrame for better mobile compatibility
-    requestAnimationFrame(() => {
-      // Restore scroll position immediately
-      window.scrollTo(currentScrollX, currentScrollY);
-      
-      // Additional restoration after a short delay for mobile
-      setTimeout(() => {
-        window.scrollTo(currentScrollX, currentScrollY);
-      }, 10);
-      
-      // Final restoration for stubborn mobile browsers
-      setTimeout(() => {
-        window.scrollTo(currentScrollX, currentScrollY);
-      }, 100);
-    });
-    
-    return false;
-  };
 
 
   return (
@@ -446,184 +412,133 @@ const ProductPage = () => {
 
           {/* Product Tabs */}
           <div className="mt-20 product-tabs-container">
-            <div className="border-b border-green-200 mb-8">
-              <div className="flex space-x-1 sm:space-x-2 md:space-x-8 overflow-x-auto pb-2 scrollbar-hide" role="tablist">
-                {[
-                  { id: 'description', label: 'Description' },
-                  { id: 'how-it-works', label: 'How It Works' },
-                  { id: 'ingredients', label: 'Ingredients' },
-                  { id: 'specifications', label: 'Specifications' },
-                  // { id: 'reviews', label: 'Reviews' }
-                ].map((tab) => (
-                  <button
-                    key={tab.id}
-                    onClick={(e) => handleTabClick(tab.id, e)}
-                    onMouseDown={(e) => e.preventDefault()}
-                    onTouchStart={(e) => e.preventDefault()}
-                    onTouchEnd={(e) => e.preventDefault()}
-                    type="button"
-                    role="tab"
-                    aria-selected={activeTab === tab.id}
-                    tabIndex={activeTab === tab.id ? 0 : -1}
-                    className={`py-3 px-2 sm:px-3 md:px-1 border-b-2 font-medium text-xs sm:text-sm transition-colors whitespace-nowrap flex-shrink-0 touch-manipulation focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 ${
-                      activeTab === tab.id
-                        ? 'border-green-500 text-green-800'
-                        : 'border-transparent text-slate-500 hover:text-slate-700 active:text-slate-700'
-                    }`}
-                  >
-                    <span className="block">
-                      {tab.label.split(' ').map((word, index) => (
-                        <span key={index} className="block sm:inline">
-                          {word}
-                          {index < tab.label.split(' ').length - 1 && (
-                            <span className="hidden sm:inline"> </span>
-                          )}
-                        </span>
-                      ))}
-                    </span>
-                  </button>
-                ))}
-              </div>
-            </div>
+            <Tabs className="custom-tabs">
+              <TabList className="custom-tab-list">
+                <Tab className="custom-tab">Description</Tab>
+                <Tab className="custom-tab">How It Works</Tab>
+                <Tab className="custom-tab">Ingredients</Tab>
+                <Tab className="custom-tab">Specifications</Tab>
+              </TabList>
 
-            <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-green-100">
-              {/* Description Tab */}
-              {activeTab === 'description' && (
-                <div className="space-y-6">
-                  <h3 className="text-2xl font-display font-semibold text-green-800 mb-4">
-                    Product Description
-                  </h3>
-                  <p className="text-slate-600 leading-relaxed text-lg">
-                    {product.description}
-                  </p>
-                  
-                  <p className="text-slate-600 leading-relaxed text-lg">
-                    {product.detailedDescription}
-                  </p>
-                  
-                  <div>
-                    <h4 className="text-xl font-semibold text-green-800 mb-3">Key Benefits</h4>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                      {product.keyBenefits.map((benefit, index) => (
-                        <div key={index} className="flex items-center space-x-3">
-                          <div className="w-2 h-2 bg-green-400 rounded-full"></div>
-                          <span className="text-slate-600">{benefit}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div>
-                    <h4 className="text-xl font-semibold text-green-800 mb-3">Why Choose Besser Livomrit?</h4>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                      {product.whyChoose.map((reason, index) => (
-                        <div key={index} className="flex items-center space-x-3">
-                          <div className="w-2 h-2 bg-green-400 rounded-full"></div>
-                          <span className="text-slate-600">{reason}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              {/* How It Works Tab */}
-              {activeTab === 'how-it-works' && (
-                <div className="space-y-6">
-                  <h3 className="text-2xl font-display font-semibold text-green-800 mb-4">
-                    How Besser Livomrit Works
-                  </h3>
-                  <div className="space-y-4">
-                    {product.howItWorks.map((mechanism, index) => (
-                      <div key={index} className="bg-green-50 rounded-xl p-6 border border-green-100">
-                        <h4 className="text-lg font-semibold text-green-800 mb-2">
-                          {mechanism.split(':')[0]}
-                        </h4>
-                        <p className="text-slate-600 leading-relaxed">
-                          {mechanism.split(':')[1]}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {/* Ingredients Tab */}
-              {activeTab === 'ingredients' && (
-                <div className="space-y-6">
-                  <h3 className="text-2xl font-display font-semibold text-green-800 mb-4">
-                    Ayurvedic Ingredients
-                  </h3>
-                  <p className="text-slate-600 leading-relaxed">
-                    Besser Livomrit contains carefully selected time-tested Ayurvedic herbs, each chosen for their specific liver health benefits and synergistic properties.
-                  </p>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {product.ingredients.map((ingredient, index) => (
-                      <div key={index} className="bg-green-100 rounded-xl p-4 border border-green-100">
-                        <h4 className="font-semibold text-green-800 mb-2">{ingredient}</h4>
-                        <p className="text-sm text-slate-600">
-                          Traditional Ayurvedic herb known for its liver protective and detoxifying properties
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-
-              {/* Specifications Tab */}
-              {activeTab === 'specifications' && (
-                <div className="space-y-6">
-                  <h3 className="text-2xl font-display font-semibold text-green-800 mb-4">
-                    Product Specifications
-                  </h3>
-                  
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="bg-green-100 rounded-xl p-4 border border-green-100">
-                      <h4 className="font-semibold text-green-800 mb-2">Dosage</h4>
-                      <p className="text-slate-600">{product.dosage}</p>
-                    </div>
-                    <div className="bg-green-100 rounded-xl p-4 border border-green-100">
-                      <h4 className="font-semibold text-green-800 mb-2">Pack Size</h4>
-                      <p className="text-slate-600">{product.packSize}</p>
-                    </div>
-                    <div className="bg-green-100 rounded-xl p-4 border border-green-100">
-                      <h4 className="font-semibold text-green-800 mb-2">Shelf Life</h4>
-                      <p className="text-slate-600">{product.shelfLife}</p>
-                    </div>
-                    <div className="bg-green-100 rounded-xl p-4 border border-green-100">
-                      <h4 className="font-semibold text-green-800 mb-2">Processing</h4>
-                      <p className="text-slate-600">{product.specifications.processing}</p>
-                    </div>
-                    <div className="bg-green-100 rounded-xl p-4 border border-green-100 md:col-span-2">
-                      <h4 className="font-semibold text-green-800 mb-2">Indications</h4>
-                      <p className="text-slate-600">{product.indications.join(', ')}</p>
-                      </div>
-                  </div>
-                </div>
-              )}
-
-              {/* Reviews Tab */}
-              {activeTab === 'reviews' && (
-                <div className="space-y-6">
-                  <h3 className="text-2xl font-display font-semibold text-green-800 mb-4">
-                    Customer Reviews
-                  </h3>
-                  <div className="text-center py-12">
-                    <div className="text-6xl mb-4">⭐</div>
-                    <h4 className="text-xl font-semibold text-slate-700 mb-2">
-                      {product.rating}/5 Rating
-                    </h4>
-                    <p className="text-slate-600 mb-4">
-                      Based on {product.reviews} customer reviews
+              <TabPanel>
+                <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-green-100 mt-8">
+                  <div className="space-y-6">
+                    <h3 className="text-2xl font-display font-semibold text-green-800 mb-4">
+                      Product Description
+                    </h3>
+                    <p className="text-slate-600 leading-relaxed text-lg">
+                      {product.description}
                     </p>
-                    <button className="bg-green-800 text-white px-6 py-3 rounded-xl font-semibold hover:bg-green-600 transition-colors">
-                      Write a Review
-                    </button>
+                    
+                    <p className="text-slate-600 leading-relaxed text-lg">
+                      {product.detailedDescription}
+                    </p>
+                    
+                    <div>
+                      <h4 className="text-xl font-semibold text-green-800 mb-3">Key Benefits</h4>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                        {product.keyBenefits.map((benefit, index) => (
+                          <div key={index} className="flex items-center space-x-3">
+                            <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                            <span className="text-slate-600">{benefit}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div>
+                      <h4 className="text-xl font-semibold text-green-800 mb-3">Why Choose {product.name}?</h4>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                        {product.whyChoose.map((reason, index) => (
+                          <div key={index} className="flex items-center space-x-3">
+                            <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                            <span className="text-slate-600">{reason}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
                   </div>
                 </div>
-              )}
-            </div>
+              </TabPanel>
+
+              <TabPanel>
+                <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-green-100 mt-8">
+                  <div className="space-y-6">
+                    <h3 className="text-2xl font-display font-semibold text-green-800 mb-4">
+                      How {product.name} Works
+                    </h3>
+                    <div className="space-y-4">
+                      {product.howItWorks.map((mechanism, index) => (
+                        <div key={index} className="bg-green-50 rounded-xl p-6 border border-green-100">
+                          <h4 className="text-lg font-semibold text-green-800 mb-2">
+                            {mechanism.split(':')[0]}
+                          </h4>
+                          <p className="text-slate-600 leading-relaxed">
+                            {mechanism.split(':')[1]}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </TabPanel>
+
+              <TabPanel>
+                <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-green-100 mt-8">
+                  <div className="space-y-6">
+                    <h3 className="text-2xl font-display font-semibold text-green-800 mb-4">
+                      Ayurvedic Ingredients
+                    </h3>
+                    <p className="text-slate-600 leading-relaxed">
+                      {product.name} contains carefully selected time-tested Ayurvedic herbs, each chosen for their specific health benefits and synergistic properties.
+                    </p>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      {product.ingredients.map((ingredient, index) => (
+                        <div key={index} className="bg-green-100 rounded-xl p-4 border border-green-100">
+                          <h4 className="font-semibold text-green-800 mb-2">{ingredient}</h4>
+                          <p className="text-sm text-slate-600">
+                            Traditional Ayurvedic herb known for its health benefits and therapeutic properties
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </TabPanel>
+
+              <TabPanel>
+                <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-green-100 mt-8">
+                  <div className="space-y-6">
+                    <h3 className="text-2xl font-display font-semibold text-green-800 mb-4">
+                      Product Specifications
+                    </h3>
+                    
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div className="bg-green-100 rounded-xl p-4 border border-green-100">
+                        <h4 className="font-semibold text-green-800 mb-2">Dosage</h4>
+                        <p className="text-slate-600">{product.dosage}</p>
+                      </div>
+                      <div className="bg-green-100 rounded-xl p-4 border border-green-100">
+                        <h4 className="font-semibold text-green-800 mb-2">Pack Size</h4>
+                        <p className="text-slate-600">{product.packSize}</p>
+                      </div>
+                      <div className="bg-green-100 rounded-xl p-4 border border-green-100">
+                        <h4 className="font-semibold text-green-800 mb-2">Shelf Life</h4>
+                        <p className="text-slate-600">{product.shelfLife}</p>
+                      </div>
+                      <div className="bg-green-100 rounded-xl p-4 border border-green-100">
+                        <h4 className="font-semibold text-green-800 mb-2">Processing</h4>
+                        <p className="text-slate-600">{product.specifications.processing}</p>
+                      </div>
+                      <div className="bg-green-100 rounded-xl p-4 border border-green-100 md:col-span-2">
+                        <h4 className="font-semibold text-green-800 mb-2">Indications</h4>
+                        <p className="text-slate-600">{product.indications.join(', ')}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </TabPanel>
+            </Tabs>
           </div>
 
 
