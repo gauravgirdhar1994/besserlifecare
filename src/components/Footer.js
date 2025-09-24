@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { GiLiver } from 'react-icons/gi';
 
 const Footer = () => {
 
@@ -82,7 +83,7 @@ const Footer = () => {
                   onClick={scrollToTop}
                   className="flex items-center space-x-2 text-sm md:text-base text-slate-300 hover:text-green-400 transition-colors duration-200 touch-manipulation group"
                 >
-                  <span className="text-green-500 group-hover:text-green-400">🫀</span>
+                  <GiLiver className="text-green-500 group-hover:text-green-400 text-lg" />
                   <div>
                     <div className="font-medium">Besser Livomrit</div>
                     <div className="text-xs text-slate-400">Liver Health Support</div>
