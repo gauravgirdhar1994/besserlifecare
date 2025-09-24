@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { GiLiver } from 'react-icons/gi';
 import Cart from './Cart';
 
 const Header = () => {
@@ -80,7 +81,7 @@ const Header = () => {
                       className="flex items-center space-x-3 p-3 rounded-lg hover:bg-green-50 transition-colors duration-200"
                     >
                       <div className="w-10 h-10 bg-gradient-to-br from-green-100 to-emerald-100 rounded-lg flex items-center justify-center">
-                        <span className="text-green-600 text-sm">🫀</span>
+                        <GiLiver className="text-green-600 text-lg" />
                       </div>
                       <div>
                         <div className="font-semibold text-green-800">Besser Livomrit</div>
@@ -231,7 +232,7 @@ const Header = () => {
                   }}
                 >
                   <div className="w-8 h-8 bg-gradient-to-br from-green-100 to-emerald-100 rounded-lg flex items-center justify-center">
-                    <span className="text-green-600 text-sm">🫀</span>
+                    <GiLiver className="text-green-600 text-lg" />
                   </div>
                   <div className="flex-1">
                     <div className="font-semibold text-slate-700 group-hover:text-green-800 transition-colors">Besser Livomrit</div>

@@ -27,11 +27,10 @@ const ProductPage = () => {
       images: [
         "/products/livomrit/1.jpg",
         "/products/livomrit/2.jpg", 
-        "/products/livomrit/3.jpg",
         "/products/livomrit/4.jpg",
         "/products/livomrit/6.jpg",
+        "/products/livomrit/8.jpg",
         "/products/livomrit/7s.jpg",
-        "/products/livomrit/8.jpg"
       ],
       benefits: ["Liver Detoxification", "Cell Regeneration", "Metabolism Boost", "Natural Defence"],
       description: "Besser Livomrit is formulated with time-tested Ayurvedic herbs, helps in detoxification, promotes liver cell regeneration, improves metabolism, and strengthens natural defence mechanisms. Its holistic action not only protects the liver but also supports vitality and long-term wellbeing.",
@@ -81,11 +80,10 @@ const ProductPage = () => {
     images: [
         "/products/ovasidhi/1.jpg",
         "/products/ovasidhi/2.jpg", 
-        "/products/ovasidhi/3.jpg",
         "/products/ovasidhi/4.jpg",
         "/products/ovasidhi/5.jpg",
+        "/products/ovasidhi/7.jpg",
         "/products/ovasidhi/6.jpg",
-        "/products/ovasidhi/7.jpg"
       ],
       benefits: ["Hormonal Balance", "Ovarian Health", "Cycle Regulation", "Fibroid Management"],
       description: "Besser Ovasiddhi is a thoughtfully developed Ayurvedic formulation designed to address the root concerns of PCOD (Polycystic Ovarian Disorder). It is processed in the time-honoured Dashmool Kwath, a powerful decoction of ten medicinal roots known for their ability to restore hormonal balance, reduce inflammation, and improve reproductive health.",
