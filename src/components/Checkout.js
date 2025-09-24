@@ -1,10 +1,30 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { useCart } from '../context/CartContext';
+import { useAnalytics } from '../hooks/useAnalytics';
+import { trackBeginCheckout, trackPurchase } from '../utils/analytics';
 
 const Checkout = () => {
   const navigate = useNavigate();
   const { items, getCartTotal, setCheckoutData, setOrderPlaced, clearCart } = useCart();
+  const analytics = useAnalytics();
+  
+  // Track checkout initiation
+  useEffect(() => {
+    if (items.length > 0) {
+      trackBeginCheckout(
+        getTotalWithTax(),
+        items.map(item => ({
+          item_id: item.id.toString(),
+          item_name: item.name,
+          item_category: item.category,
+          quantity: item.quantity,
+          price: parseFloat(item.price.replace('₹', '').replace(',', ''))
+        }))
+      );
+    }
+  }, [items]);
   
   const [formData, setFormData] = useState({
     // Shipping Information
@@ -73,12 +93,29 @@ const Checkout = () => {
 
     setIsProcessing(true);
 
+    // Track purchase completion
+    const orderId = `ORD-${Date.now()}`;
+    const totalAmount = getTotalWithTax();
+    
+    trackPurchase(
+      orderId,
+      totalAmount,
+      'INR',
+      items.map(item => ({
+        item_id: item.id.toString(),
+        item_name: item.name,
+        item_category: item.category,
+        quantity: item.quantity,
+        price: parseFloat(item.price.replace('₹', '').replace(',', ''))
+      }))
+    );
+
     // Simulate order processing
     setTimeout(() => {
       const order = {
-        id: `ORD-${Date.now()}`,
+        id: orderId,
         items: items,
-        total: getTotalWithTax(),
+        total: totalAmount,
         shipping: formData,
         date: new Date().toISOString(),
         status: 'confirmed'
@@ -98,7 +135,14 @@ const Checkout = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 via-slate-50 to-emerald-50 py-20 px-4">
+    <>
+      <Helmet>
+        <title>Checkout - Besser Life Care</title>
+        <meta name="description" content="Complete your order for Besser Life Care Ayurvedic wellness products. Secure checkout for Besser Livomrit and Besser Ovasiddhi with fast delivery across India." />
+        <meta name="robots" content="noindex, nofollow" />
+      </Helmet>
+      
+      <div className="min-h-screen bg-gradient-to-br from-green-50 via-slate-50 to-emerald-50 py-20 px-4">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
@@ -466,8 +510,9 @@ const Checkout = () => {
             </div>
           </div>
         </div>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

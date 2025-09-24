@@ -75,7 +75,7 @@ const Header = () => {
                 <div className="absolute top-full left-0 mt-2 w-64 bg-white rounded-xl shadow-xl border border-green-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
                   <div className="p-2">
                     <Link
-                      to="/product/1"
+                      to="/product/besser-livomrit"
                       onClick={scrollToTop}
                       className="flex items-center space-x-3 p-3 rounded-lg hover:bg-green-50 transition-colors duration-200"
                     >
@@ -88,7 +88,7 @@ const Header = () => {
                       </div>
                     </Link>
                     <Link
-                      to="/product/2"
+                      to="/product/besser-ovasiddhi"
                       onClick={scrollToTop}
                       className="flex items-center space-x-3 p-3 rounded-lg hover:bg-green-50 transition-colors duration-200"
                     >
@@ -120,20 +120,19 @@ const Header = () => {
               </Link>
             </nav>
 
-            {/* Right Side - Cart and CTA */}
+            {/* Right Side - Buy on Amazon Button */}
             <div className="flex items-center space-x-4 md:space-x-6">
-              {/* Cart */}
-              <Cart />
-              
-              {/* CTA Button */}
+              {/* Buy on Amazon Button */}
               <div className="hidden md:block">
-                <Link 
-                  to="/products" 
-                  onClick={scrollToTop}
-                  className="bg-gradient-to-r from-green-800 to-emerald-500 text-white px-6 py-2 md:px-8 md:py-3 rounded-full font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
+                <a 
+                  href="https://www.amazon.in/s?k=besser+life+care"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-gradient-to-r from-orange-500 to-yellow-500 text-white px-6 py-2 md:px-8 md:py-3 rounded-full font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 flex items-center space-x-2"
                 >
-                  Shop Now
-                </Link>
+                  <span>🛒</span>
+                  <span>Buy on Amazon</span>
+                </a>
               </div>
 
               {/* Mobile Menu Button */}
@@ -224,7 +223,7 @@ const Header = () => {
                 
                 {/* Besser Livomrit */}
                 <Link
-                  to="/product/1"
+                  to="/product/besser-livomrit"
                   className="flex items-center space-x-4 p-4 pl-12 rounded-xl hover:bg-green-100 transition-all duration-200 group"
                   onClick={() => {
                     setIsMobileMenuOpen(false);
@@ -245,7 +244,7 @@ const Header = () => {
 
                 {/* Besser Ovasiddhi */}
                 <Link
-                  to="/product/2"
+                  to="/product/besser-ovasiddhi"
                   className="flex items-center space-x-4 p-4 pl-12 rounded-xl hover:bg-green-100 transition-all duration-200 group"
                   onClick={() => {
                     setIsMobileMenuOpen(false);
@@ -298,24 +297,24 @@ const Header = () => {
               </Link>
             </nav>
 
-            {/* CTA Section */}
-            <div className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-2xl p-6 mb-6">
+            {/* Buy on Amazon Section */}
+            <div className="bg-gradient-to-r from-orange-50 to-yellow-50 rounded-2xl p-6 mb-6">
               <h3 className="text-lg font-semibold text-slate-800 mb-3">
-                Ready to Shop?
+                Shop on Amazon
               </h3>
               <p className="text-slate-600 mb-4 text-sm">
-                Discover our premium herbal wellness products
+                Buy our premium herbal wellness products on Amazon
               </p>
-              <Link
-                to="/products"
-                className="block w-full bg-gradient-to-r from-green-800 to-emerald-500 text-white py-3 px-6 rounded-xl font-semibold text-center shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
-                onClick={() => {
-                  setIsMobileMenuOpen(false);
-                  scrollToTop();
-                }}
+              <a
+                href="https://www.amazon.in/s?k=besser+life+care"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full bg-gradient-to-r from-orange-500 to-yellow-500 text-white py-3 px-6 rounded-xl font-semibold text-center shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 flex items-center justify-center space-x-2"
+                onClick={() => setIsMobileMenuOpen(false)}
               >
-                Start Shopping
-              </Link>
+                <span>🛒</span>
+                <span>Buy on Amazon</span>
+              </a>
             </div>
 
             {/* Contact Info */}
@@ -325,11 +324,11 @@ const Header = () => {
               </h3>
               <div className="space-y-3">
                 <a
-                  href="mailto:info@besserlifecare.com"
+                  href="mailto:info@besserlifecare.in"
                   className="flex items-center space-x-3 p-3 rounded-lg hover:bg-green-100 transition-colors"
                 >
                   <span className="text-xl">📧</span>
-                  <span className="text-slate-600">info@besserlifecare.com</span>
+                  <span className="text-slate-600">info@besserlifecare.in</span>
                 </a>
                 <a
                   href="tel:+919876543210"

@@ -1,12 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import Header from './Header';
 import Footer from './Footer';
 
 const ShippingPolicy = () => {
   return (
-    <div className="bg-green-100 min-h-screen flex flex-col">
-      <Header />
+    <>
+      <Helmet>
+        <title>Shipping Policy - Besser Life Care</title>
+        <meta name="description" content="Shipping Policy for Besser Life Care. Learn about our delivery times, shipping costs, and delivery information for our Ayurvedic wellness products across India." />
+        <meta name="robots" content="index, follow" />
+      </Helmet>
+      
+      <div className="bg-green-100 min-h-screen flex flex-col">
+        <Header />
       <div className="flex-1 bg-gradient-to-br from-green-50 via-white to-emerald-50 pt-24 pb-16">
       <div className="max-w-4xl mx-auto px-4 md:px-6 lg:px-8">
         {/* Header */}
@@ -74,7 +82,7 @@ const ShippingPolicy = () => {
             <ul className="list-disc list-inside text-slate-600 space-y-2 ml-4">
               <li>We currently ship only within India</li>
               <li>Orders cannot be delivered to P.O. boxes or restricted areas where courier access is not available</li>
-              <li>For bulk orders or customized delivery requests, please contact us at support@besserlifecare.com</li>
+              <li>For bulk orders or customized delivery requests, please contact us at support@besserlifecare.in</li>
             </ul>
           </div>
 
@@ -95,7 +103,7 @@ const ShippingPolicy = () => {
               6. Damaged or Missing Products
             </h2>
             <ul className="list-disc list-inside text-slate-600 space-y-2 ml-4">
-              <li>If your order is delivered in a damaged condition or with missing items, please contact us within 48 hours of receiving the package at support@besserlifecare.com with photos and order details</li>
+              <li>If your order is delivered in a damaged condition or with missing items, please contact us within 48 hours of receiving the package at support@besserlifecare.in with photos and order details</li>
               <li>We will investigate and provide a replacement or refund as per our Return & Refund Policy</li>
             </ul>
           </div>
@@ -121,7 +129,7 @@ const ShippingPolicy = () => {
             <div className="bg-slate-50 rounded-lg p-6">
               <div className="space-y-2 text-slate-700">
                 <p><strong>Besser Life Care</strong></p>
-                <p>Email: support@besserlifecare.com</p>
+                <p>Email: support@besserlifecare.in</p>
                 <p>Phone: +91 [Insert Phone Number]</p>
                 <p>Address: [Insert Business Address]</p>
               </div>
@@ -140,9 +148,10 @@ const ShippingPolicy = () => {
           </Link>
         </div>
       </div>
+        </div>
+        <Footer />
       </div>
-      <Footer />
-    </div>
+    </>
   );
 };
 

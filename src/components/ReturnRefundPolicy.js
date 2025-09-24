@@ -1,12 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import Header from './Header';
 import Footer from './Footer';
 
 const ReturnRefundPolicy = () => {
   return (
-    <div className="bg-green-100 min-h-screen flex flex-col">
-      <Header />
+    <>
+      <Helmet>
+        <title>Return & Refund Policy - Besser Life Care</title>
+        <meta name="description" content="Return and Refund Policy for Besser Life Care. Learn about our return process, refund terms, and exchange policies for our Ayurvedic wellness products." />
+        <meta name="robots" content="index, follow" />
+      </Helmet>
+      
+      <div className="bg-green-100 min-h-screen flex flex-col">
+        <Header />
       <div className="flex-1 bg-gradient-to-br from-green-50 via-white to-emerald-50 pt-24 pb-16">
       <div className="max-w-4xl mx-auto px-4 md:px-6 lg:px-8">
         {/* Header */}
@@ -67,7 +75,7 @@ const ReturnRefundPolicy = () => {
               If you meet the eligibility criteria:
             </p>
             <ol className="list-decimal list-inside text-slate-600 space-y-2 ml-4">
-              <li>Contact us within 48 hours of delivery at support@besserlifecare.com with your order details and photos/videos as proof</li>
+              <li>Contact us within 48 hours of delivery at support@besserlifecare.in with your order details and photos/videos as proof</li>
               <li>Our support team will verify your claim</li>
               <li>Once approved, we will arrange for pickup through our courier partners (where available) or request you to ship the product back to us</li>
               <li>Returned items must be in unused, unopened condition with original packaging and invoice</li>
@@ -120,7 +128,7 @@ const ReturnRefundPolicy = () => {
             <div className="bg-slate-50 rounded-lg p-6">
               <div className="space-y-2 text-slate-700">
                 <p><strong>Besser Life Care</strong></p>
-                <p>Email: support@besserlifecare.com</p>
+                <p>Email: support@besserlifecare.in</p>
                 <p>Phone: +91 [Insert Phone Number]</p>
                 <p>Address: [Insert Business Address]</p>
               </div>
@@ -139,9 +147,10 @@ const ReturnRefundPolicy = () => {
           </Link>
         </div>
       </div>
+        </div>
+        <Footer />
       </div>
-      <Footer />
-    </div>
+    </>
   );
 };
 

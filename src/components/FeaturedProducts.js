@@ -1,18 +1,16 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useCart } from '../context/CartContext';
 
 const FeaturedProducts = () => {
   const [hoveredProduct, setHoveredProduct] = useState(null);
-  const { addToCart } = useCart();
 
   const products = [
     {
       id: 1,
       name: "Besser Livomrit",
       category: "Liver Health",
-      price: "₹899",
-      originalPrice: "₹1299",
+      price: "₹440",
+      originalPrice: "₹440",
       rating: 4.9,
       reviews: 2156,
       image: "/products/livomrit/1.jpg",
@@ -52,14 +50,13 @@ const FeaturedProducts = () => {
       shelfLife: "36 months from date of manufacturing",
       indications: ["Fatty Liver", "Hepatitis", "Jaundice", "Loss of Appetite"],
       ingredients: ["Makoy", "Sharpunkha", "Punarnava", "Yashtimadhu", "Kutki", "Bhringraj", "Bhumyamalaki", "Kalmegh", "Kasani", "Trikatu"],
-      discount: "31% OFF"
     },
     {
       id: 2,
       name: "Besser Ovasiddhi",
       category: "PCOD Care",
-      price: "₹899",
-      originalPrice: "₹1299",
+      price: "₹440",
+      originalPrice: "₹440",
       rating: 4.8,
       reviews: 1834,
       image: "/products/ovasidhi/1.jpg",
@@ -101,14 +98,9 @@ const FeaturedProducts = () => {
       shelfLife: "36 months from date of manufacturing",
       indications: ["PCOD", "Irregular Periods", "Hormonal Imbalance", "Ovarian Cysts"],
       ingredients: ["Latakaranja", "Kachnar", "Shatavari", "Shunthi", "Shatpushpa", "Giloy", "Gokshur", "Cinnamon", "Jatamasi", "Hingu"],
-      discount: "31% OFF"
     }
   ];
 
-  const handleAddToCart = (product) => {
-    addToCart(product);
-    // You could add a toast notification here
-  };
 
   return (
     <section id="products" className="py-16 md:py-24 px-4 md:px-6 lg:px-8 bg-gradient-to-br from-green-50 via-slate-50 to-emerald-50 relative overflow-hidden">
@@ -154,12 +146,6 @@ const FeaturedProducts = () => {
                   : 'bg-gradient-to-br from-purple-400 to-pink-600'
               }`}></div>
 
-              {/* Discount Badge */}
-              <div className="absolute top-6 left-6 z-10">
-                <span className="bg-gradient-to-r from-green-800 to-emerald-600 text-white text-sm font-bold px-4 py-2 rounded-full shadow-lg">
-                  {product.discount}
-                </span>
-              </div>
 
               {/* Product Content */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
@@ -177,7 +163,7 @@ const FeaturedProducts = () => {
                   {hoveredProduct === product.id && (
                     <div className="absolute inset-0 bg-black/60 flex items-center justify-center rounded-2xl backdrop-blur-sm">
                       <Link
-                        to={`/product/${product.id}`}
+                        to={`/product/${product.name.toLowerCase().replace(/\s+/g, '-')}`}
                         className="bg-white text-green-800 px-6 py-3 rounded-xl font-semibold hover:bg-green-100 transition-colors shadow-lg transform hover:scale-105"
                       >
                         View Details
@@ -202,7 +188,7 @@ const FeaturedProducts = () => {
                         ))}
                       </div>
                       <span className="text-sm font-semibold text-slate-700">{product.rating}</span>
-                      <span className="text-xs text-slate-500">({product.reviews})</span>
+                      {/* <span className="text-xs text-slate-500">({product.reviews})</span> */}
                     </div>
                   </div>
 
@@ -232,28 +218,28 @@ const FeaturedProducts = () => {
                   {/* Price */}
                   <div className="flex items-center space-x-4">
                     <span className="text-3xl md:text-4xl font-bold text-green-800">{product.price}</span>
-                    <span className="text-lg text-slate-400 line-through">{product.originalPrice}</span>
-                    <span className="bg-green-100 text-green-800 text-sm font-semibold px-3 py-1 rounded-full">
-                      Save ₹400
-                    </span>
                   </div>
 
                   {/* Action Buttons */}
-                  <div className="flex flex-col sm:flex-row gap-3">
-                    <button 
-                      onClick={() => handleAddToCart(product)}
-                      className="flex-1 bg-gradient-to-r from-green-800 to-emerald-600 text-white py-4 px-6 rounded-xl font-semibold hover:from-green-700 hover:to-emerald-500 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                  <div className="space-y-3">
+                    <a
+                      href="https://www.amazon.in/s?k=besser+life+care"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full bg-gradient-to-r from-orange-500 to-yellow-500 text-white py-4 px-6 rounded-xl font-semibold hover:from-orange-600 hover:to-yellow-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 flex items-center justify-center space-x-2"
                     >
-                      Add to Cart
-                    </button>
+                      <span className="text-xl">🛒</span>
+                      <span>Buy on Amazon</span>
+                    </a>
                     <Link
-                      to={`/product/${product.id}`}
-                      className="w-14 h-14 bg-white border-2 border-green-200 text-green-800 rounded-xl hover:bg-green-100 hover:border-green-300 transition-all duration-300 flex items-center justify-center shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                      to={`/product/${product.name.toLowerCase().replace(/\s+/g, '-')}`}
+                      className="w-full bg-white border-2 border-green-200 text-green-800 py-3 px-6 rounded-xl font-semibold hover:bg-green-100 hover:border-green-300 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 flex items-center justify-center space-x-2"
                     >
-                      <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
                       </svg>
+                      <span>View Details</span>
                     </Link>
                   </div>
                 </div>
@@ -276,28 +262,32 @@ const FeaturedProducts = () => {
               <div className="bg-white/80 rounded-2xl p-6 border border-green-100 hover:shadow-lg transition-all duration-300">
                 <h4 className="text-xl font-semibold text-green-800 mb-3">Liver Health Support</h4>
                 <p className="text-slate-600 mb-4">Detoxify and regenerate with traditional Vasaguluchyadi Kashyam processing</p>
-                <Link
-                  to="/product/1"
-                  className="inline-flex items-center bg-green-800 text-white px-6 py-3 rounded-xl font-semibold hover:bg-green-700 transition-colors"
+                <a
+                  href="https://www.amazon.in/s?k=besser+livomrit"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center bg-gradient-to-r from-orange-500 to-yellow-500 text-white px-6 py-3 rounded-xl font-semibold hover:from-orange-600 hover:to-yellow-600 transition-all duration-300"
                 >
-                  Explore Livomrit
+                  Buy Livomrit on Amazon
                   <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7"/>
                   </svg>
-                </Link>
+                </a>
               </div>
               <div className="bg-white/80 rounded-2xl p-6 border border-green-100 hover:shadow-lg transition-all duration-300">
                 <h4 className="text-xl font-semibold text-green-800 mb-3">PCOD Management</h4>
                 <p className="text-slate-600 mb-4">Balance hormones naturally with Dashmool Kwath processed formulation</p>
-                <Link
-                  to="/product/2"
-                  className="inline-flex items-center bg-green-800 text-white px-6 py-3 rounded-xl font-semibold hover:bg-green-700 transition-colors"
+                <a
+                  href="https://www.amazon.in/s?k=besser+ovasiddhi"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center bg-gradient-to-r from-orange-500 to-yellow-500 text-white px-6 py-3 rounded-xl font-semibold hover:from-orange-600 hover:to-yellow-600 transition-all duration-300"
                 >
-                  Explore Ovasiddhi
+                  Buy Ovasiddhi on Amazon
                   <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7"/>
                   </svg>
-                </Link>
+                </a>
               </div>
             </div>
           </div>

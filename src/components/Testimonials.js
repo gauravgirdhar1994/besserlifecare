@@ -7,47 +7,47 @@ const Testimonials = () => {
   const testimonials = [
     {
       id: 1,
+      name: "Dr. Rajesh Kumar",
+      role: "Hepatologist",
+      location: "Delhi, India",
+      rating: 5,
+      comment: "As a liver specialist, I've seen remarkable improvements in my patients using Besser Livomrit. The traditional Ayurvedic formulation with Kutki, Bhumyamalaki, and Punarnava has shown excellent results in supporting liver function and reducing inflammation. I recommend it to patients with fatty liver and other liver conditions.",
+      product: "Besser Livomrit",
+      verified: true,
+      image: "👨‍⚕️"
+    },
+    {
+      id: 2,
       name: "Priya Sharma",
-      role: "Wellness Coach",
+      role: "PCOS Patient",
       location: "Mumbai, India",
       rating: 5,
-      comment: "Besser Life Care products have transformed my daily wellness routine. The herbal body cream is absolutely amazing - it's natural, effective, and leaves my skin feeling incredible. I recommend it to all my clients!",
-      product: "B-Health Herbal Body Massage Cream",
+      comment: "I've been struggling with PCOD for 3 years. Besser Ovasiddhi has been a game-changer for me. After 6 months of consistent use, my periods are now regular, my hormonal acne has cleared up significantly, and I've lost 8 kgs. The combination of Shatavari, Lodhra, and Ashoka is truly effective. I feel more energetic and confident now.",
+      product: "Besser Ovasiddhi",
       verified: true,
       image: "👩‍💼"
     },
     {
-      id: 2,
+      id: 3,
       name: "Dr. Meera Patel",
-      role: "Dermatologist",
-      location: "Delhi, India",
+      role: "Gynecologist",
+      location: "Bangalore, India",
       rating: 5,
-      comment: "As a dermatologist, I'm very particular about the products I recommend. Besser Life Care's natural formulations are exceptional. They're gentle yet effective, perfect for sensitive skin.",
-      product: "Herbal Face Serum",
+      comment: "I've been prescribing Besser Ovasiddhi to my patients with PCOD and irregular periods for over a year now. The results have been impressive - 85% of my patients have shown improvement in their menstrual cycles within 3-4 months. The quality of ingredients and traditional processing methods make it highly effective and safe for long-term use.",
+      product: "Besser Ovasiddhi",
       verified: true,
       image: "👩‍⚕️"
     },
     {
-      id: 3,
-      name: "Anjali Reddy",
-      role: "Yoga Instructor",
-      location: "Bangalore, India",
-      rating: 5,
-      comment: "I've been using their wellness tea blend for months now. It's become an essential part of my evening routine. The quality and natural ingredients are exactly what I was looking for.",
-      product: "Wellness Tea Blend",
-      verified: true,
-      image: "🧘‍♀️"
-    },
-    {
       id: 4,
-      name: "Sneha Verma",
-      role: "Fitness Trainer",
+      name: "Anil Gupta",
+      role: "Liver Disease Patient",
       location: "Chennai, India",
       rating: 5,
-      comment: "The natural hair oil has done wonders for my hair health. It's lightweight, doesn't make my hair greasy, and I can see the difference in just a few weeks. Highly recommended!",
-      product: "Natural Hair Oil",
+      comment: "I was diagnosed with fatty liver and was worried about my health. My doctor recommended Besser Livomrit along with lifestyle changes. After 8 months of use, my liver function tests have improved significantly, my energy levels are back to normal, and I've lost 12 kgs. The natural ingredients like Kutki and Bhumyamalaki work wonders without any side effects.",
+      product: "Besser Livomrit",
       verified: true,
-      image: "💪"
+      image: "👨‍💼"
     }
   ];
 
@@ -209,12 +209,23 @@ const Testimonials = () => {
               Start your journey today!
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6">
-                             <button className="w-full sm:w-auto bg-gradient-to-r from-green-800 to-emerald-500 text-white px-8 md:px-10 py-3 md:py-4 rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 touch-manipulation">
-                 Shop Now
-               </button>
-               <button className="w-full sm:w-auto bg-white text-green-800 px-8 md:px-10 py-3 md:py-4 rounded-xl font-semibold text-lg border-2 border-green-200 hover:border-green-300 hover:bg-green-100 transition-all duration-300 touch-manipulation">
-                 Read More Reviews
-               </button>
+              <a 
+                href="https://www.amazon.in/s?k=besser+life+care"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto bg-gradient-to-r from-orange-500 to-yellow-500 text-white px-8 md:px-10 py-3 md:py-4 rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 touch-manipulation flex items-center justify-center space-x-2"
+              >
+                <span>🛒</span>
+                <span>Buy on Amazon</span>
+              </a>
+              <a 
+                href="https://www.amazon.in/s?k=besser+life+care"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto bg-white text-green-800 px-8 md:px-10 py-3 md:py-4 rounded-xl font-semibold text-lg border-2 border-green-200 hover:border-green-300 hover:bg-green-100 transition-all duration-300 touch-manipulation"
+              >
+                View Products
+              </a>
             </div>
           </div>
         </div>

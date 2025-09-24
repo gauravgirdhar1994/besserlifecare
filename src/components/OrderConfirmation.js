@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { useCart } from '../context/CartContext';
 
 const OrderConfirmation = () => {
@@ -7,7 +8,14 @@ const OrderConfirmation = () => {
 
   if (!orderPlaced) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-green-50 via-slate-50 to-emerald-50 py-20 px-4">
+      <>
+        <Helmet>
+          <title>Order Confirmation - Besser Life Care</title>
+          <meta name="description" content="Thank you for your order at Besser Life Care. Your Ayurvedic wellness products will be delivered soon." />
+          <meta name="robots" content="noindex, nofollow" />
+        </Helmet>
+        
+        <div className="min-h-screen bg-gradient-to-br from-green-50 via-slate-50 to-emerald-50 py-20 px-4">
         <div className="max-w-4xl mx-auto text-center">
           <div className="text-8xl mb-6">❌</div>
           <h1 className="text-4xl md:text-5xl font-display font-bold text-green-900 mb-4">
@@ -23,7 +31,8 @@ const OrderConfirmation = () => {
             Start Shopping
           </Link>
         </div>
-      </div>
+        </div>
+      </>
     );
   }
 
@@ -42,7 +51,14 @@ const OrderConfirmation = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 via-slate-50 to-emerald-50 py-20 px-4">
+    <>
+      <Helmet>
+        <title>Order Confirmation - Besser Life Care</title>
+        <meta name="description" content="Thank you for your order at Besser Life Care. Your Ayurvedic wellness products will be delivered soon." />
+        <meta name="robots" content="noindex, nofollow" />
+      </Helmet>
+      
+      <div className="min-h-screen bg-gradient-to-br from-green-50 via-slate-50 to-emerald-50 py-20 px-4">
       <div className="max-w-4xl mx-auto">
         {/* Success Header */}
         <div className="text-center mb-12">
@@ -257,8 +273,9 @@ const OrderConfirmation = () => {
             Need help? <Link to="/contact" className="text-green-800 hover:text-green-700 underline">Contact our support team</Link>
           </p>
         </div>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

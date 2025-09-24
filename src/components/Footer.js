@@ -1,8 +1,7 @@
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
-  const location = useLocation();
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -29,9 +28,9 @@ const Footer = () => {
             </p>
             <div className="flex space-x-3 md:space-x-4">
               {[
-                { icon: "📧", href: "mailto:info@besserlifecare.com", label: "Email" },
-                { icon: "📞", href: "tel:+15551234567", label: "Phone" },
-                { icon: "📍", href: "#", label: "Location" }
+                { icon: "📧", href: "mailto:info@besserlifecare.in", label: "Email" },
+                { icon: "📞", href: "tel:+919696962248", label: "Phone" },
+                // { icon: "📍", href: "#", label: "Location" }
               ].map((social, index) => (
                 <a
                   key={index}
@@ -54,9 +53,9 @@ const Footer = () => {
                              {[
                  { name: "Home", href: "/" },
                  { name: "About Us", href: "/about" },
-                 { name: "Our Products", href: "/products" },
+                //  { name: "Our Products", href: "/products" },
                  { name: "Contact", href: "/contact" },
-                 { name: "Blog", href: "/blog" }
+                //  { name: "Blog", href: "/blog" }
                ].map((link, index) => (
                  <li key={index}>
                    <Link
@@ -74,25 +73,44 @@ const Footer = () => {
           {/* Products */}
           <div>
             <h3 className="text-lg md:text-xl font-display font-semibold text-white mb-4 md:mb-6">
-              Products
+              Our Products
             </h3>
             <ul className="space-y-2 md:space-y-3">
-              {[
-                "Body Care",
-                "Skincare",
-                "Hair Care",
-                "Wellness Teas",
-                "Essential Oils"
-              ].map((product, index) => (
-                <li key={index}>
-                  <a
-                    href="#"
-                    className="text-sm md:text-base text-slate-300 hover:text-green-400 transition-colors duration-200 touch-manipulation"
-                  >
-                    {product}
-                  </a>
-                </li>
-              ))}
+              <li>
+                <Link
+                  to="/product/besser-livomrit"
+                  onClick={scrollToTop}
+                  className="flex items-center space-x-2 text-sm md:text-base text-slate-300 hover:text-green-400 transition-colors duration-200 touch-manipulation group"
+                >
+                  <span className="text-green-500 group-hover:text-green-400">🫀</span>
+                  <div>
+                    <div className="font-medium">Besser Livomrit</div>
+                    <div className="text-xs text-slate-400">Liver Health Support</div>
+                  </div>
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/product/besser-ovasiddhi"
+                  onClick={scrollToTop}
+                  className="flex items-center space-x-2 text-sm md:text-base text-slate-300 hover:text-green-400 transition-colors duration-200 touch-manipulation group"
+                >
+                  <span className="text-purple-500 group-hover:text-purple-400">🌸</span>
+                  <div>
+                    <div className="font-medium">Besser Ovasiddhi</div>
+                    <div className="text-xs text-slate-400">PCOD Management</div>
+                  </div>
+                </Link>
+              </li>
+              {/* <li className="pt-2">
+                <Link
+                  to="/products"
+                  onClick={scrollToTop}
+                  className="text-sm md:text-base text-green-400 hover:text-green-300 transition-colors duration-200 touch-manipulation font-medium"
+                >
+                  View All Products →
+                </Link>
+              </li> */}
             </ul>
           </div>
 
@@ -128,7 +146,7 @@ const Footer = () => {
             {/* Copyright */}
             <div className="text-center md:text-left">
               <p className="text-sm md:text-base text-slate-400">
-                © 2024 Besser Life Care. All rights reserved.
+                © 2025 Besser Life Care. All rights reserved.
               </p>
             </div>
 

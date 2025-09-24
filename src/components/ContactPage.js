@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
+import { trackContactForm } from '../utils/analytics';
 import Header from './Header';
 import Footer from './Footer';
 
@@ -27,6 +29,9 @@ const ContactPage = () => {
     e.preventDefault();
     setIsSubmitting(true);
     
+    // Track contact form submission
+    trackContactForm();
+    
     // Simulate form submission
     setTimeout(() => {
       setIsSubmitting(false);
@@ -45,8 +50,43 @@ const ContactPage = () => {
   };
 
   return (
-    <div className="bg-green-100 min-h-screen flex flex-col">
-      <Header />
+    <>
+      <Helmet>
+        <title>Contact Besser Life Care - Get in Touch for Ayurvedic Wellness Support</title>
+        <meta name="description" content="Contact Besser Life Care for product inquiries, health consultations, and customer support. Get expert guidance on our Ayurvedic wellness products for liver health and PCOD management." />
+        <meta name="keywords" content="contact Besser Life Care, Ayurvedic consultation, wellness support, product inquiry, customer service, liver health support, PCOD consultation" />
+        
+        {/* Open Graph Meta Tags */}
+        <meta property="og:title" content="Contact Besser Life Care - Get in Touch for Ayurvedic Wellness Support" />
+        <meta property="og:description" content="Contact Besser Life Care for product inquiries, health consultations, and customer support. Get expert guidance on our Ayurvedic wellness products." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://besserlifecare.in/contact" />
+        
+        {/* Structured Data for Contact */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ContactPage",
+            "name": "Contact Besser Life Care",
+            "description": "Contact page for Besser Life Care Ayurvedic wellness products",
+            "mainEntity": {
+              "@type": "Organization",
+              "name": "Besser Life Care",
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+91-XXXX-XXXX",
+                "contactType": "customer service",
+                "availableLanguage": "English",
+                "areaServed": "India",
+                "serviceType": "Ayurvedic wellness consultation"
+              }
+            }
+          })}
+        </script>
+      </Helmet>
+      
+      <div className="bg-green-100 min-h-screen flex flex-col">
+        <Header />
       <div className="flex-1 bg-gradient-to-br from-green-50 via-white to-emerald-50 pt-24 pb-16">
       <div className="max-w-6xl mx-auto px-4 md:px-6 lg:px-8">
         {/* Header */}
@@ -71,21 +111,21 @@ const ContactPage = () => {
                   {
                     icon: "📧",
                     title: "Email",
-                    details: ["info@besserlifecare.com", "support@besserlifecare.com"],
-                    action: "mailto:info@besserlifecare.com"
+                    details: ["info@besserlifecare.in"],
+                    action: "mailto:info@besserlifecare.in"
                   },
                   {
                     icon: "📞",
                     title: "Phone",
-                    details: ["+91 98765 43210", "+91 98765 43211"],
-                    action: "tel:+919876543210"
+                    details: ["+91 9696962248"],
+                    action: "tel:+919696962248"
                   },
-                  {
-                    icon: "📍",
-                    title: "Address",
-                    details: ["123 Wellness Street", "Green City, GC 123456", "India"],
-                    action: "#"
-                  },
+                  // {
+                  //   icon: "📍",
+                  //   title: "Address",
+                  //   details: ["123 Wellness Street", "Green City, GC 123456", "India"],
+                  //   action: "#"
+                  // },
                   {
                     icon: "🕒",
                     title: "Business Hours",
@@ -270,23 +310,12 @@ const ContactPage = () => {
           </div>
         </div>
 
-        {/* Map Section */}
-        <div className="mt-16 bg-white rounded-2xl shadow-xl p-8">
-          <h2 className="text-2xl font-display font-semibold text-slate-800 mb-6 text-center">
-            Find Us
-          </h2>
-          <div className="bg-slate-100 rounded-lg h-64 flex items-center justify-center">
-            <div className="text-center text-slate-500">
-              <span className="text-4xl mb-4 block">🗺️</span>
-              <p>Interactive map will be displayed here</p>
-              <p className="text-sm">123 Wellness Street, Green City, GC 123456, India</p>
-            </div>
-          </div>
+       
+      </div>
         </div>
+        <Footer />
       </div>
-      </div>
-      <Footer />
-    </div>
+    </>
   );
 };
 

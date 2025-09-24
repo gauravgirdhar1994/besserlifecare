@@ -1,12 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import Header from './Header';
 import Footer from './Footer';
 
 const TermsConditions = () => {
   return (
-    <div className="bg-green-100 min-h-screen flex flex-col">
-      <Header />
+    <>
+      <Helmet>
+        <title>Terms & Conditions - Besser Life Care</title>
+        <meta name="description" content="Terms and Conditions for Besser Life Care. Read our terms of service, user agreements, and legal policies for using our Ayurvedic wellness products and services." />
+        <meta name="robots" content="index, follow" />
+      </Helmet>
+      
+      <div className="bg-green-100 min-h-screen flex flex-col">
+        <Header />
       <div className="flex-1 bg-gradient-to-br from-green-50 via-white to-emerald-50 pt-24 pb-16">
       <div className="max-w-4xl mx-auto px-4 md:px-6 lg:px-8">
         {/* Header */}
@@ -187,7 +195,7 @@ const TermsConditions = () => {
             <div className="bg-slate-50 rounded-lg p-6">
               <div className="space-y-2 text-slate-700">
                 <p><strong>Besser Life Care</strong></p>
-                <p>Email: legal@besserlifecare.com</p>
+                <p>Email: legal@besserlifecare.in</p>
                 <p>Phone: +91 [Insert Phone Number]</p>
                 <p>Address: [Insert Business Address]</p>
               </div>
@@ -206,9 +214,10 @@ const TermsConditions = () => {
           </Link>
         </div>
       </div>
+        </div>
+        <Footer />
       </div>
-      <Footer />
-    </div>
+    </>
   );
 };
 

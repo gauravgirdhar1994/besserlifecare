@@ -1,12 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import Header from './Header';
 import Footer from './Footer';
 
 const PrivacyPolicy = () => {
   return (
-    <div className="bg-green-100 min-h-screen flex flex-col">
-      <Header />
+    <>
+      <Helmet>
+        <title>Privacy Policy - Besser Life Care</title>
+        <meta name="description" content="Privacy Policy for Besser Life Care. Learn how we collect, use, and protect your personal information when you use our Ayurvedic wellness products and services." />
+        <meta name="robots" content="index, follow" />
+      </Helmet>
+      
+      <div className="bg-green-100 min-h-screen flex flex-col">
+        <Header />
       <div className="flex-1 bg-gradient-to-br from-green-50 via-white to-emerald-50 pt-24 pb-16">
         <div className="max-w-4xl mx-auto px-4 md:px-6 lg:px-8">
           {/* Header */}
@@ -97,7 +105,7 @@ const PrivacyPolicy = () => {
                 </p>
                 <ul className="list-disc list-inside space-y-2 ml-4">
                   <li>For sensitive personal data (such as health-related details), we obtain explicit consent before collection and use</li>
-                  <li>You may withdraw your consent at any time by writing to us at privacy@besserlifecare.com, though this may limit our ability to provide services</li>
+                  <li>You may withdraw your consent at any time by writing to us at privacy@besserlifecare.in, though this may limit our ability to provide services</li>
                 </ul>
               </div>
             </div>
@@ -161,7 +169,7 @@ const PrivacyPolicy = () => {
                 <li>Nominate another individual to exercise your rights in case of incapacity or death</li>
               </ul>
               <p className="text-slate-700 mt-4">
-                To exercise these rights, please contact us at privacy@besserlifecare.com.
+                To exercise these rights, please contact us at privacy@besserlifecare.in.
               </p>
             </div>
 
@@ -199,7 +207,7 @@ const PrivacyPolicy = () => {
                 <div className="space-y-2 text-slate-700">
                   <p><strong>Besser Life Care</strong></p>
                   <p>Data Protection Officer (DPO): [Insert Name]</p>
-                  <p>Email: privacy@besserlifecare.com</p>
+                  <p>Email: privacy@besserlifecare.in</p>
                   <p>Phone: +91 [Insert Phone Number]</p>
                   <p>Address: [Insert Business Address]</p>
                 </div>
@@ -218,9 +226,10 @@ const PrivacyPolicy = () => {
           </Link>
           </div>
         </div>
+        </div>
+        <Footer />
       </div>
-      <Footer />
-    </div>
+    </>
   );
 };
 

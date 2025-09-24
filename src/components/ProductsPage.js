@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import Header from './Header';
 import Footer from './Footer';
 
@@ -135,8 +136,47 @@ const ProductsPage = () => {
   });
 
   return (
-    <div className="bg-green-100 min-h-screen flex flex-col">
-      <Header />
+    <>
+      <Helmet>
+        <title>Products - Besser Life Care Ayurvedic Wellness Supplements</title>
+        <meta name="description" content="Browse our complete range of premium Ayurvedic wellness products. Besser Livomrit for liver health and Besser Ovasiddhi for PCOD management. Natural herbal supplements processed with traditional methods." />
+        <meta name="keywords" content="Ayurvedic products, wellness supplements, liver health, PCOD management, Besser Livomrit, Besser Ovasiddhi, herbal supplements, natural wellness" />
+        
+        {/* Open Graph Meta Tags */}
+        <meta property="og:title" content="Products - Besser Life Care Ayurvedic Wellness Supplements" />
+        <meta property="og:description" content="Browse our complete range of premium Ayurvedic wellness products. Natural herbal supplements for liver health and PCOD management." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://besserlifecare.in/products" />
+        
+        {/* Structured Data for Product Collection */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "CollectionPage",
+            "name": "Besser Life Care Products",
+            "description": "Premium Ayurvedic wellness products for liver health and PCOD management",
+            "url": "https://besserlifecare.in/products",
+            "mainEntity": {
+              "@type": "ItemList",
+              "name": "Ayurvedic Wellness Products",
+              "itemListElement": products.map((product, index) => ({
+                "@type": "ListItem",
+                "position": index + 1,
+                "item": {
+                  "@type": "Product",
+                  "name": product.name,
+                  "description": product.description,
+                  "image": `https://besserlifecare.in${product.image}`,
+                  "url": `https://besserlifecare.in/product/${product.id}`
+                }
+              }))
+            }
+          })}
+        </script>
+      </Helmet>
+      
+      <div className="bg-green-100 min-h-screen flex flex-col">
+        <Header />
       <div className="flex-1 bg-gradient-to-br from-green-50 via-white to-emerald-50 pt-24 pb-16">
       <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
         {/* Header */}
@@ -306,7 +346,7 @@ const ProductsPage = () => {
                 Get Expert Advice
               </Link>
               <a
-                href="mailto:support@besserlifecare.com"
+                href="mailto:support@besserlifecare.in"
                 className="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-green-800 transition-all duration-300"
               >
                 Email Us
@@ -315,9 +355,10 @@ const ProductsPage = () => {
           </div>
         </div>
       </div>
+        </div>
+        <Footer />
       </div>
-      <Footer />
-    </div>
+    </>
   );
 };
 

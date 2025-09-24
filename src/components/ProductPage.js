@@ -1,16 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { useCart } from '../context/CartContext';
+import { Helmet } from 'react-helmet-async';
+import { trackProductView } from '../utils/analytics';
 import Header from './Header';
+import Footer from './Footer';
 
 const ProductPage = () => {
-  const { productId } = useParams();
+  const { productName } = useParams();
   const navigate = useNavigate();
-  const { addToCart } = useCart();
-  
-  const [quantity, setQuantity] = useState(1);
   const [activeTab, setActiveTab] = useState('description');
-  const [isAddingToCart, setIsAddingToCart] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -20,8 +18,8 @@ const ProductPage = () => {
       id: 1,
       name: "Besser Livomrit",
       category: "Liver Health",
-      price: "₹899",
-      originalPrice: "₹1299",
+      price: "₹440",
+      originalPrice: "₹440",
       rating: 4.9,
       reviews: 2156,
       image: "/products/livomrit/1.jpg",
@@ -35,7 +33,6 @@ const ProductPage = () => {
         "/products/livomrit/8.jpg"
       ],
       benefits: ["Liver Detoxification", "Cell Regeneration", "Metabolism Boost", "Natural Defence"],
-      discount: "31% OFF",
       description: "Besser Livomrit is formulated with time-tested Ayurvedic herbs, helps in detoxification, promotes liver cell regeneration, improves metabolism, and strengthens natural defence mechanisms. Its holistic action not only protects the liver but also supports vitality and long-term wellbeing.",
       detailedDescription: "Besser Livomrit is a scientifically crafted herbal formulation, processed in the traditional Vasaguluchyadi Kashyam to enhance its potency and bioavailability. This unique process ensures that the synergistic benefits of the herbs are preserved, supporting healthy liver function and overall digestive wellness.",
       howItWorks: [
@@ -75,8 +72,8 @@ const ProductPage = () => {
       id: 2,
       name: "Besser Ovasiddhi",
       category: "PCOD Care",
-      price: "₹899",
-      originalPrice: "₹1299",
+      price: "₹440",
+      originalPrice: "₹440",
     rating: 4.8,
       reviews: 1834,
       image: "/products/ovasidhi/1.jpg",
@@ -90,7 +87,6 @@ const ProductPage = () => {
         "/products/ovasidhi/7.jpg"
       ],
       benefits: ["Hormonal Balance", "Ovarian Health", "Cycle Regulation", "Fibroid Management"],
-      discount: "31% OFF",
       description: "Besser Ovasiddhi is a thoughtfully developed Ayurvedic formulation designed to address the root concerns of PCOD (Polycystic Ovarian Disorder). It is processed in the time-honoured Dashmool Kwath, a powerful decoction of ten medicinal roots known for their ability to restore hormonal balance, reduce inflammation, and improve reproductive health.",
       detailedDescription: "The Dashmool base enhances absorption and ensures that every herb in Besser Ovasiddhi works in synergy for maximum benefit. Its unique blend helps regulate menstrual cycles, supports healthy ovarian function, and relieves symptoms like irregular periods, bloating, and mood fluctuations often associated with PCOD.",
       howItWorks: [
@@ -131,42 +127,34 @@ const ProductPage = () => {
   ];
 
   // Get the current product based on ID
-  const product = products.find(p => p.id === parseInt(productId)) || products[0];
-
-  const handleAddToCart = () => {
-    setIsAddingToCart(true);
-    const productWithOptions = {
-      ...product,
-      quantity
+  // Convert URL-friendly product name back to original name
+  const getProductFromUrl = (urlName) => {
+    const nameMap = {
+      'besser-livomrit': 'Besser Livomrit',
+      'besser-ovasiddhi': 'Besser Ovasiddhi'
     };
-    
-    setTimeout(() => {
-      addToCart(productWithOptions);
-      setIsAddingToCart(false);
-      // You could add a toast notification here
-    }, 1000);
+    return nameMap[urlName] || 'Besser Livomrit';
   };
 
-  const handleBuyNow = () => {
-    handleAddToCart();
-    setTimeout(() => {
-      navigate('/checkout');
-    }, 1200);
-  };
+  const product = products.find(p => p.name === getProductFromUrl(productName)) || products[0];
 
-
-  const calculateDiscount = () => {
-    const original = parseFloat(product.originalPrice.replace('₹', ''));
-    const current = parseFloat(product.price.replace('₹', ''));
-    return Math.round(((original - current) / original) * 100);
-  };
 
   useEffect(() => {
     // Scroll to top when component mounts
     window.scrollTo(0, 0);
     // Reset image index when product changes
     setCurrentImageIndex(0);
-  }, [productId]);
+    
+    // Track product view
+    if (product) {
+      trackProductView(
+        product.id.toString(),
+        product.name,
+        product.category,
+        parseFloat(product.price.replace('₹', '').replace(',', ''))
+      );
+    }
+  }, [productName, product]);
 
   // Auto-rotate images every 10 seconds
   useEffect(() => {
@@ -218,8 +206,84 @@ const ProductPage = () => {
   }, [isModalOpen, product.images.length]);
 
   return (
-          <div className="min-h-screen bg-gradient-to-br from-green-50 via-slate-50 to-emerald-50">
-      <Header />
+    <>
+      <Helmet>
+        <title>{product.name} - {product.category} | Besser Life Care</title>
+        <meta name="description" content={`${product.description} ${product.detailedDescription}. Buy ${product.name} online - Premium Ayurvedic supplement for ${product.category.toLowerCase()}. ${product.packSize} at ₹${product.price.replace('₹', '')}`} />
+        <meta name="keywords" content={`${product.name}, ${product.category}, Ayurvedic supplements, ${product.ingredients.join(', ')}, natural wellness, liver health, PCOD management`} />
+        
+        {/* Open Graph Meta Tags */}
+        <meta property="og:title" content={`${product.name} - ${product.category} | Besser Life Care`} />
+        <meta property="og:description" content={`${product.description} Buy ${product.name} online - Premium Ayurvedic supplement. ${product.packSize} at ₹${product.price.replace('₹', '')}`} />
+        <meta property="og:type" content="product" />
+        <meta property="og:url" content={`https://besserlifecare.in/product/${productName}`} />
+        <meta property="og:image" content={`https://besserlifecare.in${product.image}`} />
+        
+        {/* Product-specific Open Graph */}
+        <meta property="product:price:amount" content={product.price.replace('₹', '')} />
+        <meta property="product:price:currency" content="INR" />
+        <meta property="product:availability" content="in stock" />
+        <meta property="product:condition" content="new" />
+        <meta property="product:brand" content="Besser Life Care" />
+        <meta property="product:category" content={product.category} />
+        
+        {/* Twitter Card Meta Tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={`${product.name} - ${product.category} | Besser Life Care`} />
+        <meta name="twitter:description" content={`${product.description} Buy ${product.name} online - Premium Ayurvedic supplement.`} />
+        <meta name="twitter:image" content={`https://besserlifecare.in${product.image}`} />
+        
+        {/* Structured Data for Product */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Product",
+            "name": product.name,
+            "description": product.description,
+            "image": product.images.map(img => `https://besserlifecare.in${img}`),
+            "brand": {
+              "@type": "Brand",
+              "name": "Besser Life Care"
+            },
+            "offers": {
+              "@type": "Offer",
+              "price": product.price.replace('₹', ''),
+              "priceCurrency": "INR",
+              "availability": "https://schema.org/InStock",
+              "seller": {
+                "@type": "Organization",
+                "name": "Besser Life Care"
+              }
+            },
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": product.rating,
+              "reviewCount": product.reviews
+            },
+            "category": product.category,
+            "additionalProperty": [
+              {
+                "@type": "PropertyValue",
+                "name": "Pack Size",
+                "value": product.packSize
+              },
+              {
+                "@type": "PropertyValue",
+                "name": "Dosage",
+                "value": product.dosage
+              },
+              {
+                "@type": "PropertyValue",
+                "name": "Shelf Life",
+                "value": product.shelfLife
+              }
+            ]
+          })}
+        </script>
+      </Helmet>
+      
+      <div className="min-h-screen bg-gradient-to-br from-green-50 via-slate-50 to-emerald-50">
+        <Header />
       
       <div className="pt-20 pb-16 px-4 md:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
@@ -241,11 +305,11 @@ const ProductPage = () => {
             <div className="space-y-6">
               {/* Main Image */}
               <div className="relative bg-white rounded-2xl p-8 shadow-lg border border-green-100">
-                <div className="absolute top-4 left-4">
+                {/* <div className="absolute top-4 left-4">
                   <span className="bg-green-800 text-white text-xs font-bold px-3 py-1 rounded-full">
                     {product.discount}
                   </span>
-                </div>
+                </div> */}
                 <img
                   src={product.images[currentImageIndex]}
                   alt={product.name}
@@ -320,7 +384,7 @@ const ProductPage = () => {
                   <div className="flex items-center space-x-1">
                     <span className="text-yellow-400">★</span>
                     <span className="text-sm font-medium text-slate-700">{product.rating}</span>
-                    <span className="text-xs text-slate-500">({product.reviews} reviews)</span>
+                    {/* <span className="text-xs text-slate-500">({product.reviews} reviews)</span> */}
                   </div>
                 </div>
 
@@ -330,10 +394,6 @@ const ProductPage = () => {
 
                 <div className="flex items-center space-x-4 mb-6">
                   <span className="text-3xl font-bold text-green-800">{product.price}</span>
-                  <span className="text-xl text-slate-400 line-through">{product.originalPrice}</span>
-                  <span className="bg-green-100 text-green-800 text-sm font-semibold px-2 py-1 rounded-full">
-                    Save {calculateDiscount()}%
-                  </span>
                 </div>
 
                 <p className="text-lg text-slate-600 leading-relaxed">
@@ -342,7 +402,7 @@ const ProductPage = () => {
               </div>
 
               {/* Quantity */}
-              <div>
+              {/* <div>
                 <h3 className="text-lg font-semibold text-green-800 mb-3">Quantity</h3>
                 <div className="flex items-center space-x-3">
                   <button
@@ -367,35 +427,37 @@ const ProductPage = () => {
                     </svg>
                   </button>
                 </div>
-              </div>
+              </div> */}
 
-              {/* Action Buttons */}
+              {/* Buy on Amazon Button */}
               <div className="space-y-4">
-                <button
-                  onClick={handleAddToCart}
-                  disabled={isAddingToCart}
-                  className="w-full bg-green-800 text-white py-4 px-6 rounded-2xl font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                <a
+                  href="https://www.amazon.in/s?k=besser+life+care"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full bg-gradient-to-r from-orange-500 to-yellow-500 text-white py-4 px-6 rounded-2xl font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 flex items-center justify-center space-x-3"
                 >
-                  {isAddingToCart ? (
-                    <span className="flex items-center justify-center space-x-2">
-                      <svg className="animate-spin w-5 h-5" fill="none" viewBox="0 0 24 24">
-                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                      </svg>
-                      <span>Adding to Cart...</span>
-                    </span>
-                  ) : (
-                    'Add to Cart'
-                  )}
-                </button>
+                  <span className="text-2xl">🛒</span>
+                  <span>Buy on Amazon</span>
+                </a>
                 
-                <button
-                  onClick={handleBuyNow}
-                  disabled={isAddingToCart}
-                  className="w-full bg-gradient-to-r from-green-800 to-emerald-500 text-white py-4 px-6 rounded-2xl font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
-                >
-                  Buy Now
-                </button>
+                <div className="text-center">
+                  <p className="text-sm text-slate-600 mb-2">Available on Amazon India</p>
+                  <div className="flex items-center justify-center space-x-4 text-xs text-slate-500">
+                    <span className="flex items-center space-x-1">
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                      </svg>
+                      <span>Prime Delivery</span>
+                    </span>
+                    <span className="flex items-center space-x-1">
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                      </svg>
+                      <span>Easy Returns</span>
+                    </span>
+                  </div>
+                </div>
               </div>
 
               {/* Trust Indicators */}
@@ -588,34 +650,7 @@ const ProductPage = () => {
             </div>
           </div>
 
-          {/* Related Products */}
-          <div className="mt-20">
-                         <h2 className="text-3xl font-display font-bold text-green-900 mb-8 text-center">
-               You Might Also Like
-             </h2>
-             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-               {[1, 2, 3].map((id) => (
-                 <div key={id} className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-green-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-                   <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-4 mb-4">
-                     <img
-                       src="/bhealth-cream.png"
-                       alt="Related Product"
-                       className="w-full h-32 object-contain"
-                     />
-                   </div>
-                   <h3 className="font-display font-semibold text-green-800 mb-2">
-                     Related Product {id}
-                   </h3>
-                   <p className="text-slate-600 text-sm mb-3">
-                     Discover more wellness products
-                   </p>
-                   <button className="w-full bg-green-800 text-white py-2 px-4 rounded-lg font-semibold hover:bg-green-600 transition-colors">
-                     View Product
-                   </button>
-                 </div>
-               ))}
-             </div>
-          </div>
+
         </div>
       </div>
 
@@ -698,7 +733,10 @@ const ProductPage = () => {
           ></div>
         </div>
       )}
-    </div>
+      </div>
+      
+      <Footer />
+    </>
   );
 };
 

@@ -1,12 +1,46 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Helmet } from 'react-helmet-async';
 import Header from "./Header";
 import Footer from "./Footer";
 
 const AboutPage = () => {
   return (
-    <div className="bg-green-100 min-h-screen flex flex-col">
-      <Header />
+    <>
+      <Helmet>
+        <title>About Besser Life Care - Premium Ayurvedic Wellness Company</title>
+        <meta name="description" content="Learn about Besser Life Care's mission to provide premium Ayurvedic wellness products. Discover our story, values, and commitment to natural healing through traditional methods." />
+        <meta name="keywords" content="about Besser Life Care, Ayurvedic company, natural wellness, herbal supplements company, liver health, PCOD management, traditional medicine" />
+        
+        {/* Open Graph Meta Tags */}
+        <meta property="og:title" content="About Besser Life Care - Premium Ayurvedic Wellness Company" />
+        <meta property="og:description" content="Learn about Besser Life Care's mission to provide premium Ayurvedic wellness products. Discover our story, values, and commitment to natural healing." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://besserlifecare.in/about" />
+        
+        {/* Structured Data for Organization */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "Besser Life Care",
+            "url": "https://besserlifecare.in",
+            "logo": "https://besserlifecare.in/logo-white.png",
+            "description": "Premium Ayurvedic wellness products for liver health and PCOD management",
+            "foundingDate": "2020",
+            "mission": "To provide safe, effective, and scientifically backed herbal formulations that support health and wellness",
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "telephone": "+91-XXXX-XXXX",
+              "contactType": "customer service",
+              "availableLanguage": "English"
+            }
+          })}
+        </script>
+      </Helmet>
+      
+      <div className="bg-green-100 min-h-screen flex flex-col">
+        <Header />
       <div className="flex-1 bg-gradient-to-br from-green-50 via-white to-emerald-50 pt-24 pb-16">
         <div className="max-w-6xl mx-auto px-4 md:px-6 lg:px-8">
           {/* Header */}
@@ -219,9 +253,10 @@ const AboutPage = () => {
             </div>
           </div>
         </div>
+        </div>
+        <Footer />
       </div>
-      <Footer />
-    </div>
+    </>
   );
 };
 

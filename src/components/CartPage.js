@@ -1,9 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { useCart } from '../context/CartContext';
+import { useAnalytics } from '../hooks/useAnalytics';
 
 const CartPage = () => {
   const { items, removeFromCart, updateQuantity, getCartTotal, getCartItemCount, clearCart } = useCart();
+  const analytics = useAnalytics();
 
   const handleQuantityChange = (productId, newQuantity) => {
     if (newQuantity >= 1) {
@@ -17,7 +20,14 @@ const CartPage = () => {
 
   if (items.length === 0) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-green-50 via-slate-50 to-emerald-50 py-20 px-4">
+      <>
+        <Helmet>
+          <title>Shopping Cart - Besser Life Care</title>
+          <meta name="description" content="Your shopping cart at Besser Life Care. Review your selected Ayurvedic wellness products including Besser Livomrit and Besser Ovasiddhi before checkout." />
+          <meta name="robots" content="noindex, nofollow" />
+        </Helmet>
+        
+        <div className="min-h-screen bg-gradient-to-br from-green-50 via-slate-50 to-emerald-50 py-20 px-4">
         <div className="max-w-4xl mx-auto text-center">
           <div className="text-8xl mb-6">🛒</div>
           <h1 className="text-4xl md:text-5xl font-display font-bold text-green-900 mb-4">
@@ -40,12 +50,20 @@ const CartPage = () => {
             </div>
           </div>
         </div>
-      </div>
+        </div>
+      </>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 via-slate-50 to-emerald-50 py-20 px-4">
+    <>
+      <Helmet>
+        <title>Shopping Cart - Besser Life Care</title>
+        <meta name="description" content="Your shopping cart at Besser Life Care. Review your selected Ayurvedic wellness products including Besser Livomrit and Besser Ovasiddhi before checkout." />
+        <meta name="robots" content="noindex, nofollow" />
+      </Helmet>
+      
+      <div className="min-h-screen bg-gradient-to-br from-green-50 via-slate-50 to-emerald-50 py-20 px-4">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
@@ -202,8 +220,9 @@ const CartPage = () => {
             </div>
           </div>
         </div>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

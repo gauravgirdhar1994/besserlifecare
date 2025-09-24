@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
+import { Helmet } from 'react-helmet-async';
 import Header from './Header';
 import FeaturedProducts from './FeaturedProducts';
 import Testimonials from './Testimonials';
@@ -57,8 +58,44 @@ const LandingPage = () => {
 
 
   return (
-    <div className="md:bg-green-100 min-h-screen flex flex-col">
-      <Header />
+    <>
+      <Helmet>
+        <title>Besser Life Care - Premium Ayurvedic Wellness Products for Liver Health & PCOD</title>
+        <meta name="description" content="Discover premium Ayurvedic wellness products by Besser Life Care. Besser Livomrit for liver health and Besser Ovasiddhi for PCOD management. Natural herbal supplements processed with traditional methods." />
+        <meta name="keywords" content="Ayurvedic products, liver health supplements, PCOD management, herbal wellness, natural supplements, Besser Livomrit, Besser Ovasiddhi, liver detox, hormonal balance" />
+        
+        {/* Open Graph Meta Tags */}
+        <meta property="og:title" content="Besser Life Care - Premium Ayurvedic Wellness Products" />
+        <meta property="og:description" content="Premium Ayurvedic wellness products for liver health and PCOD management. Natural herbal supplements processed with traditional methods." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://besserlifecare.in" />
+        <meta property="og:image" content="https://besserlifecare.in/Banner.jpg" />
+        
+        {/* Twitter Card Meta Tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Besser Life Care - Premium Ayurvedic Wellness Products" />
+        <meta name="twitter:description" content="Premium Ayurvedic wellness products for liver health and PCOD management. Natural herbal supplements processed with traditional methods." />
+        <meta name="twitter:image" content="https://besserlifecare.in/Banner.jpg" />
+        
+        {/* Structured Data */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": "Besser Life Care",
+            "url": "https://besserlifecare.in",
+            "description": "Premium Ayurvedic wellness products for liver health and PCOD management",
+            "potentialAction": {
+              "@type": "SearchAction",
+              "target": "https://besserlifecare.in/search?q={search_term_string}",
+              "query-input": "required name=search_term_string"
+            }
+          })}
+        </script>
+      </Helmet>
+      
+      <div className="md:bg-green-100 min-h-screen flex flex-col">
+        <Header />
       
       {/* Hero Section */}
       <section 
@@ -194,11 +231,12 @@ const LandingPage = () => {
         <FeaturedProducts />
         <Testimonials />
         <AboutSection />
-        <ContactSection />
+        {/* <ContactSection /> */}
       </div>
       
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+    </>
   );
 };
 

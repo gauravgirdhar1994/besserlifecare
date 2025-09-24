@@ -28,8 +28,8 @@ const ContactSection = () => {
       icon: "📧",
       title: "Email Us",
       description: "Send us a message anytime",
-      value: "info@besserlifecare.com",
-      action: "mailto:info@besserlifecare.com",
+      value: "info@besserlifecare.in",
+      action: "mailto:info@besserlifecare.in",
       color: "pink"
     },
     {
