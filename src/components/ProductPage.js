@@ -174,6 +174,30 @@ const ProductPage = () => {
     setCurrentImageIndex(index);
   };
 
+  // Handle tab click with scroll prevention
+  const handleTabClick = (tabId, e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    
+    // Safely call stopImmediatePropagation if available
+    if (e.stopImmediatePropagation) {
+      e.stopImmediatePropagation();
+    }
+    
+    // Store current scroll position
+    const currentScrollY = window.scrollY;
+    
+    // Update active tab
+    setActiveTab(tabId);
+    
+    // Restore scroll position after state update
+    setTimeout(() => {
+      window.scrollTo(0, currentScrollY);
+    }, 0);
+    
+    return false;
+  };
+
   // Handle modal open/close
   const openModal = () => {
     setIsModalOpen(true);
@@ -289,11 +313,25 @@ const ProductPage = () => {
         <div className="max-w-7xl mx-auto">
           {/* Breadcrumb */}
           <nav className="flex items-center space-x-2 text-sm text-slate-600 mb-8">
-            <button onClick={() => navigate('/')} className="hover:text-green-800 transition-colors">
+            <button 
+              onClick={(e) => {
+                e.preventDefault();
+                navigate('/');
+              }} 
+              type="button"
+              className="hover:text-green-800 transition-colors"
+            >
               Home
             </button>
             <span>/</span>
-            <button onClick={() => navigate('/#products')} className="hover:text-green-800 transition-colors">
+            <button 
+              onClick={(e) => {
+                e.preventDefault();
+                navigate('/#products');
+              }} 
+              type="button"
+              className="hover:text-green-800 transition-colors"
+            >
               Products
             </button>
             <span>/</span>
@@ -326,22 +364,46 @@ const ProductPage = () => {
                 {product.images.length > 1 && (
                   <>
                     <button
-                      onClick={() => setCurrentImageIndex((prevIndex) => 
-                        prevIndex === 0 ? product.images.length - 1 : prevIndex - 1
-                      )}
-                      className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white text-green-800 p-2 rounded-full shadow-lg transition-all duration-300"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        setCurrentImageIndex((prevIndex) => 
+                          prevIndex === 0 ? product.images.length - 1 : prevIndex - 1
+                        );
+                      }}
+                      onTouchEnd={(e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        setCurrentImageIndex((prevIndex) => 
+                          prevIndex === 0 ? product.images.length - 1 : prevIndex - 1
+                        );
+                      }}
+                      className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white active:bg-white text-green-800 p-3 md:p-2 rounded-full shadow-lg transition-all duration-300 touch-manipulation min-w-[44px] min-h-[44px] flex items-center justify-center"
+                      aria-label="Previous image"
                     >
-                      <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                      <svg className="w-6 h-6 md:w-5 md:h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7"/>
                       </svg>
                     </button>
                     <button
-                      onClick={() => setCurrentImageIndex((prevIndex) => 
-                        (prevIndex + 1) % product.images.length
-                      )}
-                      className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white text-green-800 p-2 rounded-full shadow-lg transition-all duration-300"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        setCurrentImageIndex((prevIndex) => 
+                          (prevIndex + 1) % product.images.length
+                        );
+                      }}
+                      onTouchEnd={(e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        setCurrentImageIndex((prevIndex) => 
+                          (prevIndex + 1) % product.images.length
+                        );
+                      }}
+                      className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white active:bg-white text-green-800 p-3 md:p-2 rounded-full shadow-lg transition-all duration-300 touch-manipulation min-w-[44px] min-h-[44px] flex items-center justify-center"
+                      aria-label="Next image"
                     >
-                      <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                      <svg className="w-6 h-6 md:w-5 md:h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7"/>
                       </svg>
                     </button>
@@ -352,14 +414,23 @@ const ProductPage = () => {
               {/* Thumbnail Images */}
               <div className="grid grid-cols-4 gap-4">
                 {product.images.map((image, index) => (
-                  <div 
+                  <button 
                     key={index} 
-                    onClick={() => handleThumbnailClick(index)}
-                    className={`bg-white rounded-xl p-4 shadow-md border-2 cursor-pointer hover:shadow-lg transition-all duration-300 ${
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleThumbnailClick(index);
+                    }}
+                    onTouchEnd={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      handleThumbnailClick(index);
+                    }}
+                    className={`bg-white rounded-xl p-4 shadow-md border-2 cursor-pointer hover:shadow-lg active:shadow-lg transition-all duration-300 touch-manipulation ${
                       index === currentImageIndex 
                         ? 'border-green-500 shadow-lg' 
-                        : 'border-green-100 hover:border-green-300'
+                        : 'border-green-100 hover:border-green-300 active:border-green-300'
                     }`}
+                    aria-label={`View image ${index + 1}`}
                   >
                     <img
                       src={image}
@@ -368,7 +439,7 @@ const ProductPage = () => {
                         index === currentImageIndex ? 'opacity-100' : 'opacity-70'
                       }`}
                     />
-                  </div>
+                  </button>
                 ))}
               </div>
             </div>
@@ -487,7 +558,7 @@ const ProductPage = () => {
           {/* Product Tabs */}
           <div className="mt-20">
             <div className="border-b border-green-200 mb-8">
-              <nav className="flex space-x-8">
+              <div className="flex space-x-1 sm:space-x-2 md:space-x-8 overflow-x-auto pb-2 scrollbar-hide" role="tablist">
                 {[
                   { id: 'description', label: 'Description' },
                   { id: 'how-it-works', label: 'How It Works' },
@@ -497,17 +568,32 @@ const ProductPage = () => {
                 ].map((tab) => (
                   <button
                     key={tab.id}
-                    onClick={() => setActiveTab(tab.id)}
-                    className={`py-3 px-1 border-b-2 font-medium text-sm transition-colors ${
+                    onClick={(e) => handleTabClick(tab.id, e)}
+                    onMouseDown={(e) => e.preventDefault()}
+                    onTouchStart={(e) => e.preventDefault()}
+                    type="button"
+                    role="tab"
+                    aria-selected={activeTab === tab.id}
+                    tabIndex={activeTab === tab.id ? 0 : -1}
+                    className={`py-3 px-2 sm:px-3 md:px-1 border-b-2 font-medium text-xs sm:text-sm transition-colors whitespace-nowrap flex-shrink-0 touch-manipulation focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 ${
                       activeTab === tab.id
                         ? 'border-green-500 text-green-800'
-                        : 'border-transparent text-slate-500 hover:text-slate-700'
+                        : 'border-transparent text-slate-500 hover:text-slate-700 active:text-slate-700'
                     }`}
                   >
-                    {tab.label}
+                    <span className="block">
+                      {tab.label.split(' ').map((word, index) => (
+                        <span key={index} className="block sm:inline">
+                          {word}
+                          {index < tab.label.split(' ').length - 1 && (
+                            <span className="hidden sm:inline"> </span>
+                          )}
+                        </span>
+                      ))}
+                    </span>
                   </button>
                 ))}
-              </nav>
+              </div>
             </div>
 
             <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-green-100">
@@ -679,22 +765,46 @@ const ProductPage = () => {
             {product.images.length > 1 && (
               <>
                 <button
-                  onClick={() => setCurrentImageIndex((prevIndex) => 
-                    prevIndex === 0 ? product.images.length - 1 : prevIndex - 1
-                  )}
-                  className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/20 hover:bg-white/30 text-white p-3 rounded-full transition-all duration-300"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    setCurrentImageIndex((prevIndex) => 
+                      prevIndex === 0 ? product.images.length - 1 : prevIndex - 1
+                    );
+                  }}
+                  onTouchEnd={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    setCurrentImageIndex((prevIndex) => 
+                      prevIndex === 0 ? product.images.length - 1 : prevIndex - 1
+                    );
+                  }}
+                  className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/20 hover:bg-white/30 active:bg-white/40 text-white p-4 md:p-3 rounded-full transition-all duration-300 touch-manipulation min-w-[56px] min-h-[56px] md:min-w-[48px] md:min-h-[48px] flex items-center justify-center"
+                  aria-label="Previous image"
                 >
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                  <svg className="w-7 h-7 md:w-6 md:h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7"/>
                   </svg>
                 </button>
                 <button
-                  onClick={() => setCurrentImageIndex((prevIndex) => 
-                    (prevIndex + 1) % product.images.length
-                  )}
-                  className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/20 hover:bg-white/30 text-white p-3 rounded-full transition-all duration-300"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    setCurrentImageIndex((prevIndex) => 
+                      (prevIndex + 1) % product.images.length
+                    );
+                  }}
+                  onTouchEnd={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    setCurrentImageIndex((prevIndex) => 
+                      (prevIndex + 1) % product.images.length
+                    );
+                  }}
+                  className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/20 hover:bg-white/30 active:bg-white/40 text-white p-4 md:p-3 rounded-full transition-all duration-300 touch-manipulation min-w-[56px] min-h-[56px] md:min-w-[48px] md:min-h-[48px] flex items-center justify-center"
+                  aria-label="Next image"
                 >
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                  <svg className="w-7 h-7 md:w-6 md:h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7"/>
                   </svg>
                 </button>
@@ -708,19 +818,33 @@ const ProductPage = () => {
 
             {/* Thumbnail strip */}
             {product.images.length > 1 && (
-              <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 flex space-x-2 max-w-full overflow-x-auto">
+              <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 flex space-x-2 max-w-full overflow-x-auto px-4">
                 {product.images.map((image, index) => (
-                  <img
+                  <button
                     key={index}
-                    src={image}
-                    alt={`${product.name} ${index + 1}`}
-                    onClick={() => setCurrentImageIndex(index)}
-                    className={`w-16 h-16 object-cover rounded-lg cursor-pointer transition-all duration-300 ${
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      setCurrentImageIndex(index);
+                    }}
+                    onTouchEnd={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      setCurrentImageIndex(index);
+                    }}
+                    className={`w-16 h-16 object-cover rounded-lg cursor-pointer transition-all duration-300 touch-manipulation flex-shrink-0 ${
                       index === currentImageIndex 
                         ? 'ring-2 ring-white opacity-100' 
-                        : 'opacity-70 hover:opacity-100'
+                        : 'opacity-70 hover:opacity-100 active:opacity-100'
                     }`}
-                  />
+                    aria-label={`View image ${index + 1}`}
+                  >
+                    <img
+                      src={image}
+                      alt={`${product.name} ${index + 1}`}
+                      className="w-full h-full object-cover rounded-lg"
+                    />
+                  </button>
                 ))}
               </div>
             )}

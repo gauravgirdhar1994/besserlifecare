@@ -103,6 +103,15 @@
     background-size: 200% 200%;
     animation: gradient-move 3s ease infinite reverse;
   }
+  
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 @keyframes gradient-move {

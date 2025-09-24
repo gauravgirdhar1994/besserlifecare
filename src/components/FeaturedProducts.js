@@ -150,7 +150,7 @@ const FeaturedProducts = () => {
               {/* Product Content */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
                 {/* Product Image */}
-                <div className="relative order-2 md:order-1">
+                <div className="relative order-1 md:order-1">
                   <div className="aspect-square bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl overflow-hidden p-4 shadow-inner">
                     <img
                       src={product.image}
@@ -173,7 +173,7 @@ const FeaturedProducts = () => {
                 </div>
 
                 {/* Product Info */}
-                <div className="space-y-4 md:space-y-6 order-1 md:order-2">
+                <div className="space-y-4 md:space-y-6 order-2 md:order-2">
                   {/* Category & Rating */}
                   <div className="flex items-center justify-between">
                     <span className="text-sm font-semibold text-green-800 bg-green-100 px-4 py-2 rounded-full">
