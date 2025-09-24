@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+import ImageGallery from 'react-image-gallery';
+import 'react-image-gallery/styles/css/image-gallery.css';
 import { trackProductView } from '../utils/analytics';
 import Header from './Header';
 import Footer from './Footer';
@@ -9,8 +11,6 @@ const ProductPage = () => {
   const { productName } = useParams();
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState('description');
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
   // Product data array
   const products = [
@@ -142,8 +142,6 @@ const ProductPage = () => {
   useEffect(() => {
     // Scroll to top when component mounts
     window.scrollTo(0, 0);
-    // Reset image index when product changes
-    setCurrentImageIndex(0);
     
     // Track product view
     if (product) {
@@ -156,23 +154,13 @@ const ProductPage = () => {
     }
   }, [productName, product]);
 
-  // Auto-rotate images every 10 seconds
-  useEffect(() => {
-    if (product.images && product.images.length > 1) {
-      const interval = setInterval(() => {
-        setCurrentImageIndex((prevIndex) => 
-          (prevIndex + 1) % product.images.length
-        );
-      }, 10000); // Change image every 10 seconds
-
-      return () => clearInterval(interval);
-    }
-  }, [product.images]);
-
-  // Handle thumbnail click
-  const handleThumbnailClick = (index) => {
-    setCurrentImageIndex(index);
-  };
+  // Convert product images to react-image-gallery format
+  const galleryImages = product.images.map(image => ({
+    original: image,
+    thumbnail: image,
+    originalAlt: product.name,
+    thumbnailAlt: product.name
+  }));
 
   // Handle tab click with scroll prevention
   const handleTabClick = (tabId, e) => {
@@ -198,36 +186,6 @@ const ProductPage = () => {
     return false;
   };
 
-  // Handle modal open/close
-  const openModal = () => {
-    setIsModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
-
-  // Handle keyboard navigation in modal
-  useEffect(() => {
-    const handleKeyPress = (event) => {
-      if (!isModalOpen) return;
-      
-      if (event.key === 'Escape') {
-        closeModal();
-      } else if (event.key === 'ArrowLeft') {
-        setCurrentImageIndex((prevIndex) => 
-          prevIndex === 0 ? product.images.length - 1 : prevIndex - 1
-        );
-      } else if (event.key === 'ArrowRight') {
-        setCurrentImageIndex((prevIndex) => 
-          (prevIndex + 1) % product.images.length
-        );
-      }
-    };
-
-    window.addEventListener('keydown', handleKeyPress);
-    return () => window.removeEventListener('keydown', handleKeyPress);
-  }, [isModalOpen, product.images.length]);
 
   return (
     <>
@@ -341,106 +299,25 @@ const ProductPage = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
             {/* Product Images */}
             <div className="space-y-6">
-              {/* Main Image */}
-              <div className="relative bg-white rounded-2xl p-8 shadow-lg border border-green-100">
-                {/* <div className="absolute top-4 left-4">
-                  <span className="bg-green-800 text-white text-xs font-bold px-3 py-1 rounded-full">
-                    {product.discount}
-                  </span>
-                </div> */}
-                <img
-                  src={product.images[currentImageIndex]}
-                  alt={product.name}
-                  onClick={openModal}
-                  className="w-full h-96 object-contain transition-opacity duration-500 cursor-pointer hover:opacity-90"
+              {/* Image Gallery */}
+              <div className="bg-white rounded-2xl p-4 shadow-lg border border-green-100">
+                <ImageGallery
+                  items={galleryImages}
+                  showThumbnails={true}
+                  showPlayButton={false}
+                  showFullscreenButton={true}
+                  showBullets={false}
+                  showNav={true}
+                  autoPlay={false}
+                  slideInterval={10000}
+                  slideDuration={500}
+                  thumbnailPosition="bottom"
+                  useBrowserFullscreen={true}
+                  showIndex={true}
+                  indexSeparator=" / "
+                  lazyLoad={true}
+                  additionalClass="custom-image-gallery"
                 />
-                
-                {/* Image counter */}
-                <div className="absolute bottom-4 right-4 bg-black/50 text-white text-sm px-3 py-1 rounded-full">
-                  {currentImageIndex + 1} / {product.images.length}
-                </div>
-                
-                {/* Navigation arrows */}
-                {product.images.length > 1 && (
-                  <>
-                    <button
-                      onClick={(e) => {
-                        e.preventDefault();
-                        e.stopPropagation();
-                        setCurrentImageIndex((prevIndex) => 
-                          prevIndex === 0 ? product.images.length - 1 : prevIndex - 1
-                        );
-                      }}
-                      onTouchEnd={(e) => {
-                        e.preventDefault();
-                        e.stopPropagation();
-                        setCurrentImageIndex((prevIndex) => 
-                          prevIndex === 0 ? product.images.length - 1 : prevIndex - 1
-                        );
-                      }}
-                      className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white active:bg-white text-green-800 p-3 md:p-2 rounded-full shadow-lg transition-all duration-300 touch-manipulation min-w-[44px] min-h-[44px] flex items-center justify-center"
-                      aria-label="Previous image"
-                    >
-                      <svg className="w-6 h-6 md:w-5 md:h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7"/>
-                      </svg>
-                    </button>
-                    <button
-                      onClick={(e) => {
-                        e.preventDefault();
-                        e.stopPropagation();
-                        setCurrentImageIndex((prevIndex) => 
-                          (prevIndex + 1) % product.images.length
-                        );
-                      }}
-                      onTouchEnd={(e) => {
-                        e.preventDefault();
-                        e.stopPropagation();
-                        setCurrentImageIndex((prevIndex) => 
-                          (prevIndex + 1) % product.images.length
-                        );
-                      }}
-                      className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white active:bg-white text-green-800 p-3 md:p-2 rounded-full shadow-lg transition-all duration-300 touch-manipulation min-w-[44px] min-h-[44px] flex items-center justify-center"
-                      aria-label="Next image"
-                    >
-                      <svg className="w-6 h-6 md:w-5 md:h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7"/>
-                      </svg>
-                    </button>
-                  </>
-                )}
-              </div>
-
-              {/* Thumbnail Images */}
-              <div className="grid grid-cols-4 gap-4">
-                {product.images.map((image, index) => (
-                  <button 
-                    key={index} 
-                    onClick={(e) => {
-                      e.preventDefault();
-                      handleThumbnailClick(index);
-                    }}
-                    onTouchEnd={(e) => {
-                      e.preventDefault();
-                      e.stopPropagation();
-                      handleThumbnailClick(index);
-                    }}
-                    className={`bg-white rounded-xl p-4 shadow-md border-2 cursor-pointer hover:shadow-lg active:shadow-lg transition-all duration-300 touch-manipulation ${
-                      index === currentImageIndex 
-                        ? 'border-green-500 shadow-lg' 
-                        : 'border-green-100 hover:border-green-300 active:border-green-300'
-                    }`}
-                    aria-label={`View image ${index + 1}`}
-                  >
-                    <img
-                      src={image}
-                      alt={`${product.name} ${index + 1}`}
-                      className={`w-full h-20 object-contain transition-opacity duration-300 ${
-                        index === currentImageIndex ? 'opacity-100' : 'opacity-70'
-                      }`}
-                    />
-                  </button>
-                ))}
               </div>
             </div>
 
@@ -740,123 +617,6 @@ const ProductPage = () => {
         </div>
       </div>
 
-      {/* Full Screen Image Modal */}
-      {isModalOpen && (
-        <div className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4">
-          <div className="relative max-w-7xl max-h-full">
-            {/* Close button */}
-            <button
-              onClick={closeModal}
-              className="absolute top-4 right-4 z-10 bg-white/20 hover:bg-white/30 text-white p-2 rounded-full transition-all duration-300"
-            >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12"/>
-              </svg>
-            </button>
-
-            {/* Main image */}
-            <img
-              src={product.images[currentImageIndex]}
-              alt={product.name}
-              className="max-w-full max-h-[90vh] object-contain"
-            />
-
-            {/* Navigation arrows */}
-            {product.images.length > 1 && (
-              <>
-                <button
-                  onClick={(e) => {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    setCurrentImageIndex((prevIndex) => 
-                      prevIndex === 0 ? product.images.length - 1 : prevIndex - 1
-                    );
-                  }}
-                  onTouchEnd={(e) => {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    setCurrentImageIndex((prevIndex) => 
-                      prevIndex === 0 ? product.images.length - 1 : prevIndex - 1
-                    );
-                  }}
-                  className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/20 hover:bg-white/30 active:bg-white/40 text-white p-4 md:p-3 rounded-full transition-all duration-300 touch-manipulation min-w-[56px] min-h-[56px] md:min-w-[48px] md:min-h-[48px] flex items-center justify-center"
-                  aria-label="Previous image"
-                >
-                  <svg className="w-7 h-7 md:w-6 md:h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7"/>
-                  </svg>
-                </button>
-                <button
-                  onClick={(e) => {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    setCurrentImageIndex((prevIndex) => 
-                      (prevIndex + 1) % product.images.length
-                    );
-                  }}
-                  onTouchEnd={(e) => {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    setCurrentImageIndex((prevIndex) => 
-                      (prevIndex + 1) % product.images.length
-                    );
-                  }}
-                  className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/20 hover:bg-white/30 active:bg-white/40 text-white p-4 md:p-3 rounded-full transition-all duration-300 touch-manipulation min-w-[56px] min-h-[56px] md:min-w-[48px] md:min-h-[48px] flex items-center justify-center"
-                  aria-label="Next image"
-                >
-                  <svg className="w-7 h-7 md:w-6 md:h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7"/>
-                  </svg>
-                </button>
-              </>
-            )}
-
-            {/* Image counter */}
-            <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-white/20 text-white text-lg px-4 py-2 rounded-full">
-              {currentImageIndex + 1} / {product.images.length}
-            </div>
-
-            {/* Thumbnail strip */}
-            {product.images.length > 1 && (
-              <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 flex space-x-2 max-w-full overflow-x-auto px-4">
-                {product.images.map((image, index) => (
-                  <button
-                    key={index}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      e.stopPropagation();
-                      setCurrentImageIndex(index);
-                    }}
-                    onTouchEnd={(e) => {
-                      e.preventDefault();
-                      e.stopPropagation();
-                      setCurrentImageIndex(index);
-                    }}
-                    className={`w-16 h-16 object-cover rounded-lg cursor-pointer transition-all duration-300 touch-manipulation flex-shrink-0 ${
-                      index === currentImageIndex 
-                        ? 'ring-2 ring-white opacity-100' 
-                        : 'opacity-70 hover:opacity-100 active:opacity-100'
-                    }`}
-                    aria-label={`View image ${index + 1}`}
-                  >
-                    <img
-                      src={image}
-                      alt={`${product.name} ${index + 1}`}
-                      className="w-full h-full object-cover rounded-lg"
-                    />
-                  </button>
-                ))}
-              </div>
-            )}
-          </div>
-
-          {/* Click outside to close */}
-          <div
-            className="absolute inset-0 -z-10"
-            onClick={closeModal}
-          ></div>
-        </div>
-      )}
       </div>
       
       <Footer />

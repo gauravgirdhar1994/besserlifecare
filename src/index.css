@@ -156,4 +156,146 @@
 /* Smooth transitions for all elements */
 * {
   transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Custom styles for react-image-gallery */
+.custom-image-gallery .image-gallery-slide img {
+  max-height: 400px;
+  object-fit: contain;
+}
+
+.custom-image-gallery .image-gallery-thumbnail {
+  border: 2px solid #d1fae5;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.custom-image-gallery .image-gallery-thumbnail.active {
+  border-color: #10b981;
+}
+
+.custom-image-gallery .image-gallery-thumbnail:hover {
+  border-color: #34d399;
+}
+
+.custom-image-gallery .image-gallery-icon {
+  color: #10b981;
+}
+
+.custom-image-gallery .image-gallery-icon:hover {
+  color: #059669;
+}
+
+.custom-image-gallery .image-gallery-index {
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  border-radius: 20px;
+  padding: 8px 12px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.custom-image-gallery .image-gallery-fullscreen-button {
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.custom-image-gallery .image-gallery-fullscreen-button:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+  border-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+  transform: scale(1.05);
+}
+
+.custom-image-gallery .image-gallery-fullscreen-button:active {
+  transform: scale(0.95);
+}
+
+.custom-image-gallery .image-gallery-left-nav,
+.custom-image-gallery .image-gallery-right-nav {
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  color: #10b981;
+  border: 2px solid rgba(16, 185, 129, 0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.custom-image-gallery .image-gallery-left-nav:hover,
+.custom-image-gallery .image-gallery-right-nav:hover {
+  background-color: white;
+  color: #059669;
+  border-color: rgba(16, 185, 129, 0.4);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
+}
+
+.custom-image-gallery .image-gallery-left-nav:active,
+.custom-image-gallery .image-gallery-right-nav:active {
+  transform: scale(0.95);
+}
+
+.custom-image-gallery .image-gallery-left-nav .image-gallery-svg,
+.custom-image-gallery .image-gallery-right-nav .image-gallery-svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* Ensure navigation buttons are visible and properly positioned */
+.custom-image-gallery .image-gallery-left-nav {
+  left: 10px;
+  z-index: 10;
+}
+
+.custom-image-gallery .image-gallery-right-nav {
+  right: 10px;
+  z-index: 10;
+}
+
+.custom-image-gallery .image-gallery-fullscreen-button {
+  top: 10px;
+  right: 10px;
+  z-index: 10;
+}
+
+.custom-image-gallery .image-gallery-left-nav, .custom-image-gallery .image-gallery-right-nav{
+  padding: 2px 2px !important;
+}
+
+/* Make sure buttons are visible on mobile */
+@media (max-width: 768px) {
+  .custom-image-gallery .image-gallery-left-nav,
+  .custom-image-gallery .image-gallery-right-nav {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .custom-image-gallery .image-gallery-left-nav .image-gallery-svg,
+  .custom-image-gallery .image-gallery-right-nav .image-gallery-svg {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .custom-image-gallery .image-gallery-fullscreen-button {
+    width: 44px;
+    height: 44px;
+  }
+  
+  .custom-image-gallery .image-gallery-fullscreen-button .image-gallery-svg {
+    width: 18px;
+    height: 18px;
+  }
 } 
