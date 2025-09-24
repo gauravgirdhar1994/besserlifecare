@@ -42,18 +42,18 @@ const Header = () => {
     <>
       <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled 
-          ? 'bg-green-100 backdrop-blur-md shadow-lg border-b border-green-200' 
-          : 'bg-green-100 backdrop-blur-sm'
+          ? 'backdrop-blur-md shadow-lg border-b border-green-200' 
+          : 'backdrop-blur-sm'
       }`}>
-        <div className="container mx-auto px-4 md:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16 md:h-20">
+        <div className="container-fluid mx-auto px-4 md:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-24 md:h-20 xs:h-20">
             {/* Logo */}
             <Link to="/" onClick={scrollToTop} className="flex items-center space-x-2 md:space-x-3 group">
               <img src="/logo-white.png" alt="Besser Life Care Logo" width={150} height={20} />
             </Link>
 
             {/* Desktop Navigation */}
-            <nav className="hidden md:flex items-center space-x-6 lg:space-x-8">
+            <nav className="hidden md:flex items-center space-x-4 lg:space-x-6">
               <Link 
                 to="/" 
                 onClick={scrollToTop}
@@ -61,13 +61,49 @@ const Header = () => {
               >
                 Home
               </Link>
-              <Link 
-                to="/products" 
-                onClick={scrollToTop}
-                className="text-slate-700 hover:text-green-800 font-medium transition-colors duration-200"
-              >
-                Products
-              </Link>
+              
+              {/* Products Dropdown */}
+              <div className="relative group">
+                <button className="flex items-center space-x-1 text-slate-700 hover:text-green-800 font-medium transition-colors duration-200">
+                  <span>Products</span>
+                  <svg className="w-4 h-4 transition-transform duration-200 group-hover:rotate-180" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7"/>
+                  </svg>
+                </button>
+                
+                {/* Dropdown Menu */}
+                <div className="absolute top-full left-0 mt-2 w-64 bg-white rounded-xl shadow-xl border border-green-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                  <div className="p-2">
+                    <Link
+                      to="/product/1"
+                      onClick={scrollToTop}
+                      className="flex items-center space-x-3 p-3 rounded-lg hover:bg-green-50 transition-colors duration-200"
+                    >
+                      <div className="w-10 h-10 bg-gradient-to-br from-green-100 to-emerald-100 rounded-lg flex items-center justify-center">
+                        <span className="text-green-600 text-sm">🫀</span>
+                      </div>
+                      <div>
+                        <div className="font-semibold text-green-800">Besser Livomrit</div>
+                        <div className="text-xs text-slate-600">Liver Health Support</div>
+                      </div>
+                    </Link>
+                    <Link
+                      to="/product/2"
+                      onClick={scrollToTop}
+                      className="flex items-center space-x-3 p-3 rounded-lg hover:bg-green-50 transition-colors duration-200"
+                    >
+                      <div className="w-10 h-10 bg-gradient-to-br from-purple-100 to-pink-100 rounded-lg flex items-center justify-center">
+                        <span className="text-purple-600 text-sm">🌸</span>
+                      </div>
+                      <div>
+                        <div className="font-semibold text-green-800">Besser Ovasiddhi</div>
+                        <div className="text-xs text-slate-600">PCOD Management</div>
+                      </div>
+                    </Link>
+                  </div>
+                </div>
+              </div>
+              
               <Link 
                 to="/about" 
                 onClick={scrollToTop}
@@ -163,32 +199,103 @@ const Header = () => {
           <div className="p-6">
             {/* Navigation Links */}
             <nav className="space-y-2 mb-8">
-              {[
-                { name: "Home", href: "/", icon: "🏠" },
-                { name: "Products", href: "/products", icon: "🛍️" },
-                { name: "About", href: "/about", icon: "ℹ️" },
-                { name: "Contact", href: "/contact", icon: "📞" }
-              ].map((link, index) => (
+              {/* Home */}
+              <Link
+                to="/"
+                className="flex items-center space-x-4 p-4 rounded-xl hover:bg-green-100 transition-all duration-200 group"
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  scrollToTop();
+                }}
+              >
+                <span className="text-2xl group-hover:scale-110 transition-transform duration-200">🏠</span>
+                <span className="text-lg font-medium text-slate-700 group-hover:text-green-800 transition-colors">Home</span>
+                <svg className="w-5 h-5 text-slate-400 group-hover:text-green-500 ml-auto transition-colors" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </Link>
+
+              {/* Products Section */}
+              <div className="space-y-1">
+                <div className="flex items-center space-x-4 p-4 rounded-xl bg-green-50">
+                  <span className="text-2xl">🛍️</span>
+                  <span className="text-lg font-semibold text-green-800">Products</span>
+                </div>
+                
+                {/* Besser Livomrit */}
                 <Link
-                  key={index}
-                  to={link.href}
-                  className="flex items-center space-x-4 p-4 rounded-xl hover:bg-green-100 transition-all duration-200 group"
+                  to="/product/1"
+                  className="flex items-center space-x-4 p-4 pl-12 rounded-xl hover:bg-green-100 transition-all duration-200 group"
                   onClick={() => {
                     setIsMobileMenuOpen(false);
                     scrollToTop();
                   }}
                 >
-                  <span className="text-2xl group-hover:scale-110 transition-transform duration-200">
-                    {link.icon}
-                  </span>
-                  <span className="text-lg font-medium text-slate-700 group-hover:text-green-800 transition-colors">
-                    {link.name}
-                  </span>
-                  <svg className="w-5 h-5 text-slate-400 group-hover:text-green-500 ml-auto transition-colors" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                  <div className="w-8 h-8 bg-gradient-to-br from-green-100 to-emerald-100 rounded-lg flex items-center justify-center">
+                    <span className="text-green-600 text-sm">🫀</span>
+                  </div>
+                  <div className="flex-1">
+                    <div className="font-semibold text-slate-700 group-hover:text-green-800 transition-colors">Besser Livomrit</div>
+                    <div className="text-xs text-slate-500">Liver Health Support</div>
+                  </div>
+                  <svg className="w-4 h-4 text-slate-400 group-hover:text-green-500 transition-colors" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
                 </Link>
-              ))}
+
+                {/* Besser Ovasiddhi */}
+                <Link
+                  to="/product/2"
+                  className="flex items-center space-x-4 p-4 pl-12 rounded-xl hover:bg-green-100 transition-all duration-200 group"
+                  onClick={() => {
+                    setIsMobileMenuOpen(false);
+                    scrollToTop();
+                  }}
+                >
+                  <div className="w-8 h-8 bg-gradient-to-br from-purple-100 to-pink-100 rounded-lg flex items-center justify-center">
+                    <span className="text-purple-600 text-sm">🌸</span>
+                  </div>
+                  <div className="flex-1">
+                    <div className="font-semibold text-slate-700 group-hover:text-green-800 transition-colors">Besser Ovasiddhi</div>
+                    <div className="text-xs text-slate-500">PCOD Management</div>
+                  </div>
+                  <svg className="w-4 h-4 text-slate-400 group-hover:text-green-500 transition-colors" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </Link>
+              </div>
+
+              {/* About */}
+              <Link
+                to="/about"
+                className="flex items-center space-x-4 p-4 rounded-xl hover:bg-green-100 transition-all duration-200 group"
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  scrollToTop();
+                }}
+              >
+                <span className="text-2xl group-hover:scale-110 transition-transform duration-200">ℹ️</span>
+                <span className="text-lg font-medium text-slate-700 group-hover:text-green-800 transition-colors">About</span>
+                <svg className="w-5 h-5 text-slate-400 group-hover:text-green-500 ml-auto transition-colors" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </Link>
+
+              {/* Contact */}
+              <Link
+                to="/contact"
+                className="flex items-center space-x-4 p-4 rounded-xl hover:bg-green-100 transition-all duration-200 group"
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  scrollToTop();
+                }}
+              >
+                <span className="text-2xl group-hover:scale-110 transition-transform duration-200">📞</span>
+                <span className="text-lg font-medium text-slate-700 group-hover:text-green-800 transition-colors">Contact</span>
+                <svg className="w-5 h-5 text-slate-400 group-hover:text-green-500 ml-auto transition-colors" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </Link>
             </nav>
 
             {/* CTA Section */}

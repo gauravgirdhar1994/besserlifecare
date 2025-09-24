@@ -6,64 +6,132 @@ import Header from './Header';
 const ProductPage = () => {
   const { productId } = useParams();
   const navigate = useNavigate();
-  const { addToCart, getCartItemCount } = useCart();
+  const { addToCart } = useCart();
   
   const [quantity, setQuantity] = useState(1);
   const [activeTab, setActiveTab] = useState('description');
   const [isAddingToCart, setIsAddingToCart] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  // Mock product data - in a real app, this would come from an API
-  const product = {
-    id: parseInt(productId) || 1,
-    name: "B-Health Herbal Body Massage Cream",
-    category: "Body Care",
-    price: "₹299",
-    originalPrice: "₹399",
+  // Product data array
+  const products = [
+    {
+      id: 1,
+      name: "Besser Livomrit",
+      category: "Liver Health",
+      price: "₹899",
+      originalPrice: "₹1299",
+      rating: 4.9,
+      reviews: 2156,
+      image: "/products/livomrit/1.jpg",
+      images: [
+        "/products/livomrit/1.jpg",
+        "/products/livomrit/2.jpg", 
+        "/products/livomrit/3.jpg",
+        "/products/livomrit/4.jpg",
+        "/products/livomrit/6.jpg",
+        "/products/livomrit/7s.jpg",
+        "/products/livomrit/8.jpg"
+      ],
+      benefits: ["Liver Detoxification", "Cell Regeneration", "Metabolism Boost", "Natural Defence"],
+      discount: "31% OFF",
+      description: "Besser Livomrit is formulated with time-tested Ayurvedic herbs, helps in detoxification, promotes liver cell regeneration, improves metabolism, and strengthens natural defence mechanisms. Its holistic action not only protects the liver but also supports vitality and long-term wellbeing.",
+      detailedDescription: "Besser Livomrit is a scientifically crafted herbal formulation, processed in the traditional Vasaguluchyadi Kashyam to enhance its potency and bioavailability. This unique process ensures that the synergistic benefits of the herbs are preserved, supporting healthy liver function and overall digestive wellness.",
+      howItWorks: [
+        "Liver Protection & Detoxification: The Vasaguluchyadi Kashyam base strengthens the liver's natural detox pathways, helping the body flush out toxins, alcohol residues, and harmful metabolites.",
+        "Cellular Regeneration: Herbs in Livomrit promote repair and regeneration of liver cells, improving overall liver function.",
+        "Metabolic Balance: By improving bile flow and digestion, it supports better fat metabolism and prevents accumulation of harmful substances in the liver.",
+        "Anti-inflammatory & Antioxidant Support: The herbal blend reduces oxidative stress, combats free radicals, and protects liver tissues against damage."
+      ],
+      whyChoose: [
+        "Crafted with time-tested Ayurvedic herbal extracts",
+        "Processed in Vasaguluchyadi Kashyam for maximum efficacy", 
+        "Combines traditional Ayurvedic wisdom with modern wellness needs",
+        "Plant based, No-known side-effects & safe for long-term use"
+      ],
+      keyBenefits: [
+        "Promotes healthy liver function and enzyme balance",
+        "Enhances digestion and metabolism", 
+        "Aids in natural detoxification and toxin clearance",
+        "Supports liver cell repair and protection",
+        "Strengthens overall vitality and immunity"
+      ],
+      dosage: "1-2 Capsule twice a day",
+      packSize: "60 Veg. Capsules",
+      shelfLife: "36 months from date of manufacturing",
+      indications: ["Fatty Liver", "Hepatitis", "Jaundice", "Loss of Appetite"],
+      ingredients: ["Makoy", "Sharpunkha", "Punarnava", "Yashtimadhu", "Kutki", "Bhringraj", "Bhumyamalaki", "Kalmegh", "Kasani", "Trikatu"],
+      specifications: {
+        packSize: "60 Veg. Capsules",
+        dosage: "1-2 Capsule twice a day",
+        shelfLife: "36 months from date of manufacturing",
+        indications: "Fatty Liver, Hepatitis, Jaundice, Loss of Appetite",
+        processing: "Vasaguluchyadi Kashyam",
+        type: "Herbal Supplement"
+      }
+    },
+    {
+      id: 2,
+      name: "Besser Ovasiddhi",
+      category: "PCOD Care",
+      price: "₹899",
+      originalPrice: "₹1299",
     rating: 4.8,
-    reviews: 1247,
-    image: "/bhealth-cream.png",
+      reviews: 1834,
+      image: "/products/ovasidhi/1.jpg",
     images: [
-      "/bhealth-cream.png",
-      "/bhealth-cream.png",
-      "/bhealth-cream.png",
-      "/bhealth-cream.png"
-    ],
-    benefits: [
-      "Natural Ingredients",
-      "Deep Moisturizing", 
-      "Anti-inflammatory",
-      "Skin Firming",
-      "Improved Elasticity",
-      "Natural Enhancement"
-    ],
-    discount: "25% OFF",
-    description: "Transform your wellness journey with our premium B-Health Herbal Body Massage Cream. This carefully crafted formula combines the power of natural herbs with modern science to provide deep nourishment and visible results. Perfect for daily use, it helps improve skin texture, firmness, and overall appearance while promoting natural wellness.",
-    ingredients: [
-      "Aloe Vera Extract",
-      "Almond Oil",
-      "Fennel Seed Oil",
-      "Fenugreek Extract",
-      "Jojoba Oil",
-      "Vitamin E",
-      "Natural Glycerin",
-      "Essential Oils Blend"
-    ],
-    howToUse: [
-      "Apply a small amount to clean, dry skin",
-      "Massage gently in circular motions",
-      "Focus on areas that need attention",
-      "Use 2-3 times daily for best results",
-      "Allow to absorb completely before dressing"
-    ],
+        "/products/ovasidhi/1.jpg",
+        "/products/ovasidhi/2.jpg", 
+        "/products/ovasidhi/3.jpg",
+        "/products/ovasidhi/4.jpg",
+        "/products/ovasidhi/5.jpg",
+        "/products/ovasidhi/6.jpg",
+        "/products/ovasidhi/7.jpg"
+      ],
+      benefits: ["Hormonal Balance", "Ovarian Health", "Cycle Regulation", "Fibroid Management"],
+      discount: "31% OFF",
+      description: "Besser Ovasiddhi is a thoughtfully developed Ayurvedic formulation designed to address the root concerns of PCOD (Polycystic Ovarian Disorder). It is processed in the time-honoured Dashmool Kwath, a powerful decoction of ten medicinal roots known for their ability to restore hormonal balance, reduce inflammation, and improve reproductive health.",
+      detailedDescription: "The Dashmool base enhances absorption and ensures that every herb in Besser Ovasiddhi works in synergy for maximum benefit. Its unique blend helps regulate menstrual cycles, supports healthy ovarian function, and relieves symptoms like irregular periods, bloating, and mood fluctuations often associated with PCOD.",
+      howItWorks: [
+        "Hormonal Balance: Helps regulate estrogen and progesterone levels naturally.",
+        "Anti-inflammatory & Anti- oxidant Action: Dashmool reduces oxidative stress and inflammation in the reproductive system.",
+        "Ovarian Health: Supports normal ovulation and improves follicular health.",
+        "Cycle Regulation: Promotes timely and healthier menstrual cycles.",
+        "Fibroid Management: Suppresses the progression of Fibroids & supports healthy endometrial tissue",
+        "Overall Wellbeing: Reduces fatigue, supports metabolism, and enhances vitality."
+      ],
+      whyChoose: [
+        "Crafted with time-tested Ayurvedic herbal extracts",
+        "Processed in Dashmool Kwath for superior efficacy",
+        "A holistic, non-hormonal approach to PCOD management",
+        "Plant based, No-known side-effects & safe for long-term use"
+      ],
+      keyBenefits: [
+        "Restores hormonal balance (LH/FSH regulation)",
+        "Promotes follicular growth & ovulation",
+        "Reduces ovarian cyst size & menstrual irregularities",
+        "Improves insulin sensitivity & metabolic health",
+        "Provides stress relief & better reproductive wellness"
+      ],
+      dosage: "1-2 Capsule twice a day",
+      packSize: "60 Veg. Capsules",
+      shelfLife: "36 months from date of manufacturing",
+      indications: ["PCOD", "Irregular Periods", "Hormonal Imbalance", "Ovarian Cysts"],
+      ingredients: ["Latakaranja", "Kachnar", "Shatavari", "Shunthi", "Shatpushpa", "Giloy", "Gokshur", "Cinnamon", "Jatamasi", "Hingu"],
     specifications: {
-      weight: "100g",
-      dimensions: "6cm x 6cm x 3cm",
-      shelfLife: "24 months",
-      skinType: "All skin types",
-      fragrance: "Natural herbal",
-      packaging: "Airless pump bottle"
+        packSize: "60 Veg. Capsules",
+        dosage: "1-2 Capsule twice a day",
+        shelfLife: "36 months from date of manufacturing",
+        indications: "PCOD, Irregular Periods, Hormonal Imbalance, Ovarian Cysts",
+        processing: "Dashmool Kwath",
+        type: "Herbal Supplement"
+      }
     }
-  };
+  ];
+
+  // Get the current product based on ID
+  const product = products.find(p => p.id === parseInt(productId)) || products[0];
 
   const handleAddToCart = () => {
     setIsAddingToCart(true);
@@ -86,9 +154,6 @@ const ProductPage = () => {
     }, 1200);
   };
 
-  const formatPrice = (price) => {
-    return `₹${price}`;
-  };
 
   const calculateDiscount = () => {
     const original = parseFloat(product.originalPrice.replace('₹', ''));
@@ -99,7 +164,58 @@ const ProductPage = () => {
   useEffect(() => {
     // Scroll to top when component mounts
     window.scrollTo(0, 0);
+    // Reset image index when product changes
+    setCurrentImageIndex(0);
   }, [productId]);
+
+  // Auto-rotate images every 10 seconds
+  useEffect(() => {
+    if (product.images && product.images.length > 1) {
+      const interval = setInterval(() => {
+        setCurrentImageIndex((prevIndex) => 
+          (prevIndex + 1) % product.images.length
+        );
+      }, 10000); // Change image every 10 seconds
+
+      return () => clearInterval(interval);
+    }
+  }, [product.images]);
+
+  // Handle thumbnail click
+  const handleThumbnailClick = (index) => {
+    setCurrentImageIndex(index);
+  };
+
+  // Handle modal open/close
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
+  // Handle keyboard navigation in modal
+  useEffect(() => {
+    const handleKeyPress = (event) => {
+      if (!isModalOpen) return;
+      
+      if (event.key === 'Escape') {
+        closeModal();
+      } else if (event.key === 'ArrowLeft') {
+        setCurrentImageIndex((prevIndex) => 
+          prevIndex === 0 ? product.images.length - 1 : prevIndex - 1
+        );
+      } else if (event.key === 'ArrowRight') {
+        setCurrentImageIndex((prevIndex) => 
+          (prevIndex + 1) % product.images.length
+        );
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyPress);
+    return () => window.removeEventListener('keydown', handleKeyPress);
+  }, [isModalOpen, product.images.length]);
 
   return (
           <div className="min-h-screen bg-gradient-to-br from-green-50 via-slate-50 to-emerald-50">
@@ -131,20 +247,62 @@ const ProductPage = () => {
                   </span>
                 </div>
                 <img
-                  src={product.image}
+                  src={product.images[currentImageIndex]}
                   alt={product.name}
-                  className="w-full h-96 object-contain"
+                  onClick={openModal}
+                  className="w-full h-96 object-contain transition-opacity duration-500 cursor-pointer hover:opacity-90"
                 />
+                
+                {/* Image counter */}
+                <div className="absolute bottom-4 right-4 bg-black/50 text-white text-sm px-3 py-1 rounded-full">
+                  {currentImageIndex + 1} / {product.images.length}
+                </div>
+                
+                {/* Navigation arrows */}
+                {product.images.length > 1 && (
+                  <>
+                    <button
+                      onClick={() => setCurrentImageIndex((prevIndex) => 
+                        prevIndex === 0 ? product.images.length - 1 : prevIndex - 1
+                      )}
+                      className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white text-green-800 p-2 rounded-full shadow-lg transition-all duration-300"
+                    >
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7"/>
+                      </svg>
+                    </button>
+                    <button
+                      onClick={() => setCurrentImageIndex((prevIndex) => 
+                        (prevIndex + 1) % product.images.length
+                      )}
+                      className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white text-green-800 p-2 rounded-full shadow-lg transition-all duration-300"
+                    >
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7"/>
+                      </svg>
+                    </button>
+                  </>
+                )}
               </div>
 
               {/* Thumbnail Images */}
               <div className="grid grid-cols-4 gap-4">
                 {product.images.map((image, index) => (
-                  <div key={index} className="bg-white rounded-xl p-4 shadow-md border border-green-100 cursor-pointer hover:shadow-lg transition-shadow">
+                  <div 
+                    key={index} 
+                    onClick={() => handleThumbnailClick(index)}
+                    className={`bg-white rounded-xl p-4 shadow-md border-2 cursor-pointer hover:shadow-lg transition-all duration-300 ${
+                      index === currentImageIndex 
+                        ? 'border-green-500 shadow-lg' 
+                        : 'border-green-100 hover:border-green-300'
+                    }`}
+                  >
                     <img
                       src={image}
                       alt={`${product.name} ${index + 1}`}
-                      className="w-full h-20 object-contain"
+                      className={`w-full h-20 object-contain transition-opacity duration-300 ${
+                        index === currentImageIndex ? 'opacity-100' : 'opacity-70'
+                      }`}
                     />
                   </div>
                 ))}
@@ -270,8 +428,8 @@ const ProductPage = () => {
               <nav className="flex space-x-8">
                 {[
                   { id: 'description', label: 'Description' },
+                  { id: 'how-it-works', label: 'How It Works' },
                   { id: 'ingredients', label: 'Ingredients' },
-                  { id: 'how-to-use', label: 'How to Use' },
                   { id: 'specifications', label: 'Specifications' },
                   { id: 'reviews', label: 'Reviews' }
                 ].map((tab) => (
@@ -301,16 +459,53 @@ const ProductPage = () => {
                     {product.description}
                   </p>
                   
+                  <p className="text-slate-600 leading-relaxed text-lg">
+                    {product.detailedDescription}
+                  </p>
+                  
                   <div>
                     <h4 className="text-xl font-semibold text-green-800 mb-3">Key Benefits</h4>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                      {product.benefits.map((benefit, index) => (
+                      {product.keyBenefits.map((benefit, index) => (
                         <div key={index} className="flex items-center space-x-3">
                           <div className="w-2 h-2 bg-green-400 rounded-full"></div>
                           <span className="text-slate-600">{benefit}</span>
                         </div>
                       ))}
                     </div>
+                  </div>
+
+                  <div>
+                    <h4 className="text-xl font-semibold text-green-800 mb-3">Why Choose Besser Livomrit?</h4>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                      {product.whyChoose.map((reason, index) => (
+                        <div key={index} className="flex items-center space-x-3">
+                          <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                          <span className="text-slate-600">{reason}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* How It Works Tab */}
+              {activeTab === 'how-it-works' && (
+                <div className="space-y-6">
+                  <h3 className="text-2xl font-display font-semibold text-green-800 mb-4">
+                    How Besser Livomrit Works
+                  </h3>
+                  <div className="space-y-4">
+                    {product.howItWorks.map((mechanism, index) => (
+                      <div key={index} className="bg-green-50 rounded-xl p-6 border border-green-100">
+                        <h4 className="text-lg font-semibold text-green-800 mb-2">
+                          {mechanism.split(':')[0]}
+                        </h4>
+                        <p className="text-slate-600 leading-relaxed">
+                          {mechanism.split(':')[1]}
+                        </p>
+                      </div>
+                    ))}
                   </div>
                 </div>
               )}
@@ -319,17 +514,17 @@ const ProductPage = () => {
               {activeTab === 'ingredients' && (
                 <div className="space-y-6">
                   <h3 className="text-2xl font-display font-semibold text-green-800 mb-4">
-                    Natural Ingredients
+                    Ayurvedic Ingredients
                   </h3>
                   <p className="text-slate-600 leading-relaxed">
-                    Our formula contains only the finest natural ingredients, carefully selected for their proven benefits and safety.
+                    Besser Livomrit contains carefully selected time-tested Ayurvedic herbs, each chosen for their specific liver health benefits and synergistic properties.
                   </p>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {product.ingredients.map((ingredient, index) => (
                       <div key={index} className="bg-green-100 rounded-xl p-4 border border-green-100">
                         <h4 className="font-semibold text-green-800 mb-2">{ingredient}</h4>
                         <p className="text-sm text-slate-600">
-                          Natural extract known for its beneficial properties
+                          Traditional Ayurvedic herb known for its liver protective and detoxifying properties
                         </p>
                       </div>
                     ))}
@@ -337,24 +532,6 @@ const ProductPage = () => {
                 </div>
               )}
 
-              {/* How to Use Tab */}
-              {activeTab === 'how-to-use' && (
-                <div className="space-y-6">
-                  <h3 className="text-2xl font-display font-semibold text-green-800 mb-4">
-                    How to Use
-                  </h3>
-                  <div className="space-y-4">
-                    {product.howToUse.map((step, index) => (
-                      <div key={index} className="flex items-start space-x-4">
-                        <div className="w-8 h-8 bg-green-800 text-white rounded-full flex items-center justify-center font-semibold text-sm flex-shrink-0">
-                          {index + 1}
-                        </div>
-                        <p className="text-slate-600 leading-relaxed">{step}</p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
 
               {/* Specifications Tab */}
               {activeTab === 'specifications' && (
@@ -362,15 +539,28 @@ const ProductPage = () => {
                   <h3 className="text-2xl font-display font-semibold text-green-800 mb-4">
                     Product Specifications
                   </h3>
+                  
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    {Object.entries(product.specifications).map(([key, value]) => (
-                      <div key={key} className="bg-green-100 rounded-xl p-4 border border-green-100">
-                        <h4 className="font-semibold text-green-800 mb-2 capitalize">
-                          {key.replace(/([A-Z])/g, ' $1').trim()}
-                        </h4>
-                        <p className="text-slate-600">{value}</p>
+                    <div className="bg-green-100 rounded-xl p-4 border border-green-100">
+                      <h4 className="font-semibold text-green-800 mb-2">Dosage</h4>
+                      <p className="text-slate-600">{product.dosage}</p>
+                    </div>
+                    <div className="bg-green-100 rounded-xl p-4 border border-green-100">
+                      <h4 className="font-semibold text-green-800 mb-2">Pack Size</h4>
+                      <p className="text-slate-600">{product.packSize}</p>
+                    </div>
+                    <div className="bg-green-100 rounded-xl p-4 border border-green-100">
+                      <h4 className="font-semibold text-green-800 mb-2">Shelf Life</h4>
+                      <p className="text-slate-600">{product.shelfLife}</p>
+                    </div>
+                    <div className="bg-green-100 rounded-xl p-4 border border-green-100">
+                      <h4 className="font-semibold text-green-800 mb-2">Processing</h4>
+                      <p className="text-slate-600">{product.specifications.processing}</p>
+                    </div>
+                    <div className="bg-green-100 rounded-xl p-4 border border-green-100 md:col-span-2">
+                      <h4 className="font-semibold text-green-800 mb-2">Indications</h4>
+                      <p className="text-slate-600">{product.indications.join(', ')}</p>
                       </div>
-                    ))}
                   </div>
                 </div>
               )}
@@ -428,6 +618,86 @@ const ProductPage = () => {
           </div>
         </div>
       </div>
+
+      {/* Full Screen Image Modal */}
+      {isModalOpen && (
+        <div className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4">
+          <div className="relative max-w-7xl max-h-full">
+            {/* Close button */}
+            <button
+              onClick={closeModal}
+              className="absolute top-4 right-4 z-10 bg-white/20 hover:bg-white/30 text-white p-2 rounded-full transition-all duration-300"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12"/>
+              </svg>
+            </button>
+
+            {/* Main image */}
+            <img
+              src={product.images[currentImageIndex]}
+              alt={product.name}
+              className="max-w-full max-h-[90vh] object-contain"
+            />
+
+            {/* Navigation arrows */}
+            {product.images.length > 1 && (
+              <>
+                <button
+                  onClick={() => setCurrentImageIndex((prevIndex) => 
+                    prevIndex === 0 ? product.images.length - 1 : prevIndex - 1
+                  )}
+                  className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/20 hover:bg-white/30 text-white p-3 rounded-full transition-all duration-300"
+                >
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7"/>
+                  </svg>
+                </button>
+                <button
+                  onClick={() => setCurrentImageIndex((prevIndex) => 
+                    (prevIndex + 1) % product.images.length
+                  )}
+                  className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/20 hover:bg-white/30 text-white p-3 rounded-full transition-all duration-300"
+                >
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7"/>
+                  </svg>
+                </button>
+              </>
+            )}
+
+            {/* Image counter */}
+            <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-white/20 text-white text-lg px-4 py-2 rounded-full">
+              {currentImageIndex + 1} / {product.images.length}
+            </div>
+
+            {/* Thumbnail strip */}
+            {product.images.length > 1 && (
+              <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 flex space-x-2 max-w-full overflow-x-auto">
+                {product.images.map((image, index) => (
+                  <img
+                    key={index}
+                    src={image}
+                    alt={`${product.name} ${index + 1}`}
+                    onClick={() => setCurrentImageIndex(index)}
+                    className={`w-16 h-16 object-cover rounded-lg cursor-pointer transition-all duration-300 ${
+                      index === currentImageIndex 
+                        ? 'ring-2 ring-white opacity-100' 
+                        : 'opacity-70 hover:opacity-100'
+                    }`}
+                  />
+                ))}
+              </div>
+            )}
+          </div>
+
+          {/* Click outside to close */}
+          <div
+            className="absolute inset-0 -z-10"
+            onClick={closeModal}
+          ></div>
+        </div>
+      )}
     </div>
   );
 };
