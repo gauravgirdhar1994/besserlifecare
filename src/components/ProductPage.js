@@ -482,25 +482,220 @@ const ProductPage = () => {
               </TabPanel>
 
               <TabPanel>
-                <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-green-100 mt-8">
-                  <div className="space-y-6">
-                    <h3 className="text-2xl font-display font-semibold text-green-800 mb-4">
-                      Ayurvedic Ingredients
-                    </h3>
-                    <p className="text-slate-600 leading-relaxed">
-                      {product.name} contains carefully selected time-tested Ayurvedic herbs, each chosen for their specific health benefits and synergistic properties.
-                    </p>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      {product.ingredients.map((ingredient, index) => (
-                        <div key={index} className="bg-green-100 rounded-xl p-4 border border-green-100">
-                          <h4 className="font-semibold text-green-800 mb-2">{ingredient}</h4>
-                          <p className="text-sm text-slate-600">
-                            Traditional Ayurvedic herb known for its health benefits and therapeutic properties
-                          </p>
-                        </div>
-                      ))}
+                <div className="mt-8">
+                  {/* Header Section */}
+                  <div className="text-center mb-12">
+                    <div className="inline-block">
+                      <h3 className="text-4xl font-bold text-green-900 mb-4">Powerful Ayurvedic Ingredients</h3>
+                      <div className="w-24 h-1 bg-gradient-to-r from-green-400 to-emerald-500 mx-auto rounded-full"></div>
                     </div>
+                    <p className="text-slate-600 text-lg mt-6 max-w-2xl mx-auto leading-relaxed">
+                      {product.name} combines {product.ingredients.length} carefully selected herbs, each with centuries of Ayurvedic wisdom and modern scientific validation.
+                    </p>
                   </div>
+                  
+                  {/* Livomrit Ingredients */}
+                  {product.name === "Besser Livomrit" && (
+                    <div className="space-y-8">
+                      <div className="text-center mb-10">
+                        <h4 className="text-2xl font-bold text-green-800 mb-2">Liver Health Formulation</h4>
+                        <p className="text-green-600">Traditional herbs for modern liver wellness</p>
+                      </div>
+                      
+                      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+                        {[
+                          {
+                            name: "Makoy",
+                            benefits: "Potent Hepatoprotective & Anti-Inflammatory",
+                            effects: "Reduces liver enlargement, jaundice, and hepatocellular damage"
+                          },
+                          {
+                            name: "Sharpunkha",
+                            benefits: "Known as Yakrituttejak (Liver Stimulant) in Ayurveda",
+                            effects: "Effective in Hepatomegaly & Spleenomegaly"
+                          },
+                          {
+                            name: "Punarnava",
+                            benefits: "Potent Anti-inflammatory & Diuretic",
+                            effects: "Reduces edema & ascites in cirrhosis"
+                          },
+                          {
+                            name: "Madhuyashti (Yashtimadhu)",
+                            benefits: "Hepatoprotective & Anti-viral property",
+                            effects: "Protects gastric-liver axis, Beneficial in Hepatitis B & C"
+                          },
+                          {
+                            name: "Kutki",
+                            benefits: "Potent Yakrit Rasayana (liver tonic) improves liver enzymes",
+                            effects: "Improves Appetite & Digestion"
+                          },
+                          {
+                            name: "Bhringraj",
+                            benefits: "Potent Hepatoprotective",
+                            effects: "Regenerates liver cells, supports metabolism"
+                          },
+                          {
+                            name: "Bhumyamalaki",
+                            benefits: "Potent antiviral",
+                            effects: "HBsAg suppression, Improves bilirubin clearance & reduce jaundice"
+                          },
+                          {
+                            name: "Kalmegh",
+                            benefits: "Potent anti-inflammatory, immunomodulatory",
+                            effects: "Enhances bile secretion"
+                          },
+                          {
+                            name: "Kasani",
+                            benefits: "Natural cholagogue and detoxifier",
+                            effects: "Useful in fatty liver & sluggish hepatic metabolism"
+                          },
+                          {
+                            name: "Trikatu",
+                            benefits: "Enhances bioavailability",
+                            effects: "Improves fat metabolism & Digestive process"
+                          }
+                        ].map((ingredient, index) => (
+                          <div key={index} className="bg-white rounded-xl shadow-lg border border-gray-100 p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+                            <div className="flex items-center mb-4">
+                              <div className="w-10 h-10 bg-green-500 text-white rounded-full flex items-center justify-center text-sm font-bold mr-4">
+                                {String(index + 1).padStart(2, '0')}
+                              </div>
+                              <h5 className="text-lg font-bold text-gray-900">{ingredient.name}</h5>
+                            </div>
+                            
+                            <div className="mb-4">
+                              <div className="text-sm font-semibold text-green-700 mb-2 bg-green-50 px-3 py-2 rounded-lg border-l-4 border-green-400">
+                                {ingredient.benefits}
+                              </div>
+                            </div>
+                            
+                            <p className="text-gray-600 text-sm leading-relaxed">
+                              {ingredient.effects}
+                            </p>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Ovasiddhi Ingredients */}
+                  {product.name === "Besser Ovasiddhi" && (
+                    <div className="space-y-8">
+                      <div className="text-center mb-10">
+                        <h4 className="text-2xl font-bold text-purple-800 mb-2">PCOD Care Formulation</h4>
+                        <p className="text-purple-600">Holistic herbs for hormonal balance and reproductive health</p>
+                      </div>
+                      
+                      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+                        {[
+                          {
+                            name: "Lata Karcanj",
+                            scientific: "Caesalpinia bonducella",
+                            benefits: [
+                              "Regulates menstrual cycles, reduces ovarian cyst formation",
+                              "Supports healthy ovulation and uterine function"
+                            ]
+                          },
+                          {
+                            name: "Kanchnar",
+                            scientific: "Bauhinia variegata",
+                            benefits: [
+                              "Kanchanar Guggulu is classically indicated in granthi (cystic swellings)",
+                              "Helps shrink ovarian cysts and regulates thyroid balance"
+                            ]
+                          },
+                          {
+                            name: "Shatavari",
+                            scientific: "Asparagus racemosus",
+                            benefits: [
+                              "Rasayana for female reproductive system",
+                              "Supports follicular development, improves ovulation",
+                              "Balances hormones & reduces menstrual irregularities"
+                            ]
+                          },
+                          {
+                            name: "Shunthi",
+                            scientific: "Zingiber officinale",
+                            benefits: [
+                              "Improves digestion & metabolism (deepana–pachana)",
+                              "Reduces insulin resistance and systemic inflammation"
+                            ]
+                          },
+                          {
+                            name: "Shatpushpa",
+                            scientific: "Anethum sowa / Dill seeds",
+                            benefits: [
+                              "Uterine stimulant, helps regulate delayed/irregular menses",
+                              "Carminative – reduces bloating associated with PCOD"
+                            ]
+                          },
+                          {
+                            name: "Giloy",
+                            scientific: "Tinospora cordifolia",
+                            benefits: [
+                              "Immunomodulator & anti-inflammatory",
+                              "Reduces chronic low-grade inflammation in PCOD",
+                              "Supports metabolic balance and improves insulin sensitivity"
+                            ]
+                          },
+                          {
+                            name: "Gokshur",
+                            scientific: "Tribulus terrestris",
+                            benefits: [
+                              "Acts as mutral (diuretic), reduces water retention",
+                              "Restores reproductive vitality and balances hormones"
+                            ]
+                          },
+                          {
+                            name: "Cinnamon",
+                            scientific: "Cinnamomum zeylanicum",
+                            benefits: [
+                              "Clinically proven to improve insulin sensitivity in PCOS",
+                              "Supports weight management & glucose metabolism"
+                            ]
+                          },
+                          {
+                            name: "Jatamansi",
+                            scientific: "Nardostachys jatamansi",
+                            benefits: [
+                              "Nervine tonic, reduces stress & anxiety",
+                              "Corrects hypothalamic-pituitary-ovarian (HPO) axis imbalance caused by stress",
+                              "Helps regulate sleep & hormonal rhythm"
+                            ]
+                          },
+                          {
+                            name: "Hingu",
+                            scientific: "Ferula asafoetida",
+                            benefits: [
+                              "Vata–Kapha hara, carminative, anti-spasmodic",
+                              "Reduces bloating & abdominal cramps"
+                            ]
+                          }
+                        ].map((ingredient, index) => (
+                          <div key={index} className="bg-white rounded-xl shadow-lg border border-gray-100 p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+                            <div className="flex items-center mb-4">
+                              <div className="w-10 h-10 bg-purple-500 text-white rounded-full flex items-center justify-center text-sm font-bold mr-4">
+                                {String(index + 1).padStart(2, '0')}
+                              </div>
+                              <div>
+                                <h5 className="text-lg font-bold text-gray-900">{ingredient.name}</h5>
+                                <p className="text-sm text-gray-500 italic">{ingredient.scientific}</p>
+                              </div>
+                            </div>
+                            
+                            <div className="space-y-2">
+                              {ingredient.benefits.map((benefit, benefitIndex) => (
+                                <div key={benefitIndex} className="flex items-start space-x-3">
+                                  <div className="w-2 h-2 bg-purple-400 rounded-full mt-2 flex-shrink-0"></div>
+                                  <p className="text-gray-600 text-sm leading-relaxed">{benefit}</p>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
                 </div>
               </TabPanel>
 
