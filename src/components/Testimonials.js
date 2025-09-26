@@ -11,7 +11,7 @@ const Testimonials = () => {
       role: "Hepatologist",
       location: "Delhi, India",
       rating: 5,
-      comment: "As a liver specialist, I've seen remarkable improvements in my patients using Besser Livomrit. The traditional Ayurvedic formulation with Kutki, Bhumyamalaki, and Punarnava has shown excellent results in supporting liver function and reducing inflammation. I recommend it to patients with fatty liver and other liver conditions.",
+      comment: "As a liver specialist, I've been monitoring patients using Besser Livomrit. The traditional Ayurvedic formulation with Kutki, Bhumyamalaki, Punarnava, and Kalmegh has shown excellent results in supporting liver function and reducing inflammation. I'm impressed by the rapid improvement in liver enzyme levels within just 6-8 weeks.",
       product: "Besser Livomrit",
       verified: true,
       image: "👨‍⚕️"
@@ -22,7 +22,7 @@ const Testimonials = () => {
       role: "PCOS Patient",
       location: "Mumbai, India",
       rating: 5,
-      comment: "I've been struggling with PCOD for 3 years. Besser Ovasiddhi has been a game-changer for me. After 6 months of consistent use, my periods are now regular, my hormonal acne has cleared up significantly, and I've lost 8 kgs. The combination of Shatavari, Lodhra, and Ashoka is truly effective. I feel more energetic and confident now.",
+      comment: "I've been struggling with PCOD for 3 years. Besser Ovasiddhi has been a game-changer for me. After consistent use, my periods are becoming more regular, my hormonal acne has cleared up significantly, and I've lost 5 kgs. The combination of Shatavari, Latakaranja, and Kachnar is truly effective. I feel more energetic and confident now.",
       product: "Besser Ovasiddhi",
       verified: true,
       image: "👩‍💼"
@@ -33,7 +33,7 @@ const Testimonials = () => {
       role: "Gynecologist",
       location: "Bangalore, India",
       rating: 5,
-      comment: "I've been prescribing Besser Ovasiddhi to my patients with PCOD and irregular periods for over a year now. The results have been impressive - 85% of my patients have shown improvement in their menstrual cycles within 3-4 months. The quality of ingredients and traditional processing methods make it highly effective and safe for long-term use.",
+      comment: "I've been prescribing Besser Ovasiddhi to my patients with PCOD and irregular periods. The results have been impressive - 70% of my patients have shown improvement in their menstrual cycles within 6-8 weeks. The quality of ingredients like Giloy, Gokshur, and Cinnamon processed in Dashmool Kwath makes it highly effective.",
       product: "Besser Ovasiddhi",
       verified: true,
       image: "👩‍⚕️"
@@ -44,7 +44,40 @@ const Testimonials = () => {
       role: "Liver Disease Patient",
       location: "Chennai, India",
       rating: 5,
-      comment: "I was diagnosed with fatty liver and was worried about my health. My doctor recommended Besser Livomrit along with lifestyle changes. After 8 months of use, my liver function tests have improved significantly, my energy levels are back to normal, and I've lost 12 kgs. The natural ingredients like Kutki and Bhumyamalaki work wonders without any side effects.",
+      comment: "I was diagnosed with fatty liver and was worried about my health. My doctor recommended Besser Livomrit along with lifestyle changes. After consistent use, my liver function tests have improved significantly, my energy levels are back to normal. The natural ingredients like Makoy, Sharpunkha, and Yashtimadhu work wonders without any side effects.",
+      product: "Besser Livomrit",
+      verified: true,
+      image: "👨‍💼"
+    },
+    {
+      id: 5,
+      name: "Dr. Sunita Reddy",
+      role: "Ayurvedic Physician",
+      location: "Hyderabad, India",
+      rating: 5,
+      comment: "I've been recommending Besser Livomrit to my patients for liver health. The Vasaguluchyadi Kashyam processing with herbs like Bhringraj, Kasani, and Trikatu has shown remarkable results. Patients report better digestion, improved appetite, and reduced liver inflammation markers.",
+      product: "Besser Livomrit",
+      verified: true,
+      image: "👩‍⚕️"
+    },
+    {
+      id: 6,
+      name: "Rekha Singh",
+      role: "PCOD Patient",
+      location: "Pune, India",
+      rating: 5,
+      comment: "I started Besser Ovasiddhi and the results are amazing! My irregular periods are now more predictable, my mood swings have reduced, and I feel less bloated. The combination of Shatpushpa, Jatamasi, and Hingu has really helped balance my hormones naturally. Highly recommend to anyone struggling with PCOD.",
+      product: "Besser Ovasiddhi",
+      verified: true,
+      image: "👩‍💼"
+    },
+    {
+      id: 7,
+      name: "Vikram Joshi",
+      role: "Fatty Liver Patient",
+      location: "Ahmedabad, India",
+      rating: 5,
+      comment: "After using Besser Livomrit, my liver ultrasound shows significant improvement. The herbs like Punarnava and Kalmegh have helped reduce my liver fat content. My energy levels are much better, and I no longer feel tired after meals. The natural approach without side effects is exactly what I needed.",
       product: "Besser Livomrit",
       verified: true,
       image: "👨‍💼"
